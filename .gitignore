@@ -12,6 +12,7 @@
 *.tfvars
 !dev.tfvars
 crash.log
+*.tfplan
 
 # Talos OS generated files
 talosconfig
