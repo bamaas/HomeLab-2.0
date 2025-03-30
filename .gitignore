@@ -1,0 +1,32 @@
+# General
+.ignore/
+
+# AI
+.specstory/
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+*.tfvars
+!dev.tfvars
+crash.log
+
+# Talos OS generated files
+talosconfig
+kubeconfig
+_out/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo 
+
+# Sops
+*.dec.*

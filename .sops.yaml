@@ -1,0 +1,18 @@
+creation_rules:
+  - path_regex: enc.*\.yaml(.dec)?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: dec.*\.yaml?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: enc.*\.json(.dec)?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: dec.*\.json?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: enc.*\.ini(.dec)?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: dec.*\.ini?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#MISE description="Init the repo"
+set -e
+echo "Initializing repository..."
+sops --decrypt .env.enc.json > .env.dec.json
+terraform -chdir=${TERRAFORM_DIR} init

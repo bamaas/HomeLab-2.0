@@ -1,0 +1,50 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
+{
+	"name": "Homelab",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "bamaas/devcontainer:0c9e378410cf10210b512eb8666111f7c3cef519",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [],
+
+	"workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolder},type=bind",
+	"workspaceFolder": "/${localWorkspaceFolder}",
+
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=${localWorkspaceFolder}/.devcontainer/bashrc,target=/root/.bashrc,type=bind",
+		"type=bind,source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly",
+		"type=bind,source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,readonly"
+	],
+	"runArgs": [
+		"--add-host=host.docker.internal:host-gateway",
+		"--network=host"
+	],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "mise run init",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": []
+		}
+	},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
+
+	"containerEnv": {
+		"AZURE_TENANT_ID": "${localEnv:AZURE_TENANT_ID}",
+		"AZURE_CLIENT_ID": "${localEnv:AZURE_CLIENT_ID}",
+        "AZURE_CLIENT_SECRET": "${localEnv:AZURE_CLIENT_SECRET}"
+	}
+}
