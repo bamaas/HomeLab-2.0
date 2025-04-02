@@ -1,14 +1,14 @@
 # Define common VM configuration as a local value
 locals {
   common_vm_config = {
-    description    = "Managed by Terraform"
-    tags           = ["terraform"]
-    cpu_type       = "x86-64-v2-AES"
-    file_format    = "raw"
-    interface      = "virtio0"
-    os_type        = "l26" # Linux Kernel 2.6 - 5.X.
-    agent_enabled  = false  # TODO: can't get qemu-guest-agent running in the VM.
-    stop_on_destroy = true # # if agent is not enabled, the VM may not be able to shutdown properly, and may need to be forced off
+    description     = "Managed by Terraform"
+    tags            = ["terraform"]
+    cpu_type        = "x86-64-v2-AES"
+    file_format     = "raw"
+    interface       = "virtio0"
+    os_type         = "l26" # Linux Kernel 2.6 - 5.X.
+    agent_enabled   = false # TODO: can't get qemu-guest-agent running in the VM.
+    stop_on_destroy = true  # # if agent is not enabled, the VM may not be able to shutdown properly, and may need to be forced off
   }
 }
 
@@ -23,7 +23,7 @@ resource "proxmox_virtual_environment_vm" "control_planes" {
   node_name   = each.value.pve_node
   on_boot     = each.value.start_on_boot
   vm_id       = each.value.pve_id
-  
+
   cpu {
     cores = each.value.cores
     type  = local.common_vm_config.cpu_type
@@ -71,7 +71,7 @@ resource "proxmox_virtual_environment_vm" "control_planes" {
 
 # Then create worker nodes with a simple dependency
 resource "proxmox_virtual_environment_vm" "workers" {
-  for_each = var.node_data.workers
+  for_each   = var.node_data.workers
   depends_on = [proxmox_virtual_environment_vm.control_planes]
 
   # Common attributes
