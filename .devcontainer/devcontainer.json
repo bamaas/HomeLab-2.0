@@ -35,7 +35,9 @@
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
-			"extensions": []
+			"extensions": [
+				"hashicorp.terraform"
+			]
 		}
 	},
 
