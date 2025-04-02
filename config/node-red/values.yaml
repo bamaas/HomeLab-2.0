@@ -1,0 +1,12 @@
+---
+node-red:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: home-automation
+
+  persistence:
+    enabled: true
+    size: 3Gi
+    keepPVC: false

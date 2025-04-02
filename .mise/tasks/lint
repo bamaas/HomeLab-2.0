@@ -3,7 +3,7 @@
 set -e
 
 echo "Linting YAML files..."
-yamllint .
+yamllint . -c ${ROOT_DIR}/.lint/yamllint.yaml
 
 # # shellcheck disable=SC2046
 # echo "Linting shell scripts..."

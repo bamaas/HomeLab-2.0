@@ -1,0 +1,6 @@
+---
+apiVersion: v2
+name: k8s-homelab-apps
+description: env
+type: application
+version: 0.1.0
