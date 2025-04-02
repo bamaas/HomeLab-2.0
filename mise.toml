@@ -1,10 +1,12 @@
 [tools]
 k9s = "0.32.7"
 kubectl = "1.29.11"
-mc = "latest"
+shellcheck = "0.10.0"
 sops = "3.9.2"
 talos = "1.9.5"
 terraform = "1.10.1"
+uv = "0.6.11"
+yamllint = "1.37.0"
 
 [env]
 TERRAFORM_DIR = "terraform"

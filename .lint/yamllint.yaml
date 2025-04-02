@@ -1,0 +1,13 @@
+---
+extends: default
+
+rules:
+  # 160 chars should be enough, but don't fail if a line is longer
+  line-length:
+    max: 160
+    level: warning
+  braces:
+    max-spaces-inside: 3
+
+ignore:
+  - .cz.yaml
