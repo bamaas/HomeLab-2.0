@@ -2,5 +2,11 @@
 #MISE description="Init the repo"
 set -e
 echo "Initializing repository..."
-sops --decrypt .env.enc.json > .env.dec.json
+
+mise run decrypt .env.enc.json
+
+# Reload environment variables from mise
+eval "$(mise env)"
+echo "Environment variables reloaded from mise"
+
 terraform -chdir=${TERRAFORM_DIR} init
