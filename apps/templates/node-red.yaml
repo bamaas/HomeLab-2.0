@@ -9,7 +9,7 @@ metadata:
 spec:
   project: home-automation
   source:
-    repoURL: https://github.com/bamaas/Homelab-2.0
+    repoURL: https://github.com/bamaas/Homelab-2.0.git
     targetRevision: main
     path: config/node-red
     helm:
