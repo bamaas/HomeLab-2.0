@@ -1,12 +1,12 @@
 ---
 node-red:
   metrics:
-    enabled: true
+    enabled: false
     serviceMonitor:
-      enabled: true
+      enabled: false
       namespace: home-automation
 
   persistence:
-    enabled: true
+    enabled: false
     size: 3Gi
     keepPVC: false
