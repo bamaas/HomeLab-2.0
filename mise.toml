@@ -14,7 +14,7 @@ yamllint = "1.37.0"
 
 [env]
 ROOT_DIR = "{{cwd}}"
-TERRAFORM_DIR = "${env.ROOT_DIR}/terraform"
+TERRAFORM_DIR = "{{env.ROOT_DIR}}/terraform"
 KUBECONFIG = "{{env.ROOT_DIR}}/.config/kubeconfig"
 TALOSCONFIG = "{{env.ROOT_DIR}}/.config/talosconfig"
 _.file = ".env.dec.json"
