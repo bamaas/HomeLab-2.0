@@ -11,3 +11,5 @@ releases:
     version: 5.43.8
     values:
       - ./values.yaml
+    wait: true
+    timeout: 10m

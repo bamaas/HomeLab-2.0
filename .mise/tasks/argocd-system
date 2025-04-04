@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 #MISE description="Install Argo CD"
 set -e
+
+ARGOCD_SYSTEM_DIR=${ROOT_DIR}/argocd-system
+
 echo "Installing Argo CD"
 helmfile apply \
     -f ${HELMFILE_PATH} \
-    ${ROOT_DIR}/argocd-system/helmfile.yaml \
+    ${ARGOCD_SYSTEM_DIR}/helmfile.yaml \
     --kubeconfig=${KUBECONFIG} \
     --quiet
+
+echo "Applying Argo CD App of Apps"
+kubectl apply -f ${ARGOCD_SYSTEM_DIR}/app-of-apps.yaml
