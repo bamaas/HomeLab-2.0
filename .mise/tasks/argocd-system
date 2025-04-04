@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Install Argo CD"
+set -e
+echo "Installing Argo CD"
+helmfile apply \
+    -f ${HELMFILE_PATH} \
+    ${ROOT_DIR}/argocd-system/helmfile.yaml \
+    --kubeconfig=${KUBECONFIG} \
+    --quiet

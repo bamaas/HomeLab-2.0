@@ -17,6 +17,8 @@ crash.log
 # Talos OS generated files
 talosconfig
 kubeconfig
+!.mise/tasks/talosconfig
+!.mise/tasks/kubeconfig
 _out/
 
 # OS specific files
