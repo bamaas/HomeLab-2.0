@@ -14,6 +14,7 @@ ARGOCD_SYSTEM_DIR=${ROOT_DIR}/argocd-system
 echo "Installing Argo CD"
 helm repo add argo-cd $(yq e '.dependencies[0].repository' ${ARGOCD_SYSTEM_DIR}/Chart.yaml)
 helm dependency update ${ARGOCD_SYSTEM_DIR}
+helm upgrade --install argocd ${ARGOCD_SYSTEM_DIR} --namespace argocd --create-namespace --wait
 
 # kubectl create namespace argocd
 # helm -n argocd template ${ARGOCD_SYSTEM_DIR} | kubectl apply -f -

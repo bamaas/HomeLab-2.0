@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-name: argocd-system
+name: argocd
 description: Argo CD System
 type: application
 version: 0.0.1
