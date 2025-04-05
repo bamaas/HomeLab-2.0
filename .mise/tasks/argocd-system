@@ -10,6 +10,3 @@ helmfile apply \
     ${ARGOCD_SYSTEM_DIR}/helmfile.yaml \
     --kubeconfig=${KUBECONFIG} \
     --quiet
-
-echo "Applying Argo CD App of Apps"
-kubectl apply -f ${ARGOCD_SYSTEM_DIR}/app-of-apps.yaml

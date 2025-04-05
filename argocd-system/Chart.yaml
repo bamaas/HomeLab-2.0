@@ -1,0 +1,11 @@
+---
+apiVersion: v2
+name: k8s-homelab-apps
+description: env
+type: application
+version: 0.1.0
+
+dependencies:
+  - name: argo-cd
+    version: 5.43.8
+    repository: https://argoproj.github.io/argo-helm

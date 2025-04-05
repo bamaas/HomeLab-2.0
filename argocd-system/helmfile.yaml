@@ -7,9 +7,16 @@ releases:
   - name: argocd
     namespace: argocd
     createNamespace: true
-    chart: argo/argo-cd
-    version: 5.43.8
-    values:
-      - ./values.yaml
+    chart: ./
     wait: true
-    timeout: 10m
+    # timeout: 10m
+
+  # - name: argocd
+  #   namespace: argocd
+  #   createNamespace: true
+  #   chart: argo/argo-cd
+  #   version: 5.43.8
+  #   values:
+  #     - ./values.yaml
+  #   wait: true
+  #   timeout: 10m

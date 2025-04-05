@@ -33,3 +33,6 @@ Thumbs.db
 
 # Sops
 *.dec.*
+
+# Helm
+*/charts/*.tgz

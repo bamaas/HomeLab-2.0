@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-system
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/bamaas/Homelab-2.0
+    targetRevision: main
+    path: config/node-red
+    helm:
+      valueFiles:
+        - ../../config/node-red/values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: home-automation
+  sourceNamespaces:
+    - "*"
