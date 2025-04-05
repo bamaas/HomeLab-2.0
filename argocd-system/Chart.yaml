@@ -1,9 +1,9 @@
 ---
 apiVersion: v2
-name: k8s-homelab-apps
-description: env
+name: argocd-system
+description: Argo CD System
 type: application
-version: 0.1.0
+version: 0.0.1
 
 dependencies:
   - name: argo-cd

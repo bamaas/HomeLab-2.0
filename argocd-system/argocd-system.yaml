@@ -4,25 +4,16 @@ kind: Application
 metadata:
   name: argocd-system
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
   source:
     repoURL: https://github.com/bamaas/Homelab-2.0
-    targetRevision: main
+    targetRevision: HEAD
     path: argocd-system
     helm:
       valueFiles:
         - values.yaml
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: true
-    syncOptions:
-      - CreateNamespace=true
-      - Prune=true
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: argocd
+
