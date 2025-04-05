@@ -4,8 +4,3 @@ argo-cd:
     enabled: false
   notifications:
     enabled: false
-
-dex:
-  enabled: false
-notifications:
-  enabled: false
