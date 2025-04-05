@@ -1,6 +1,6 @@
 ---
 argo-cd:
   dex:
-    enabled: true
+    enabled: false
   notifications:
     enabled: false
