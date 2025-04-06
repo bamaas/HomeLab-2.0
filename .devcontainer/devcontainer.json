@@ -36,7 +36,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"hashicorp.terraform"
+				"hashicorp.terraform",
+				"ShipitSmarter.sops-edit"
 			]
 		}
 	},
