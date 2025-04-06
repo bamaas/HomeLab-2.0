@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Provision Talos cluster"
+#MISE description="Setup the cluster from A to Z."
 set -e
 
 # Arguments
