@@ -13,7 +13,7 @@ yq = "4.44.5"
 
 [env]
 ROOT_DIR = "{{cwd}}"
-TERRAFORM_DIR = "{{env.ROOT_DIR}}/terraform"
+TERRAFORM_DIR = "{{env.ROOT_DIR}}/provision"
 KUBECONFIG = "{{env.ROOT_DIR}}/.config/kubeconfig"
 TALOSCONFIG = "{{env.ROOT_DIR}}/.config/talosconfig"
 _.file = ".env.dec.json"

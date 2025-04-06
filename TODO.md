@@ -1,0 +1,1 @@
+Allow namespace to be created 
