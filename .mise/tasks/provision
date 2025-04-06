@@ -21,3 +21,5 @@ fi
 
 mise run plan ${ENV}
 mise run apply ${ENV}
+mise run kubeconfig
+mise run talosconfig
