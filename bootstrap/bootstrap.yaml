@@ -14,7 +14,9 @@ spec:
         - path: 'bootstrap/argocd'
         - path: 'projects'
         - path: 'apps'
-        - path: donotdeploy
+        - path: 'cluster-resources'
+        - path: 'misc'
+        - path: 'donotdeploy'
           exclude: true
   template:
     metadata:
