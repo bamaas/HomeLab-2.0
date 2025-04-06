@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -7,17 +8,17 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - git:
-      repoURL: https://github.com/bamaas/Homelab-2.0
-      revision: HEAD
-      directories:
-        - path: 'bootstrap/argocd'
-        - path: 'projects'
-        - path: 'apps'
-        - path: 'cluster-resources'
-        - path: 'misc'
-        - path: 'donotdeploy'
-          exclude: true
+    - git:
+        repoURL: https://github.com/bamaas/Homelab-2.0
+        revision: HEAD
+        directories:
+          - path: 'bootstrap/argocd'
+          - path: 'projects'
+          - path: 'apps'
+          - path: 'cluster-resources'
+          - path: 'misc'
+          - path: 'donotdeploy'
+            exclude: true
   template:
     metadata:
       name: '{{.path.basename}}'
