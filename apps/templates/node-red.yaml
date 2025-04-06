@@ -3,9 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: node-red
-  namespace: home-automation
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
 spec:
   project: home-automation
   source:
@@ -26,5 +24,3 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: home-automation
-  sourceNamespaces:
-    - "*"
