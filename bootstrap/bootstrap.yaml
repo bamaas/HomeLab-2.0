@@ -1,5 +1,26 @@
 ---
 apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: argocd-system
+  namespace: argocd
+spec:
+  description: Apps that manage the ArgoCD system
+  sourceRepos:
+    - '*'
+  sourceNamespaces:
+    - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+---
+apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: bootstrap
