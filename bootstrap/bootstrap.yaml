@@ -23,7 +23,7 @@ spec:
     metadata:
       name: '{{.path.basename}}'
     spec:
-      project: default
+      project: argocd-system
       source:
         repoURL: https://github.com/bamaas/Homelab-2.0
         targetRevision: HEAD
