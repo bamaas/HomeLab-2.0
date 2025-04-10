@@ -1,4 +1,4 @@
 ---
-global:
+server:
   dataStorage:
     enabled: false
