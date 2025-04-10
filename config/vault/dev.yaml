@@ -2,3 +2,5 @@
 server:
   dataStorage:
     enabled: false
+  dev:
+    enabled: true
