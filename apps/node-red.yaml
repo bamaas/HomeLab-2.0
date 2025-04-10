@@ -25,7 +25,8 @@ spec:
           targetRevision: '{{.version}}'
           helm:
             valueFiles:
-              - $values/config/node-red/values.yaml
+              - $values/config/node-red/common.yaml
+              - $values/config/node-red/{{.env}}.yaml
         - repoURL: 'https://github.com/bamaas/Homelab-2.0.git'
           targetRevision: HEAD
           ref: values

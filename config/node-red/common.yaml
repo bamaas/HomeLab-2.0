@@ -4,8 +4,3 @@ metrics:
   serviceMonitor:
     enabled: false
     namespace: home-automation
-
-persistence:
-  enabled: false
-  size: 3Gi
-  keepPVC: false
