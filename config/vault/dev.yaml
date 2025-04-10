@@ -1,1 +1,4 @@
 ---
+global:
+  dataStorage:
+    enabled: false
