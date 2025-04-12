@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Terraform plan"
+#MISE description="Terraform apply"
 set -e
 
 # Arguments
@@ -8,8 +8,8 @@ ENV=$1
 # Check if environment variable is provided
 if [ -z "$1" ]; then
   echo "Error: environment not specified"
-  echo "Usage: mise run plan <environment>"
-  echo "Example: mise run plan dev"
+  echo "Usage: mise run apply <environment>"
+  echo "Example: mise run apply dev"
   exit 1
 fi
 
@@ -19,4 +19,4 @@ if [ ! -f "${ENV}.tfvars" ]; then
   exit 1
 fi
 
-terraform -chdir=${TERRAFORM_DIR} plan -var-file=${ROOT_DIR}/${ENV}.tfvars -out=terraform.tfplan
+terraform -chdir="${TERRAFORM_DIR}" apply -var-file="${ROOT_DIR}/${ENV}.tfvars"

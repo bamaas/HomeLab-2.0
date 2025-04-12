@@ -19,5 +19,5 @@ if [ ! -f "${ENV}.tfvars" ]; then
   exit 1
 fi
 
-mise run provision ${ENV}
+mise run provision "${ENV}"
 mise run bootstrap

@@ -18,7 +18,7 @@ if [ ! -f "${DEC_FILE}" ]; then
 fi
 
 # Create the output filename with proper quoting
-ENC_FILE=$(echo "${DEC_FILE}" | sed 's/\.dec\./\.enc\./')
+ENC_FILE="${DEC_FILE//.dec/.enc}"
 
 # Encrypt the file
 sops --encrypt "${DEC_FILE}" > "${ENC_FILE}"

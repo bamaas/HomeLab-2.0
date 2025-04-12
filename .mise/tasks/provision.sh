@@ -19,7 +19,7 @@ if [ ! -f "${ENV}.tfvars" ]; then
   exit 1
 fi
 
-mise run plan ${ENV}
-mise run apply ${ENV}
+mise run plan "${ENV}"
+mise run apply "${ENV}"
 mise run kubeconfig
 mise run talosconfig

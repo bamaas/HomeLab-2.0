@@ -19,4 +19,4 @@ if [ ! -f "${ENV}.tfvars" ]; then
   exit 1
 fi
 
-terraform -chdir=${TERRAFORM_DIR} destroy -var-file=${ROOT_DIR}/${ENV}.tfvars
+terraform -chdir="${TERRAFORM_DIR}" destroy -var-file="${ROOT_DIR}/${ENV}.tfvars"

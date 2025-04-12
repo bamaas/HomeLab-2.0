@@ -10,7 +10,7 @@ eval "$(mise env)"
 echo "Environment variables reloaded from mise"
 
 echo "Initializing Terraform"
-terraform -chdir=${TERRAFORM_DIR} init
+terraform -chdir="${TERRAFORM_DIR}" init
 
 # Set githooks
 echo "Setting githooks"
