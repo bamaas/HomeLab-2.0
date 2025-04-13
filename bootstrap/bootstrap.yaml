@@ -33,7 +33,7 @@ spec:
         repoURL: https://github.com/bamaas/Homelab-2.0
         revision: HEAD
         directories:
-          - path: 'bootstrap/argocd'
+          # - path: 'bootstrap/argocd'
           - path: 'bootstrap/cluster-resources'
           - path: 'bootstrap/misc'
           - path: 'projects'
