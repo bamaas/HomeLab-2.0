@@ -1,5 +1,0 @@
----
-persistence:
-  enabled: false
-  size: 3Gi
-  keepPVC: false

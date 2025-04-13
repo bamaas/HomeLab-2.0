@@ -1,6 +1,0 @@
----
-metrics:
-  enabled: false
-  serviceMonitor:
-    enabled: false
-    namespace: home-automation
