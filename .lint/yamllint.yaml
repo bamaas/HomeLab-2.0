@@ -12,3 +12,4 @@ rules:
 ignore:
   - .cz.yaml
   - .sops.yaml
+  - .ignore/*
