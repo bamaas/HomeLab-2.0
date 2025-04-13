@@ -34,8 +34,8 @@ spec:
         revision: HEAD
         directories:
           - path: 'bootstrap/argocd'
-          - path: 'bootstrap/cluster-resources'
-          - path: 'bootstrap/misc'
+          # - path: 'bootstrap/cluster-resources'
+          # - path: 'bootstrap/misc'
           - path: 'projects'
           - path: 'donotdeploy'
             exclude: true
