@@ -34,8 +34,9 @@ spec:
         revision: HEAD
         directories:
           - path: 'bootstrap/argocd'
-          # - path: 'bootstrap/cluster-resources'
-          # - path: 'bootstrap/misc'
+          - path: 'bootstrap/cluster-resources'
+          - path: 'bootstrap/misc'
+          - path: 'apps/*'
           - path: 'projects'
           - path: 'donotdeploy'
             exclude: true
@@ -50,9 +51,11 @@ spec:
         path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: argocd
+        namespace: '{{if contains "apps" .path.path }}{{.path.basename}}{{else}}argocd{{end}}'
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
           allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
