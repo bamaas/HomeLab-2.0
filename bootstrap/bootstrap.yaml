@@ -33,10 +33,12 @@ spec:
         repoURL: https://github.com/bamaas/Homelab-2.0
         revision: HEAD
         directories:
-          # - path: 'bootstrap/argocd'
-          - path: 'bootstrap/cluster-resources'
-          - path: 'bootstrap/misc'
+          - path: 'bootstrap/argocd'
           - path: 'projects'
+          - path: 'cluster-resources'
+          - path: 'misc'
+          - path: 'donotdeploy'
+            exclude: true
   template:
     metadata:
       name: '{{.path.basename}}'
