@@ -44,14 +44,14 @@ spec:
     metadata:
       name: '{{.path.basename}}'
     spec:
-      project: '{{ if contains "apps" .path.path }}default{{ else }}argocd-system{{ end }}'
+      project: '{{ if contains "apps" .path.path }}{{ index .path.segments 1 }}{{ else }}argocd-system{{ end }}'
       source:
         repoURL: https://github.com/bamaas/Homelab-2.0
         targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ if contains "apps" .path.path }}{{ .path.basename }}{{ else }}argocd{{ end }}'
+        namespace: '{{ if contains "apps" .path.path }}{{ index .path.segments 2 }}{{ else }}argocd{{ end }}'
       syncPolicy:
         automated:
           prune: true
