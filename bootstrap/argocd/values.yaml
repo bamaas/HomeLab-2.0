@@ -7,6 +7,12 @@ argo-cd:
   notifications:
     enabled: false
 
+  configs:
+    cm:
+      create: true
+      helm.valuesFileSchemes: >-
+        secrets
+
   repoServer:
     volumes:
       - name: custom-tools
