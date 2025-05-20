@@ -1,9 +1,25 @@
 synology-csi:
     clientInfoSecret:
         clients:
-            - host: 192.168.8.126
-                port: 5000
-                https: false
-                username: bas
-                password: 'J@iv7%7b%QwzkCJ!ByqUDnw6*Frvz'
-        create: true
+            - host: ENC[AES256_GCM,data:ZwG95qAFtqeAqra1MA==,iv:I0nqMmeMY2arlE9XjYqeKtWGErpXUI4Rxij42dG8oEo=,tag:QkAn1tDl81lTTA/HD5OyBw==,type:str]
+              port: ENC[AES256_GCM,data:PsgApQ==,iv:30LlPY9VAVuyXNzxzI36KPVF/WF172R6RQ7oP4z4OHE=,tag:sx3n/XxGICoTtox1Q8WTPA==,type:int]
+              https: ENC[AES256_GCM,data:7rylFjU=,iv:882mryCGTiflUuFlt+bj7K+db+FKmMT1AliXcPVCrDA=,tag:vkohQHIsFmnXYOSiCLAcfQ==,type:bool]
+              username: ENC[AES256_GCM,data:2mbt,iv:9NsSJ9dcD3FNNq/36G7OZh/nFxn0KViBl/m8xnO+5dU=,tag:QDUBf8htfEDN7jMHOgx/SQ==,type:str]
+              password: ENC[AES256_GCM,data:+saq8/g19x55OQnbXGk=,iv:GHzWtsyCBABz55+dVeErH0j6pZqUu7d6kZCyt7AeFtc=,tag:+N5AIKcaCsxw8JQt/kdH/g==,type:str]
+        create: ENC[AES256_GCM,data:SOZ25w==,iv:uOPX/IQgt1cxKiKAE08Vmja0GyptaTk+pzH+75wW0ek=,tag:ztOHVa8+ohQ8BkxLdqp9Vg==,type:bool]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-05-20T11:48:02Z"
+          enc: yC62zw4RDPQ_u-Klsvw6oacjTAPLoTPe7aYYe-10RNSoGFey5Dd5gJLkiiXU7ycwgnngFKf636bCsrGGu8x7ggBAkq4tY56FfgBHxxmzDMVpat6ZfD8EBYTijqvdCaQNfOUixCzUKYe8cdaNEaEhB5WCrkm8cmUELnSMRXzDL4ABMQJYRXw90ujuzVfeHGhFxpZZV8QKOGIuYy_IxEttzImVIYTSANM5RdGgQDO_Zjz6aQ1F0418tGpf4plkvWALmOm6TtWHb8ql_pLoaIiIM2GGl7PRjTbFgk2eKzsTO-DarGB1OT4Qp4t66oEK7RPPS6mwAmku0ytUwzBP5LCIpg
+    hc_vault: []
+    age: []
+    lastmodified: "2025-05-20T11:48:03Z"
+    mac: ENC[AES256_GCM,data:GjtWTda67PMr61jJCTS3crtrx2n9wtx1+9RwCm8U6zqkIjmH1AbYltPo0yy8dmmk8dxVHxxwPVP2854DMdQCLGA46PK3MklIl8agLSnqLN0nE9S24Qfe+kPf4OekLTf9UXCuxCVNjBAmYT/8NfKdt0lzZCTzTgJXtYUthFbqR5Y=,iv:c9cyroDTaaqYHS1KIDWFqrIFieP9KWPP1zjmS6lXlvs=,tag:H48wCxDnShLE/pnwovxyMA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2
