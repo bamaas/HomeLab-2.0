@@ -14,12 +14,14 @@ fi
 echo "Installing Argo CD"
 helm repo add argo-cd "$(yq e '.dependencies[0].repository' "${ARGOCD_DIR}/Chart.yaml")"
 helm dependency update "${ARGOCD_DIR}"
-helm upgrade \
+helm secrets upgrade \
     --install \
     argocd \
     "${ARGOCD_DIR}" \
     --namespace argocd \
     --create-namespace \
+    --values "${ARGOCD_DIR}/values.yaml" \
+    --values "${ARGOCD_DIR}/secret.values.dec.yaml" \
     --wait
 
 kubectl apply -f "${BOOTSTRAP_DIR}/bootstrap.yaml"
