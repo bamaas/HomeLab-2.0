@@ -1,5 +1,5 @@
 ---
 gofit:
   persistence:
-    enabled: true
-    size: 100Mi
+    enabled: false
+    size: 1Gi # Minimum size for ISCI
