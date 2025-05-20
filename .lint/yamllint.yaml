@@ -13,3 +13,4 @@ ignore:
   - .cz.yaml
   - .sops.yaml
   - .ignore/*
+  - bootstrap/bootstrap.yaml

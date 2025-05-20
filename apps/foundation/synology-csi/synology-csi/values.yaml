@@ -1,12 +1,4 @@
 ---
-clientInfoSecret:
-  clients:
-    - host: 192.168.8.126
-      port: 5000
-      https: false
-      username: secret
-      password: secret
-  create: true
 storageClasses:
   synology-iscsi-storage:
     disabled: false

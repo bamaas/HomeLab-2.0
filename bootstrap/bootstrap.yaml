@@ -49,6 +49,12 @@ spec:
         repoURL: https://github.com/bamaas/Homelab-2.0
         targetRevision: HEAD
         path: '{{.path.path}}'
+        {{ if contains "apps" .path.path }}
+        helm:
+          valueFiles:
+            - values.yaml
+            - secrets://values.enc.yaml
+        {{ end }}
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ if contains "apps" .path.path }}{{ index .path.segments 2 }}{{ else }}argocd{{ end }}'
