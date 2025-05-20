@@ -1,0 +1,10 @@
+---
+ingress-nginx:
+  controller:
+    hostNetwork: true
+
+    # TODO: enable metrics
+    metrics:
+      enabled: false
+      serviceMonitor:
+        enabled: false
