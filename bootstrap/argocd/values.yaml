@@ -22,7 +22,7 @@ argo-cd:
         name: custom-tools
     initContainers:
       - name: download-tools
-        image: alpine:latest
+        image: alpine:3.21.3
         command: [sh, -ec]
         env:
           - name: HELM_SECRETS_VERSION
