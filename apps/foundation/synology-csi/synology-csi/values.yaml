@@ -1,15 +1,16 @@
 ---
-storageClasses:
-  synology-iscsi-storage:
-    disabled: false
-    isDefault: false
-    reclaimPolicy: Retain
-    volumeBindingMode: Immediate
-    parameters:
-      dsm: "192.168.8.126"
-      fsType: ext4
-      location: /volume7
-      protocol: iscsi
-  synology-iscsi-storage-delete:
-    reclaimPolicy: Delete
-    isDefault: true
+synology-csi:
+  storageClasses:
+    synology-iscsi-storage:
+      disabled: false
+      isDefault: false
+      reclaimPolicy: Retain
+      volumeBindingMode: Immediate
+      parameters:
+        dsm: "192.168.8.126"
+        fsType: ext4
+        location: /volume7
+        protocol: iscsi
+    synology-iscsi-storage-delete:
+      reclaimPolicy: Delete
+      isDefault: true

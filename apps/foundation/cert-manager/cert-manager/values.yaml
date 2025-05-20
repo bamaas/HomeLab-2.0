@@ -1,5 +1,6 @@
 ---
-installCRDs: true
+cert-manager:
+  installCRDs: true
 
-prometheus:
-  enabled: false
+  prometheus:
+    enabled: false
