@@ -34,6 +34,7 @@ Thumbs.db
 # Sops
 *.dec.*
 *.enc.tmp.*
+*.dec
 
 # Helm
 bootstrap/argocd/charts/*.tgz
