@@ -38,4 +38,5 @@ Thumbs.db
 
 # Helm
 bootstrap/argocd/charts/*.tgz
+bootstrap/argocd/Chart.lock
 
