@@ -25,6 +25,7 @@ spec:
         helm:
           valueFiles:
             - values.yaml
+            - secrets://values.enc.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ index .path.segments 2 }}'
