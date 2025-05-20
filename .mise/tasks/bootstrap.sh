@@ -21,7 +21,7 @@ helm secrets upgrade \
     --namespace argocd \
     --create-namespace \
     --values "${ARGOCD_DIR}/values.yaml" \
-    --values "${ARGOCD_DIR}/secret.values.dec.yaml" \
+    --values "${ARGOCD_DIR}/secret.values.enc.yaml" \
     --wait
 
 kubectl apply -f "${BOOTSTRAP_DIR}/bootstrap.yaml"
