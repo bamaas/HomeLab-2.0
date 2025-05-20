@@ -14,3 +14,5 @@ ignore:
   - .sops.yaml
   - .ignore/*
   - '*.enc.yaml'
+  - 'apps/foundation/cert-manager/cert-manager/templates/cluster-issuers.yaml'
+  - 'apps/foundation/cert-manager/cert-manager/templates/additional-secrets.yaml'
