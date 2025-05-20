@@ -30,7 +30,8 @@ This repository follows a GitOps approach using ArgoCD for continuous deployment
   - Namespaces are created automatically during deployment
 
 - `bootstrap/`: Contains initial cluster setup and ArgoCD configuration
-  - `argocd/`: ArgoCD core installation
+  - `argocd/`: ArgoCD core installation and configuration
+  - `apps/`: Contains ApplicationSet definitions for automated application discovery and deployment
   - `cluster-resources/`: Essential cluster-wide resources
   - `misc/`: Miscellaneous bootstrap configurations
 
