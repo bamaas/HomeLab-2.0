@@ -1,0 +1,19 @@
+users:
+    - email: ENC[AES256_GCM,data:L/ZnqcpvCUhbImEaEQ==,iv:839VIe+3qxveA619ek5kaQPw8n8fsdGOWt52M2lor3k=,tag:ZYE5Ka6Uu1mhCwbJqef/aA==,type:str]
+      password: ENC[AES256_GCM,data:Als/tO9AiU0=,iv:8pXls3JDLce1B5ciW8bJG0WX0UkSN1ag6Br25em4ttk=,tag:6NMndJHSLVW1PlEvoRKOlw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-05-20T17:00:29Z"
+          enc: j_7U5r-D55seiIZ99BCyW3_t4nXp76E2Iv9KQCAu3c3QTFDIMQQyIvvfAf13rIhHW6ffhlNEONMI2h6evVswabyh-1iOSOsqmaBshCtMYGS0Q6f6MP4MB6soSR_I46ZI2a6IYgVwQqtO0ajPJPxbSBEevZ5lM8srRfEkvU1odH0Q2fYGK2Sy4Q0K1h7wf4Ek1reHzyZkjL6DMHNt7zaU8AHHqXvT9NvWYeKqRlvTdiryKVIjkXY48KVr6GVcx2mFZCovYLjj01wHKrzJNXG7FVZZshFxpGQpcj-l8I_NpEPBMTgNo9iFQRXmVAxIMm_I6j7cPXpLaAYLBQjVigcihw
+    hc_vault: []
+    age: []
+    lastmodified: "2025-05-20T17:00:30Z"
+    mac: ENC[AES256_GCM,data:qaUxHcO3i2Fo0k7Ys3mvVbRtYZw2mibxSWDGCyIS9wmA9q8gi+2OGN1CNR7LYaQnPJ/RR+pPfcpcfFDipGQ4zEWrB017bNeBNDXIRuh+3vsZvZT1w0vTtJ7wsBPASC+y0bhWIUq8jiNoywWxCKMPVbFsH6wxW8EW28ZtvJfZF34=,iv:Xq6pXjyRyrb3JlzSNC7zRhiWvoCQQovNW8duFW0qKo0=,tag:8zGzZSV/lNx0lTWwSWbHIg==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2
