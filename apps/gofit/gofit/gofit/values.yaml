@@ -3,4 +3,3 @@ gofit:
   persistence:
     enabled: true
     size: 100Mi
-    storageClass: "synology-iscsi-storage"
