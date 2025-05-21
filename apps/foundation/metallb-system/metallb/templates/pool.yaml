@@ -1,0 +1,12 @@
+{{- if .Values.ipAddressPools }}
+{{- range .Values.ipAddressPools }}
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: {{ .name }}
+spec:
+  addresses:
+    {{- toYaml .addresses | nindent 4 }}
+{{- end }}
+{{- end }}

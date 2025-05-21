@@ -1,0 +1,20 @@
+ipAddressPools:
+    - name: ENC[AES256_GCM,data:+C4Z7cvfVDjOOj1s26PFpgY=,iv:iLdcudwAJ2WC32G8pEkn6G5f9Og97HqXwTEXgPF8srI=,tag:TTFMTIMxfq845bt78YtKGQ==,type:str]
+      addresses:
+        - ENC[AES256_GCM,data:oKc14kshP5927z4pmJq+4du0bi9lJoblqZ7s,iv:EO21SdKNwmXVjlo2Sbq6AaO23/pQ++hU3VOBgqZPDR0=,tag:M052/aJdaEM0u7jW8D6b2w==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-05-21T08:10:16Z"
+          enc: pTMxsAmsQsD4cGff1GhY_CXwNJpPGr49rId8qaJRkmzorAy7jda4SBb-raoyJ-03RuMBCe3CtiX3oRNxgsqercj3SGnTJurreotGcHT4JUYu9ezvL14qLGo0xpQR1jQdmF-GtdlD14KWiBjL1w4WyE6LCWV3Skcm9qZIYxi4wHGPSuc11eqsPmA9v0cOB2hAZFlwzXldNUwPSRPeOQ9acTh-ZupAFCjo7NPttoMXhjxIr9mmV4zVlm9GWsz2VdeA-bJGzxeoOo7htVjWy8kPKSZP2NtXrfE9jFFlU7njHW98M24gWoexEUql6YgozH_Q3NMdF7SfA84IZ0MYDXJiHg
+    hc_vault: []
+    age: []
+    lastmodified: "2025-05-21T08:10:17Z"
+    mac: ENC[AES256_GCM,data:QjJZpItQoA3K4irQwZ4iY1eAXoi7g4tOunplkxBmHNi9wyR2ym3DbRaMWcJevppK2n9VEJBm69RHcrLpYSOV75bXtCKW85dSsxiFiSM1ypIpFKFWf5jDfy85E7JjhG+jxb1roWix9JLe++cgo/osZ0ubwViJUeRZz8zSavjWytQ=,iv:Xfv8aysf6CdvQyyE2I3JD5tzgroWl+ayNQ9eoJbiA68=,tag:4nTdc66EVPFYwCzY3LOWFA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2
