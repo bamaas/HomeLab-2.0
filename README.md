@@ -43,9 +43,7 @@ The repository uses ApplicationSets for automated deployment, with configuration
 
 ## To do
 
-* Implement Synology CSI driver
-
-* Manage ArgoCD via itself. Previously this was managed via de ApplicationSet "bootstrap-system", but this is not possible anymore due to the secret values.
+* Implement templating and linting with Helm in Git hook
 
 * Implement spellchecker.
 
