@@ -83,6 +83,7 @@ cluster:
                   - -c
                   - |
                     helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.4
-                    git clone git@github.com:bamaas/Homelab-2.0.git
-                    cd Homelab-2.0/apps/foundation/kube-system/cilium
+                    git clone git@github.com:bamaas/Homelab-2.0.git ./homelab
+                    cd ./homelab
+                    cd ./apps/foundation/kube-system/cilium
                     helm secrets install . cilium --namespace kube-system --wait -f values.yaml -f values.enc.yaml
