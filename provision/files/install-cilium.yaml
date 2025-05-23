@@ -69,7 +69,7 @@ cluster:
               hostNetwork: true
               containers:
               - name: cilium-install
-                image: alpine/helm:latest
+                image: alpine/helm:3.17.3
                 env:
                 - name: KUBERNETES_SERVICE_HOST
                   valueFrom:
