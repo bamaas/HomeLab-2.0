@@ -3,3 +3,4 @@ zenml:
   zenml:
     ingress:
       enabled: false
+    analyticsOptIn: false
