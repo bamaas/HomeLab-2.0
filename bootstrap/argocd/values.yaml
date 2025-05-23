@@ -13,29 +13,29 @@ argo-cd:
       helm.valuesFileSchemes: >-
         secrets
 
-  # server:
-    # certificate:
-    #   enabled: true
-    #   domain: argocd.kubernetes.lan.basmaas.nl
-    #   issuer:
-    #     kind: ClusterIssuer
-    #     name: letsencrypt-prd
-    #   secretName: argocd.kubernetes.lan.basmaas.nl
-    # ingress:
-    #   enabled: true
-    #   ingressClassName: nginx
-    #   annotations:
-    #     cert-manager.io/cluster-issuer: letsencrypt-prd
-    #     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    #     nginx.ingress.kubernetes.io/whitelist-source-range: 10.42.0.0/0
-    #   hosts:
-    #     - argocd.kubernetes.lan.basmaas.nl
-    #   https: true
-    #   tls:
-    #     - secretName: argocd.kubernetes.lan.basmaas.nl
-    #       hosts:
-    #         - argocd.kubernetes.lan.basmaas.nl
+  server:
+    certificate:
+      enabled: true
+      domain: argocd.kubernetes.lan.basmaas.nl
+      issuer:
+        kind: ClusterIssuer
+        name: letsencrypt-prd
+      secretName: argocd.kubernetes.lan.basmaas.nl
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prd
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/whitelist-source-range: 10.42.0.0/0
+      hosts:
+        - argocd.kubernetes.lan.basmaas.nl
+      https: true
+      tls:
+        - secretName: argocd.kubernetes.lan.basmaas.nl
+          hosts:
+            - argocd.kubernetes.lan.basmaas.nl
 
   repoServer:
     volumes:
