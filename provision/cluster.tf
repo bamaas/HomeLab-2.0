@@ -32,7 +32,8 @@ resource "talos_machine_configuration_apply" "controlplane" {
       ip_address   = each.key
       gateway      = var.default_gateway
     }),
-    file("${path.module}/files/cp-scheduling.yaml"),
+    file("${path.module}/files/control-plane-scheduling.yaml"),
+    file("${path.module}/files/install-cilium.yaml"),
   ]
 }
 
