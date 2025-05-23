@@ -43,6 +43,8 @@ The repository uses ApplicationSets for automated deployment, with configuration
 
 ## To do
 
+* Implement option to provide secret values to Cilium install during bootstrapping
+
 * Implement templating and linting with Helm in Git hook
 
 * Implement spellchecker.
