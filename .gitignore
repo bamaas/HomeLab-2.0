@@ -37,6 +37,8 @@ Thumbs.db
 *.dec
 
 # Helm
-bootstrap/argocd/charts/*.tgz
-bootstrap/argocd/Chart.lock
+# bootstrap/argocd/charts/*.tgz
+# bootstrap/argocd/Chart.lock
+Chart.lock
+apps/*/*/*/charts/*.tgz
 
