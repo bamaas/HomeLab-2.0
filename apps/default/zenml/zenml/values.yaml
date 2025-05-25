@@ -6,7 +6,7 @@ zenml:
       enabled: true
       className: "nginx"
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prd
+        cert-manager.io/cluster-issuer: letsencrypt-stg
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         kubernetes.io/tls-acme: "true"
       host: zenml.kubernetes.lan.basmaas.nl
