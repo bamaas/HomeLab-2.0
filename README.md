@@ -43,6 +43,8 @@ The repository uses ApplicationSets for automated deployment, with configuration
 
 ## To do
 
+* Implement kubeval or similair tool to validate rendered manifests against live cluster
+
 * Move ArgoCD to apps directory
 
 * Implement option to provide secret values to Cilium install during bootstrapping
