@@ -1,0 +1,33 @@
+node-red:
+    ingress:
+        enabled: ENC[AES256_GCM,data:LGqhqA==,iv:r16wpycsBP2m5Q5Ffmy+DnPeMPXOSlhKt3hr1n0pTpg=,tag:qxWrEuOUPHV1Q9EcJpyxnA==,type:bool]
+        className: ENC[AES256_GCM,data:5WWPVKY=,iv:Q2xGYa/Xm/OWkX4vancCd3zqblceROx6EFmYqWTs/r4=,tag:OAClhOi34doud+L+XzUOGg==,type:str]
+        annotations:
+            kubernetes.io/ingress.class: ENC[AES256_GCM,data:O1v6KyY=,iv:o6zA4ft9+dQj+SH/oQmcwDL4SiFl5Tu0misRU1Bdt1I=,tag:wUKVZ1RGWqrljR8+Rplo6g==,type:str]
+            kubernetes.io/tls-acme: ENC[AES256_GCM,data:tZdX8w==,iv:tivomwzgtec2hp2Bx87sWl/8cHAEiUoVroSD5C8Sw8I=,tag:JoKahPeyUr9eRRUfRTM8Gw==,type:str]
+            cert-manager.io/cluster-issuer: ENC[AES256_GCM,data:URlwt4nAtCrzRTKTOPgn,iv:Nj/laYsh6gzMqZIJxIyHUpu7vFZE0Q/fRowumBGmIuU=,tag:JM0jtuEmsnNXVeEsvyKVzA==,type:str]
+        hosts:
+            - host: ENC[AES256_GCM,data:LBuJ1zwr2wcCxX2cpzwR+kymp5HnIOjN50oMwlK1gitPHQ==,iv:0oImaXxRbxzyIPjd2tDQOLe0Q1SRYZqa4wKnpnq/PEo=,tag:b6XlY2ZgJVbUjYiIF0ITkw==,type:str]
+              paths:
+                - path: ENC[AES256_GCM,data:cw==,iv:kaOxtUqKDgAvrbsQi6ukL0wdeerKiguBtA1rKJZ0PGA=,tag:bAYcJC27Gjyy3xVpXQem4Q==,type:str]
+                  pathType: ENC[AES256_GCM,data:9h14BfeUdZn5IZTW3UOipAFsHJjtOQ==,iv:UHZMLipiP+WCljwGdL7hwSLDG41VUBLgw1Dn3Nt7sdA=,tag:GU4lo0+ImH6e1RW2IrFlEQ==,type:str]
+        tls:
+            - secretName: ENC[AES256_GCM,data:0uYPzO0xyuUDNavK/420nUguBtD3sj5R4cubpA18e2EzMw==,iv:guEtpflyHV4a6Z4DSqgakaSkZgkbjzjB00ye7utUQi4=,tag:r1A0suqk4urn7mBVrSssXg==,type:str]
+              hosts:
+                - ENC[AES256_GCM,data:VXGqseGY7Y6CqSQ+YpVZUrSK2XtLR+e+tT2K7ze9GIn9pA==,iv:k7tLw91vGok4Dg8V+Kxya3vn5djbyCVvbu+NYS95KNk=,tag:b26CeD9r456oIAoKPJH10g==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-05-25T11:17:03Z"
+          enc: I6kP6gB5DKOlY52tA0HhGHxaZaPhZot7dQDp9Gli-McMdtvHSuNvAFJztEE_XEQ1APupQ1zZdxZiXaoOid9Nzo1W53FFgYoZ2zvHGFdKmp5mGVKReP78ApSfFmqRdRcoghZ2MS_b3NXn9tB7aoMHeDDiTq258emWfv2DOqywflHVac0eGbK6gepMjEcbub_6hGFUVg2mFdYkOzUijzFyImdH45oY0HgnSOLQDmSs6ut9kBVGIaLanJmF6IZj8ofzFyuuQtW4s9lbUgKS3CfAD1KAng_TaiAONeWcqyVX9zAKj7Miz7--YSMNMmIzcLeviuIZfRQ6RW0byi5eSpqZtw
+    hc_vault: []
+    age: []
+    lastmodified: "2025-05-25T11:17:04Z"
+    mac: ENC[AES256_GCM,data:t66vMT4HS8GJgznii8OIjBWMIxKCDqRnnFkd9SN6V8gGI2Ql9o0JBP2XKFH0PPLXmakWoh9hnAyThNjuTMxwO22NxvMxgbcx98q3OP78Ja1qziawrU/8lwMfnwXv02imBe5NVOBu8uxHX1cmU0vsN3eio2RY0W+Gtz8NWFw7hFM=,iv:pmr+KNhx509sZCsSXVVLWNB2ku3Ta686uXU7nE8VrlQ=,tag:DMZ9eAwdClC5l1I8brSP4A==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

@@ -1,23 +1,6 @@
 ---
 node-red:
 
-  ingress:
-    enabled: true
-    className: nginx
-    annotations:
-      kubernetes.io/ingress.class: nginx
-      kubernetes.io/tls-acme: "true"
-      cert-manager.io/cluster-issuer: letsencrypt-prd
-    hosts:
-      - host: node-red.kubernetes.lan.basmaas.nl
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-    tls:
-      - secretName: node-red.kubernetes.lan.basmaas.nl
-        hosts:
-          - node-red.kubernetes.lan.basmaas.nl
-
   metrics:
     enabled: false
     serviceMonitor:
