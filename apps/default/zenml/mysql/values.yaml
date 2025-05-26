@@ -1,6 +1,6 @@
 ---
 global:
-  defaultStorageClass: synology-csi-iscsi-delete
+  defaultStorageClass: synology-csi-nfs-delete
 
 mysql:
 
