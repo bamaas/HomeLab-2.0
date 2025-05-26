@@ -1,4 +1,7 @@
 ---
+global:
+  defaultStorageClass: synology-csi-iscsi-delete
+
 mysql:
 
   architecture: standalone
