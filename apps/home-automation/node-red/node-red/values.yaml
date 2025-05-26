@@ -7,8 +7,8 @@ node-red:
       enabled: false
 
   persistence:
-    enabled: false
-    size: 3Gi
+    enabled: true
+    size: 1Gi
     keepPVC: false
 
   ingress:
