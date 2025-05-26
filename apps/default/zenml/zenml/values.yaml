@@ -9,5 +9,7 @@ zenml:
         cert-manager.io/cluster-issuer: letsencrypt-stg
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       host: zenml.kubernetes.lan.basmaas.nl
+      tls:
+        secretName: zenml.kubernetes.lan.basmaas.nl
 
     analyticsOptIn: false
