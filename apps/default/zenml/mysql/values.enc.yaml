@@ -1,0 +1,21 @@
+mysql:
+    auth:
+        createDatabase: ENC[AES256_GCM,data:1SArGQ==,iv:QigXYOCSm90yiDjMRCtfA7omqZxVpHsE0384lSkGpC0=,tag:tSaOUz1K1oGb3NUE68GtVQ==,type:bool]
+        database: ENC[AES256_GCM,data:GCPDdFI=,iv:oIjy4erIOqPP429qkZ+aHhmgPvkMEse40YdOvFREv5U=,tag:TV3gmjUHAsb3Sz8nO01LZw==,type:str]
+        rootPassword: ENC[AES256_GCM,data:0KM4qQ==,iv:uXE23cjN8d7FQ4wmNwwOEXCktA+HkJTtetsyht1dq3A=,tag:FBlwIbYJXewILb0DZxZdfw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-05-26T10:03:56Z"
+          enc: CCl_CtBMUQgxzPw9cGDRTqtoihUK47Z1BZxWHnkiSSImeQMFNNeJ3WSDwE08q1bwsQA6MYeK6SRJ5XjhIQf-OSu_i9TWT3wKkh2BOCeQs3SlvzjrBg0IdDOB4MZstc9-C4yygxrofXJSdD3zrHPDeH7pmSE32puNoIg81_i6Wev0BWfe9P8XN12btYTjmI2iGh3IFlHwFBusq3L7y85DzqPCDGC8SN98RGuQRwXg8yGzcLUz3FdP5V0BG3eudqP07wlxGqgzDXfW9JD0mtZaPDc1K7JMMfm4sSsRvkwymtk13okU3lK5CyA-OFqNmDeTRi6jrXLaE5XZJgYYS_A6sg
+    hc_vault: []
+    age: []
+    lastmodified: "2025-05-26T10:03:57Z"
+    mac: ENC[AES256_GCM,data:M8LJb2JO0Y/CYZZmBYRFtv9deDNbr5YqbvcAOhxJ7nNTqgOG1fkWfCOeF5msZlxhCN4Mbf3ymvr6TBOwqGKEeolw41dJSPwr/Ou5lKFO2OSBgAOkZ0DCj8hpzGHP3cT7K2VViklQAFXtpkon3nV+l0mBhKQSXQpLQgLE+YbGcCk=,iv:3bTvHWVepbKpREq1OQVLuk/nune3z9sUJbXOQJzZ9I4=,tag:DsmBhGt6qJN2XIDqro/Jyg==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2
