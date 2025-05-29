@@ -6,7 +6,7 @@ set -e
 ENV=$1
 
 # Check if environment variable is provided
-if [ -z "$1" ]; then
+if [ -z "$ENV" ]; then
   echo "Error: environment not specified"
   echo "Usage: mise run apply <environment>"
   echo "Example: mise run apply dev"

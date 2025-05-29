@@ -3,4 +3,4 @@
 set -e
 
 echo "Validating Terraform code..."
-terraform -chdir="${TERRAFORM_DIR}" validate 
+terraform -chdir="${TERRAFORM_DIR}" validate
