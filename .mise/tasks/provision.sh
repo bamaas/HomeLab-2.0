@@ -8,8 +8,8 @@ ENV=$1
 # Check if environment variable is provided
 if [ -z "$ENV" ]; then
   echo "Error: environment not specified"
-  echo "Usage: mise run apply <environment>"
-  echo "Example: mise run apply dev"
+  echo "Usage: mise run terraform:apply <environment>"
+  echo "Example: mise run terraform:apply dev"
   exit 1
 fi
 
@@ -19,7 +19,7 @@ if [ ! -f "${ENV}.tfvars" ]; then
   exit 1
 fi
 
-mise run plan "${ENV}"
-mise run apply "${ENV}"
+mise run terraform:plan "${ENV}"
+mise run terraform:apply "${ENV}"
 mise run kubeconfig
 mise run talosconfig

@@ -8,8 +8,8 @@ ENV=$1
 # Check if environment variable is provided
 if [ -z "$1" ]; then
   echo "Error: environment not specified"
-  echo "Usage: mise run apply <environment>"
-  echo "Example: mise run apply dev"
+  echo "Usage: mise run terraform:apply <environment>"
+  echo "Example: mise run terraform:apply dev"
   exit 1
 fi
 
