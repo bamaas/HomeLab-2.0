@@ -50,8 +50,4 @@ This setup enables automatic discovery and deployment of applications.
 
 * Implement option to provide secret values to Cilium install during bootstrapping
 
-* Implement spellchecker.
-
-* Implement markdown linter.
-
 * Fix shellcheck issues
