@@ -30,6 +30,9 @@ find "${ROOT_DIR}/apps" -name "Chart.yaml" -exec dirname {} \; | while read -r c
     kubectl apply -f - --dry-run=server 1>/dev/null
 done
 
+
+codespell --config "${LINT_CONFIG_DIR}/codespell.ini" .
+
 markdownlint \
 	-c "${LINT_CONFIG_DIR}/markdownlint.yaml" \
 	-p "${LINT_CONFIG_DIR}/.markdownlintignore" \
