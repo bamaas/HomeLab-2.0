@@ -2,11 +2,13 @@
 #MISE description="Lint the repo"
 set -e
 
-# Run all linting tasks
-mise run lint:yaml
-mise run lint:shell
-mise run lint:terraform
-mise run lint:helm
-mise run lint:helm-template
-mise run lint:codespell
-mise run lint:markdown
+# Use mise's native parallel execution
+mise run lint:yaml -r ::: \
+    lint:shell -r ::: \
+    lint:terraform -r ::: \
+    lint:helm -r ::: \
+    lint:helm-template -r ::: \
+    lint:spelling -r ::: \
+    lint:markdown -r
+
+echo "All linting tasks completed!"
