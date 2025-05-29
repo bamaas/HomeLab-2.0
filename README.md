@@ -23,7 +23,7 @@ The structure is organized as follows:
 
 * `.lint/`: Contains linting configurations
 
-* `.mise/`: Contains [Mise](https://mise.jdx.dev/) (version manager) configurations
+* `.mise/`: Contains [Mise](https://mise.jdx.dev/) configurations
 
 * `apps/`: Contains all applications deployed to the cluster
   * Organized in `project/namespace/app` structure
