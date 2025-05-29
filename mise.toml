@@ -13,6 +13,7 @@ yq = "4.44.5"
 "pipx:codespell" = "2.4.1"
 node = "20.10.0"
 "npm:markdownlint-cli" = "0.44.0"
+kubeconform = "0.7.0"
 
 [env]
 ROOT_DIR = "{{cwd}}"
