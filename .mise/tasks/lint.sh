@@ -3,7 +3,7 @@
 set -e
 
 echo "Linting YAML files..."
-yamllint . -c "${ROOT_DIR}/.lint/yamllint.yaml"
+yamllint . -c "${LINT_CONFIG_DIR}/yamllint.yaml"
 
 echo "Linting shell scripts..."
 # shellcheck disable=SC2046
@@ -29,3 +29,8 @@ find "${ROOT_DIR}/apps" -name "Chart.yaml" -exec dirname {} \; | while read -r c
     helm secrets template --release-name "${namespace}" -n "${namespace}" "${chart_dir}" -f "${chart_dir}/values.yaml" -f "${chart_dir}/values.enc.yaml" | \
     kubectl apply -f - --dry-run=server 1>/dev/null
 done
+
+markdownlint \
+	-c "${LINT_CONFIG_DIR}/markdownlint.yaml" \
+	-p "${LINT_CONFIG_DIR}/.markdownlintignore" \
+	"**/*.md"

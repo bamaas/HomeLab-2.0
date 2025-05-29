@@ -18,38 +18,37 @@ mise run setup <env>
 
 ## Project structure
 
-This repository follows a GitOps approach using ArgoCD for continuous deployment. The structure is organized as follows:
+This repository follows a GitOps approach using ArgoCD for continuous deployment.
+The structure is organized as follows:
 
-- `.lint/`: Contains linting configurations
+* `.lint/`: Contains linting configurations
 
-- `.mise/`: Contains [Mise](https://mise.jdx.dev/) (version manager) configurations
+* `.mise/`: Contains [Mise](https://mise.jdx.dev/) (version manager) configurations
 
-- `apps/`: Contains all applications deployed to the cluster
-  - Organized in `project/namespace/app` structure
-  - Each app contains its Helm charts and configurations
-  - Namespaces are created automatically during deployment
+* `apps/`: Contains all applications deployed to the cluster
+  * Organized in `project/namespace/app` structure
+  * Each app contains its Helm charts and configurations
+  * Namespaces are created automatically during deployment
 
-- `bootstrap/`: Contains initial cluster setup and ArgoCD configuration
-  - `argocd/`: ArgoCD core installation and configuration
-  - `apps/`: Contains ApplicationSet definitions for automated application discovery and deployment
-  - `cluster-resources/`: Essential cluster-wide resources
-  - `misc/`: Miscellaneous bootstrap configurations
+* `bootstrap/`: Contains initial cluster setup and ArgoCD configuration
+  * `argocd/`: ArgoCD core installation and configuration
+  * `apps/`: Contains ApplicationSet definitions for automated application discovery and deployment
+  * `cluster-resources/`: Essential cluster-wide resources
+  * `misc/`: Miscellaneous bootstrap configurations
 
-- `projects/`: Contains ArgoCD project definitions
+* `projects/`: Contains ArgoCD project definitions
 
-- `provision/`: Contains Terraform infrastructure provisioning scripts and configurations
+* `provision/`: Contains Terraform infrastructure provisioning scripts and configurations
 
-The repository uses ApplicationSets for automated deployment, with configurations defined in `bootstrap/bootstrap.yaml`. This setup enables automatic discovery and deployment of applications.
+The repository uses ApplicationSets for automated deployment,
+with configurations defined in `bootstrap/bootstrap.yaml`.
+This setup enables automatic discovery and deployment of applications.
 
 ## To do
-
-* Implement kubeval or similair tool to validate rendered manifests against live cluster
 
 * Move ArgoCD to apps directory
 
 * Implement option to provide secret values to Cilium install during bootstrapping
-
-* Implement templating and linting with Helm in Git hook
 
 * Implement spellchecker.
 

@@ -1,0 +1,8 @@
+---
+# Schema: https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+default: true
+
+MD013:
+  # Number of characters
+  line_length: 100

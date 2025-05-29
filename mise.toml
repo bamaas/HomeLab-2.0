@@ -10,11 +10,18 @@ terraform = "1.10.1"
 uv = "0.6.11"
 yamllint = "1.37.0"
 yq = "4.44.5"
+"pipx:codespell" = "2.4.1"
+node = "20.10.0"
+"npm:markdownlint-cli" = "0.44.0"
 
 [env]
 ROOT_DIR = "{{cwd}}"
+LINT_CONFIG_DIR = "{{env.ROOT_DIR}}/.lint"
 TERRAFORM_DIR = "{{env.ROOT_DIR}}/provision"
 KUBECONFIG = "{{env.ROOT_DIR}}/.config/kubeconfig"
 TALOSCONFIG = "{{env.ROOT_DIR}}/.config/talosconfig"
 _.file = ".env.dec.json"
 TF_LOG = "info"
+
+[hooks]
+enter = "mise i -q"
