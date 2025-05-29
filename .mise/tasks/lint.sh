@@ -24,6 +24,8 @@ find "${ROOT_DIR}/apps" -name "Chart.yaml" -exec dirname {} \; | while read -r c
         echo "Building dependencies for chart in ${chart_dir}"
         helm dependency build "${chart_dir}" 1>/dev/null
     fi
+    namespace=$(echo "${chart_dir}" | rev | cut -d'/' -f2 | rev)
     echo "Templating chart in ${chart_dir}"
-    helm secrets template "${chart_dir}" -f "${chart_dir}/values.yaml" -f "${chart_dir}/values.enc.yaml" 1>/dev/null
+    helm secrets template --release-name "${namespace}" -n "${namespace}" "${chart_dir}" -f "${chart_dir}/values.yaml" -f "${chart_dir}/values.enc.yaml" | \
+    kubectl apply -f - --dry-run=server 1>/dev/null
 done
