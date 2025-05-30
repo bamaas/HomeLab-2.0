@@ -7,7 +7,7 @@ cluster_endpoint = "https://192.168.8.220:6443"
 talos_image = {
   # Image URl gathered from factory.talos.dev
   # Talos bare metal image with QEMU guest agent (and ISCI extension, not available for the bare metal images)
-  url          = "https://factory.talos.dev/image/88d1f7a5c4f1d3aba7df787c448c1d3d008ed29cfb34af53fa0df4336a56040b/v1.9.5/nocloud-amd64.iso"
+  url          = "https://factory.talos.dev/image/dc7b152cb3ea99b821fcb7340ce7168313ce393d663740b791c36f6e95fc8586/v1.10.3/metal-amd64.iso"
   file_name    = "talos-1.9.5-nocloud-amd64.iso"
   node_name    = "pve"
   datastore_id = "nas-templates"
