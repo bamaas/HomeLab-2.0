@@ -1,0 +1,16 @@
+---
+persistence:
+  enabled: true
+  size: 10Gi
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+  hosts:
+    - grafana.kubernetes.lan.basmaas.nl
+  tls:
+    - secretName: grafana.kubernetes.lan.basmaas.nl
+      hosts:
+        - grafana.kubernetes.lan.basmaas.nl
