@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Terraform destroy"
+#MISE alias="down"
 set -e
 
 # Arguments

@@ -13,7 +13,7 @@ My personal homelab playground, stored as code and automated.
 2. To provision and configure full cluster simply run:
 
 ```bash
-mise run setup <env>
+mise run up <env>
 ```
 
 ## Project structure
