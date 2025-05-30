@@ -1,12 +1,12 @@
 synology-csi:
     clientInfoSecret:
         clients:
-            - host: ENC[AES256_GCM,data:47tE63NU0V+M69eplg==,iv:weyWJNd5NgJmtD8aaQJIfSQuOuEJaB9+fovGy8t84Is=,tag:W4JoEnPDz1X+yOvNU8veFg==,type:str]
-              port: ENC[AES256_GCM,data:AQYJPg==,iv:RLOOYvnmygICOAOXlRSfv+zhs3dejBA0Rlj4cAzQQVs=,tag:ndfkSJ+TpHRCnXLSQT5jow==,type:int]
-              https: ENC[AES256_GCM,data:ePqCrRo=,iv:ufiV1ADhyfa91pXCoyB5hRuvg/2CzItLPIVEdwxYjJU=,tag:iR6+qvTMSbMSJ6Vc4B83bw==,type:bool]
-              username: ENC[AES256_GCM,data:uBZf,iv:RhMGcRdcgMeNTlroOmbGw13RWwPR/yC0XQ+PQr0LXzY=,tag:aulkYoUd6KK5uYx49u1JEw==,type:str]
-              password: ENC[AES256_GCM,data:7e8EtkqCLYMQnUIIpJd83BucaoYZocr/2z+q5waAGlw1Dm8=,iv:WBA/vnk2f/fmBxl44YnHlGOqkqbqOxCGuaexhCoVpEo=,tag:gBjCRo+5e/UoTCD2LVFWJA==,type:str]
-        create: ENC[AES256_GCM,data:AfP3/A==,iv:OAQiH3LFGRMIj5taaTThH4tQISP4IwN5+Yma+mcobhQ=,tag:FlZ/QjYv4bHgBKUSCvftTg==,type:bool]
+            - host: ENC[AES256_GCM,data:K6J5G2iRpNnE7iNB4A==,iv:8pYJCvP7ANLKHviJRLd+bXBPdXc8/HaZhULASshnBk0=,tag:1I06FDglNgFmZyc+bagzeA==,type:str]
+              port: ENC[AES256_GCM,data:HYbC9Q==,iv:IuPKTRI7Z/i7p2LtwD2tFibsjC42aa072RFjVBW7aRg=,tag:Id0D5n3iEpGahOrPCsFbEg==,type:int]
+              https: ENC[AES256_GCM,data:mSX7F50=,iv:U8Pce/PZvbIkbypWcIuzZU7rwio5GD7z2ASismipdEY=,tag:3WerUNTEYarUjjuUeNMR+g==,type:bool]
+              username: ENC[AES256_GCM,data:LdEpEw149rDl,iv:DfheMsa6eyKrKFjY6ZaLP9WVFomG2GqB0UXDZoaCOpE=,tag:aFI6KfakmSzF4kKkC1JHtg==,type:str]
+              password: ENC[AES256_GCM,data:t07lgVGVpSJnprHZ4jXwciry5hb0GKy4tpMHifIghJcc2sQ=,iv:SfuyhoBwodRaEq1DmsR/4RR2i0hmwjWdpFjAUa32EPU=,tag:igmYbJr7I5h6xMcX7mmrRA==,type:str]
+        create: ENC[AES256_GCM,data:1GBZ6Q==,iv:Cq7Ty5d3s0BLC3/rGYBZl1XSSqjaiPiclUSYntjyPB4=,tag:V95DQI/zAQIyR51ujG15iA==,type:bool]
 sops:
     kms: []
     gcp_kms: []
@@ -14,12 +14,12 @@ sops:
         - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
           name: sops-key
           version: b2031a08aea14a50ab6d8e72548eb4f9
-          created_at: "2025-05-30T21:01:46Z"
-          enc: jJYCewyuNfRl-lAXDcmhZ7_EZ-41faZpRwOEgDW1uEeoNls4pwQtbDl4r9GbrXu60NCJMvXM18tesMAEqyo4ozplsrg7IKtTBMpscr-VrpTkPmwaZ5vMOEBJNLD0YxTWnJUvcyjl7f97WACg7URyy83g7iGzvpoDtC-L1cDQiBe1Egz4GhfrRY3nqh8vemoztiYDPJr9ywlIul5pU5QkMSP14oAzeOhtrEMb0Ilh7Q1fuEWCSEreN4owkxJGXMcXQotYYESepOYc6CJopAQS95AJAaNSAiJWQX0oiT6c88Jkt9-PBG52Il5FsI3kDz7Z_LOJlBOMxOj3srLbkLBXqA
+          created_at: "2025-05-30T21:11:15Z"
+          enc: DRcMelPhInAM7ZImlGt0m7Z0jsbKeyXewbekx_ihEJcA7rWTTd8fDPIcPA5kjr7w3XH4qqlQUhz20KaF9WQJM9zNOqtindnpjEBxhXhDyv5h3g3mYnjoAiAaoJWXiTCx94pZPIApabyCU_fJdWikiBnFFV2JRN54413cIEUJI70EfsAtMPOiwSmOFZcku214y7sQRfO0TDnmED4PTHms9Y-9tl-2SO-340sBfNmV5wLkdBfifbPh8j7x9jmUznK9R8Rt6ZuZx7VjpUA938o7-LYm6a2TuCcCILpHWv9e-j2HzRAlDXcT9klMgyV3UWTsi4UsJMm0_ZqIwJ9s6Exg_A
     hc_vault: []
     age: []
-    lastmodified: "2025-05-30T21:01:47Z"
-    mac: ENC[AES256_GCM,data:31M2EpLKkaSsLfZjkfAywJmhVJuwlouM3mYCF0Qv8nTJzlS8u7ACKv6xXuA+ptRQIcqUML/rkiwdY8WzXmQoX6imhy9S6fMywhcvD+IL30TrMIHX8xzlanT3OyAUJOaMY+pxsRjfED7caWGohF/c7p0PIo+18zeFE35mC45oyHQ=,iv:ZGwm8aSw7l1nBQsKWQgWxgABHbUxLraIoEC/SD+Yjv4=,tag:U7PepBf5Izwd0ulm9EArCQ==,type:str]
+    lastmodified: "2025-05-30T21:11:15Z"
+    mac: ENC[AES256_GCM,data:Mktvkwbk48InUuk0mchRA7GDWO/qG6RJPuhrg593Bkvm3LdvxAXuSyt1bUDgj01cSw8tQ30S/IcWAM9tm6/nJXkXFbZhDrf0c+oDeolvp2GS9817AQUDnxtUZGgPtkQ2fgcca0O/70CKHWCKNqX/G8dMmvp9gMHJPtp9/D/wJTc=,iv:keK1NaRVC2WoGQAy0ZJCnFppmJp8RpIc8VVdr3NfDtg=,tag:kgsEFLozvuv1IgGd4OrTag==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.2
