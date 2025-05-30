@@ -26,6 +26,6 @@ if [ -z "$SCHEMA_VALIDATION" ]; then
 else
   echo "Rendering chart in ${CHART_DIR} and validating manifests."
   helm secrets template --release-name "${namespace}" -n "${namespace}" "${CHART_DIR}" -f "${CHART_DIR}/values.yaml" -f "${CHART_DIR}/values.enc.yaml" | \
-    kubeconform -summary -ignore-missing-schemas -summary -kubernetes-version 1.31.0
+    kubeconform -summary -ignore-missing-schemas -summary -strict -kubernetes-version 1.31.0
   echo "Chart in ${CHART_DIR} is valid"
 fi
