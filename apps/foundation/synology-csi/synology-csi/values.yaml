@@ -1,5 +1,6 @@
 ---
 synology-csi:
+
   storageClasses:
     synology-iscsi-storage:
       disabled: false
