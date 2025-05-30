@@ -48,6 +48,4 @@ This setup enables automatic discovery and deployment of applications.
 
 * Move ArgoCD to apps directory
 
-* Implement option to provide secret values to Cilium install during bootstrapping
-
 * Fix shellcheck issues
