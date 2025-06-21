@@ -34,6 +34,7 @@ resource "talos_machine_configuration_apply" "controlplane" {
     }),
     file("${path.module}/files/control-plane-scheduling.yaml"),
     file("${path.module}/files/install-cilium.yaml"),
+    file("${path.module}/files/extensions.yaml"),
   ]
 }
 
@@ -48,7 +49,8 @@ resource "talos_machine_configuration_apply" "worker" {
       install_disk = each.value.install_disk
       ip_address   = each.key
       gateway      = var.default_gateway
-    })
+    }),
+    file("${path.module}/files/extensions.yaml"),
   ]
 }
 
