@@ -31,6 +31,8 @@ synology-csi:
         dsm: "192.168.8.126"
         location: /volume7
         protocol: nfs
+      mountOptions:
+        - nfsvers=4.1
     synology-nfs-delete:
       allowVolumeExpansion: true
       reclaimPolicy: Delete
@@ -39,3 +41,5 @@ synology-csi:
         location: /volume7
         protocol: nfs
         mountPermissions: '0755'
+      mountOptions:
+        - nfsvers=4.1
