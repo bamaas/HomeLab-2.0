@@ -1,5 +1,6 @@
 ---
 gofit:
   persistence:
-    enabled: false
-    size: 1Gi # Minimum size for ISCI
+    enabled: true
+    size: 1Gi
+    storageClass: synology-nfs-delete
