@@ -10,7 +10,7 @@ node-red:
     enabled: true
     size: 1Gi
     keepPVC: false
-    storageClass: synology-iscsi-storage
+    storageClass: synology-csi-iscsi-delete
 
   ingress:
     enabled: true
