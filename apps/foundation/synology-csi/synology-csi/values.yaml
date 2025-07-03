@@ -1,5 +1,9 @@
 ---
 synology-csi:
+  images:
+    plugin:
+      image: synology/synology-csi
+      tag: v1.2.0
 
   storageClasses:
     synology-iscsi-storage-retain:
