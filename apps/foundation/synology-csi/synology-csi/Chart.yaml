@@ -7,5 +7,5 @@ version: 0.1.0
 
 dependencies:
   - name: synology-csi
-    version: 0.9.4
-    repository: https://zebernst.github.io/synology-csi-talos
+    version: 0.10.1
+    repository: https://christian-schlichtherle.github.io/synology-csi-chart
