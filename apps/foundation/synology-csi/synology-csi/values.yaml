@@ -29,7 +29,7 @@ synology-csi:
       reclaimPolicy: Retain
       parameters:
         dsm: "192.168.8.126"
-        location: synology-csi-driver
+        location: '/volume7'
         protocol: nfs
       mountOptions:
         - nfsvers=4.1
@@ -38,7 +38,7 @@ synology-csi:
       reclaimPolicy: Delete
       parameters:
         dsm: "192.168.8.126"
-        location: synology-csi-driver
+        location: '/volume7'
         protocol: nfs
         mountPermissions: '0755'
       mountOptions:
