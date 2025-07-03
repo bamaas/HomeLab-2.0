@@ -3,4 +3,4 @@ gofit:
   persistence:
     enabled: true
     size: 1Gi
-    storageClass: synostorage-nfs
+    storageClass: synology-csi-synology-nfs-delete
