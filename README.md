@@ -49,3 +49,5 @@ This setup enables automatic discovery and deployment of applications.
 * Move ArgoCD to apps directory
 
 * Fix shellcheck issues
+
+* Cert SANS not picked up by Talos
