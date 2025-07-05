@@ -6,6 +6,8 @@ machine:
         dhcp: false
         vip:
           ip: ${virtual_shared_ip}
-  certSANs:
-    - ${virtual_shared_ip}
-    - ${cluster_domain}
+cluster:
+  apiServer:
+    certSANs:
+      - ${virtual_shared_ip}
+      - ${cluster_domain}
