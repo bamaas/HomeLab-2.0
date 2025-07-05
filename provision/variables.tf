@@ -13,6 +13,11 @@ variable "cluster_endpoint" {
   type        = string
 }
 
+variable "virtual_shared_ip" {
+  description = "The virtual shared IP address for the cluster control plane nodes"
+  type        = string
+}
+
 variable "talos_image" {
   description = "The Talos image to use for the cluster"
   type = object({

@@ -32,6 +32,9 @@ resource "talos_machine_configuration_apply" "controlplane" {
       ip_address   = each.key
       gateway      = var.default_gateway
     }),
+    templatefile("${path.module}/templates/vip.yaml.tmpl", {
+      virtual_shared_ip = var.virtual_shared_ip
+    }),
     file("${path.module}/files/control-plane-scheduling.yaml"),
     file("${path.module}/files/install-cilium.yaml"),
     file("${path.module}/files/extensions.yaml"),
