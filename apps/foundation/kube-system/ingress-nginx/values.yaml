@@ -1,14 +1,14 @@
 ---
 ingress-nginx:
 
-  service:
-    enabled: true
-    annotations:
-      metallb.io/loadBalancerIPs: 192.168.8.100
-      type: LoadBalancer
-
   controller:
     hostNetwork: true
+
+    service:
+      enabled: true
+      annotations:
+        metallb.io/loadBalancerIPs: 192.168.8.100
+        type: LoadBalancer
 
     # TODO: enable metrics
     metrics:
