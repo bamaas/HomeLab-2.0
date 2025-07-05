@@ -1,0 +1,8 @@
+---
+nfs-subdir-external-provisioner:
+  nfs:
+    server: 192.168.8.126
+    path: /volume7/synology-csi-driver
+
+  storageClass:
+    name: nfs
