@@ -1,0 +1,9 @@
+---
+
+service:
+  loadbalancer:
+    enabled: true
+    annotations:
+      metallb.universe.tf/address-pool: system-address-pool
+      metallb.universe.tf/allow-shared-ip: "true"
+      metallb.io/loadBalancerIPs: 192.168.8.105

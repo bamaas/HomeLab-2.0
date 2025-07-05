@@ -1,0 +1,6 @@
+---
+apiVersion: v2
+name: kube-api
+description: kube-api
+type: application
+version: 0.1.0

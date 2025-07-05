@@ -1,7 +1,7 @@
 ipAddressPools:
-    - name: ENC[AES256_GCM,data:3FV0khOaDaCv8QPw+KWK51U=,iv:SW8GQYmpZIv1SFf3SN6EwIT54VfzW5Wh9UfS0O4H9V0=,tag:RZ4gAbZzwh1yBW4kD6MEwg==,type:str]
+    - name: ENC[AES256_GCM,data:NVn/ESQM830wbZrH2Dsu+xY=,iv:YUTG4RA6l9Z4RAMz73XjisrS70yUpkutZObZ3olI22U=,tag:jlFgTgXqGESEWTU/msFzAw==,type:str]
       addresses:
-        - ENC[AES256_GCM,data:6u6fzE/jQZLmaOwz/YpI8QgPg7ZxO96jZJ0V,iv:Bvqu17bud3+fgHuJ0Ul3Vw0s+zgcswM9k33geWuODU0=,tag:z2P3sPbj3WmGVF8h4W5jtQ==,type:str]
+        - ENC[AES256_GCM,data:Z6ekyBMhR+7qUR7mpRjbCGvJOvM0V1f4yPiH,iv:bphONy6f2Zj/0YkxE9QoZq+IKlknDYHskccDsAEcRuc=,tag:9QSYvpdWRRNNPBZhMcA/pw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -9,12 +9,12 @@ sops:
         - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
           name: sops-key
           version: b2031a08aea14a50ab6d8e72548eb4f9
-          created_at: "2025-05-26T07:30:16Z"
-          enc: LaY0vu1wqM0ow2mdDylVkTFpRnJ4jg_fyY9sv52Bq6Ft4jL4PPeNRql4IJV5bpl15K8Q7uBCJAMW6e2p9XAqpiRRBmPE8RK6ogFnfElfanmoFOfNOvqCSV_zSUle6oIiPJYlc3mnX5AmUcagZa191xuOVDB_HNRAOVblaHm_LSdr9k5MiIEjqN-zXJ83c6UHLzcrY0w8utmPF6gP1hNq31Hh2ha2gJZjR8sXxkFx49btSZ8D-Z7krmeIYYIoacHQChGITC_rJULt074c8nX27Kw7u0osbRD4_We7qnSHlgiA9ntIJq0HqN_t7V1fLP7TC0lVcI62AiKAmEsylzNNyw
+          created_at: "2025-07-05T15:17:18Z"
+          enc: T_EEfWL94e2_cnvmKjwQhc2dlkLQ49gHO_Gk9Atvx9EEp_lRhMVoKvGbnp98pTDujdpEJ2db3YR4A0Ud1Dk9gCPgi6PxYbyDU-ji5nnLfOaIfOORJFP3pZzLfWNmk2OiZKTxgPkf8O-eRUCatpoEQ-apoSQDa__cXdRFinysBJB5UQmRcMFO_W1XsigSpX4hi1QYibrkJwl8PnIHMZZOnW2U5tdJE1nCEY3q8b6wBEDo45utViu0xwUY4dDn9sNycZ_XrRdlEKAcFpI1mpYrK7FX38EPxulUcsbhBmGQbdRe5goDbTXGf0IpAcoGCi9yT-xdJDqVy7vPdH4kCqO0vA
     hc_vault: []
     age: []
-    lastmodified: "2025-05-26T07:30:17Z"
-    mac: ENC[AES256_GCM,data:KM1cqi45EhqdPPNZU8DXtXG5itkuxAZnO+/VSD98f27q0RSeG+2Jr7UQEpD/BPzY6u/5fCfifmDGdSupejoYDl/FrUo1Yc2DLEHu4Zv3de4N7iTzRGpssuc5Zm+Z9vqUc3829CpZRH/MjzXLuSscuyZFB12jjPrpjjEmA6dKiCM=,iv:rXNzwM1VepEIXhnp+zfvKkVAlSfKb+QCycAbE8BRHL0=,tag:XSDPKlXiOAVN7PDZtt1aCw==,type:str]
+    lastmodified: "2025-07-05T15:17:19Z"
+    mac: ENC[AES256_GCM,data:Xbeg5HEICKWGXSh5FveBqnsSPK2ckPcITZ59tcb6o3j6Lt+qdFXwi/7MjGHSRr1dkl7jPgjNFf5+9QQNkn+wdYnLpWdsvlvXsyIopkNNmx5N0ONDB4sWQf8Tbj+vs8HkBZTl3DxPS4nfTiW4ei4pg4Dohash/AIdxBO0Mix6deU=,iv:zc8hhCC3vbCXIXY3QgNVynkvBS9M5ktq3zKkFLR1qUk=,tag:JxL+U7xsfaoBpCJeoW6viQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.2

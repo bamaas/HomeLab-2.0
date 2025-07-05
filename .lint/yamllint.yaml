@@ -17,4 +17,5 @@ ignore:
   - 'apps/foundation/cert-manager/cert-manager/templates/cluster-issuers.yaml'
   - 'apps/foundation/cert-manager/cert-manager/templates/additional-secrets.yaml'
   - 'apps/foundation/metallb-system/metallb/templates/pool.yaml'
+  - 'apps/**/templates/**.yaml'
   - 'values.enc.tmp.yaml'
