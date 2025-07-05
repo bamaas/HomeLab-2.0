@@ -18,6 +18,11 @@ variable "virtual_shared_ip" {
   type        = string
 }
 
+variable "cluster_domain" {
+  description = "The domain for the Talos cluster"
+  type        = string
+}
+
 variable "talos_image" {
   description = "The Talos image to use for the cluster"
   type = object({

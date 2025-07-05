@@ -1,0 +1,11 @@
+---
+machine:
+  network:
+    interfaces:
+      - interface: eth0
+        dhcp: false
+        vip:
+          ip: ${virtual_shared_ip}
+  certSANs:
+      - ${virtual_shared_ip}
+      - ${cluster_domain}

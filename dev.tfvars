@@ -4,7 +4,9 @@ default_gateway = "192.168.8.1"
 
 cluster_endpoint = "https://192.168.8.220:6443"
 
-virtual_shared_ip = "192.168.8.101"
+virtual_shared_ip = "192.168.8.99"
+
+cluster_domain = "kubernetes.lan.basmaas.nl"
 
 talos_image = {
   # Image URl gathered from factory.talos.dev
