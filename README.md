@@ -2,6 +2,8 @@
 
 My personal homelab playground, stored as code and fully automated.
 
+***
+
 ## 🚀 Get up and running
 
 1. Setup devcontainer.
