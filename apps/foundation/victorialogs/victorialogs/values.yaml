@@ -31,4 +31,4 @@ victoria-logs-single:
 
   # Vector log collector (disabled by default, needs to be enabled)
   vector:
-    enabled: true
+    enabled: false  # Disable log collection for now.
