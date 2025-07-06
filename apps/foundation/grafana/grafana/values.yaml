@@ -3,6 +3,7 @@ grafana:
   persistence:
     enabled: true
     size: 10Gi
+    storageClassName: nfs
 
   ingress:
     enabled: true
