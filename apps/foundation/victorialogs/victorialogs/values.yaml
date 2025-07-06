@@ -1,0 +1,20 @@
+---
+victoria-logs-single:
+
+  # VictoriaLogs server (enabled by default)
+  server:
+    enabled: true
+    # Time-based retention (default: 1 month)
+    retentionPeriod: 7d
+
+    # OR disk-based retention (default: none)
+    retentionDiskSpaceUsage: 5GB
+
+    # Storage size
+    persistentVolume:
+      size: 20Gi  # Adjust based on your log volume
+      storageClassName: nfs # Temporarily set to NFS
+
+  # Vector log collector (disabled by default, needs to be enabled)
+  vector:
+    enabled: true
