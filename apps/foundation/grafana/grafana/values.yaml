@@ -3,7 +3,7 @@ grafana:
   persistence:
     enabled: true
     size: 10Gi
-    storageClassName: nfs   # Temporarily set to NFS
+    # storageClassName: nfs   # Temporarily set to NFS
 
   ingress:
     enabled: true
@@ -17,5 +17,5 @@ grafana:
         hosts:
           - grafana.kubernetes.lan.basmaas.nl
 
-  securityContext:
-    runAsNonRoot: false   # Needed for NFS
+  # securityContext:
+  #   runAsNonRoot: false   # Needed for NFS
