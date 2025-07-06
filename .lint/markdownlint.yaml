@@ -5,4 +5,4 @@ default: true
 
 MD013:
   # Number of characters
-  line_length: 100
+  line_length: 120
