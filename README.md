@@ -1,8 +1,15 @@
 # 🏠 Homelab
 
-My personal homelab playground, stored as code and fully automated.
+My personal homelab playground, stored as code.
+
+The goal is to seamlessly bootstrap a Kubernetes cluster with all the bells and whistles
+— from infrastructure to apps —
+in one smooth, reproducible flow.
+While keeping things lightweight and simple as possible.
 
 ## 🚀 Get up and running
+
+How to deploy the entire cluster from the ground up.
 
 1. **Setup devcontainer.**
 
