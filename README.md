@@ -4,25 +4,32 @@ My personal homelab playground, stored as code and fully automated.
 
 ## 🚀 Get up and running
 
-1. Setup devcontainer.
+1. **Setup devcontainer.**
 
-This will [bootstrap](.devcontainer/Dockerfile) all the required tools needed for project development.
-The project uses [Mise](https://mise.jdx.dev/) as a unified manager for tools, environment variables, and scripts.
+    This will [bootstrap](.devcontainer/Dockerfile) all the required tools needed for project development.
+    The project uses [Mise](https://mise.jdx.dev/) as a unified manager for tools, environment variables, and scripts.
 
-1. To provision and configure full cluster simply run:
+2. **To provision and configure full cluster simply run:**
 
-```bash
-mise run up <env>
-```
+    ```bash
+    mise run up <env>
+    ```
 
-This command will:
+    This command will:
 
-1. Use Terraform to [provision](./provision/virtual_machines.tf) TalosOS machines on the Proxmox host
-and [initialize](./provision/cluster.tf) the Kubernetes cluster.
+    1. Use Terraform to [provision](./provision/virtual_machines.tf) TalosOS machines on the Proxmox host
+    and [initialize](./provision/cluster.tf) the Kubernetes cluster.
 
-1. [Deploy ArgoCD](.mise/tasks/bootstrap.sh) using the bootstrap configuration to enable GitOps workflows.
+    1. [Deploy ArgoCD](.mise/tasks/bootstrap.sh) using the bootstrap configuration to enable GitOps workflows.
 
-1. Automatically discover and deploy all applications defined in the `apps/` directory through [ArgoCD ApplicationSets](./bootstrap/apps/appset-bootstrap.yaml).
+    1. Automatically discover and deploy all applications defined in the `apps/` directory through [ArgoCD ApplicationSets](./bootstrap/apps/appset-bootstrap.yaml).
+
+3. **Good to go 🎉**
+
+    The Kubeconfig and Talosconfig files are automaticalled fetched and stored in [.config](.config) directory and your shell is configured [automatically](mise.toml).
+
+    You can now interact with the cluster: `kubectl get pods -A`
+  
 
 ## 🔥 Foundation stack
 
