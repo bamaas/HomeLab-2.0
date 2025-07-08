@@ -1,38 +1,39 @@
-# 🏠 Homelab
+# 🏠 HomeLab-2.0 💻
 
 My personal homelab playground, stored as code.
 
-The goal is to seamlessly bootstrap a Kubernetes cluster with all the bells and whistles
-— from infrastructure to apps —
-in one smooth, reproducible flow.
-While keeping things lightweight and simple as possible.
+> **The goal is to seamlessly bootstrap a Kubernetes cluster with all the bells and whistles**  
+> — from infrastructure to apps —  
+> in one smooth, reproducible flow.
+> While keeping things lightweight and simple as possible
 
 ## ✨ Features
 
-- **One-command cluster provisioning**  
+- **🚀 One-command cluster provisioning**  
   Provision and configure a full Kubernetes cluster with a single command: `mise run up <env>`  
 
-- **Automatic application discovery**  
+- **🔍 Automatic application discovery**  
   No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
 
-- **Seamless developer experience with Mise**  
+- **🧰 Seamless developer experience with Mise**  
   All essential commands are encapsulated in Mise scripts.  
   Run `mise tasks` to view the available commands.
 
-- **Pre-commit quality checks**  
+- **✅ Pre-commit quality checks**  
   Helm charts are automatically linted and templated before every commit to catch errors early.
 
-- **Reproducible tooling**  
+- **🛠️ Reproducible tooling**  
   Developer environment is reproducible and consistent, with tools managed via Mise in a devcontainer.
 
-- **Multi-environment support** *Planned*  
+- **🌍 Multi-environment support** *Planned*  
   Out-of-the-box support for both `dev` and `prod` environments.
 
-## 🔥 Foundation stack
+## 🏛️ Foundation stack
 
 This section describes the essential infrastructure components that form the backbone of the homelab environment.
 
 - **Infrastructure**  
+  [Terraform](https://developer.hashicorp.com/terraform),
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
   [TalosOS](https://www.talos.dev/) -> [Kubernetes](https://kubernetes.io/)
 
@@ -62,7 +63,6 @@ This section describes the essential infrastructure components that form the bac
   [Dex](https://dexidp.io/) *Planned*
 
 - **Development**  
-  [Terraform](https://developer.hashicorp.com/terraform),
   [Helm](https://helm.sh/),
   [Mise](https://mise.jdx.dev/),
   [Docker](https://www.docker.com/)
