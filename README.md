@@ -7,6 +7,66 @@ The goal is to seamlessly bootstrap a Kubernetes cluster with all the bells and 
 in one smooth, reproducible flow.
 While keeping things lightweight and simple as possible.
 
+## ✨ Features
+
+- **One-command cluster provisioning**  
+  Provision and configure a full Kubernetes cluster with a single command: `mise run up <env>`  
+
+- **Automatic application discovery**  
+  No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
+
+- **Seamless developer Experience with Mise**  
+  All essential commands are encapsulated in [Mise](https://mise.jdx.dev/) scripts.  
+  Run `mise tasks` to view the available commands.
+
+- **Pre-commit quality checks**  
+  Helm charts are automatically linted and templated before every commit to catch errors early.
+
+- **Reproducible tooling**  
+  Developer environment is reproducible and consistent, with tools managed via Mise and devcontainers.
+
+- **Multi-environment support** *Planned*  
+  Out-of-the-box support for both `dev` and `prod` environments.
+
+## 🔥 Foundation stack
+
+This section describes the essential infrastructure components that form the backbone of the homelab environment.
+
+- **Infrastructure**  
+  [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
+  [TalosOS](https://www.talos.dev/) -> [Kubernetes](https://kubernetes.io/)
+
+- **GitOps**  
+  [ArgoCD](https://argo-cd.readthedocs.io/)
+
+- **Networking**  
+  [Cilium CNI](https://cilium.io/),
+  [MetalLB](https://metallb.universe.tf/),
+  [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+
+- **Storage**  
+  [Synology iSCSI & NFS](https://github.com/zebernst/synology-csi-talos)
+
+- **Monitoring**  
+  [VictoriaLogs](https://docs.victoriametrics.com/victorialogs/),
+  [Vector](https://vector.dev/),
+  [VictoriaMetrics](https://victoriametrics.com/) *Planned*
+
+- **Security**  
+  [Cert-Manager](https://cert-manager.io/),
+  [SOPS](https://github.com/getsops/sops),
+  [Azure Key Vault](https://azure.microsoft.com/nl-nl/products/key-vault),
+  [Trivy](https://github.com/aquasecurity/trivy-operator) *Planned*
+
+- **Authentication**  
+  [Dex](https://dexidp.io/) *Planned*
+
+- **Development**  
+  [Terraform](https://developer.hashicorp.com/terraform),
+  [Helm](https://helm.sh/),
+  [Mise](https://mise.jdx.dev/),
+  [Docker](https://www.docker.com/)
+
 ## 🚀 Get up and running
 
 How to deploy the entire cluster from the ground up.
@@ -36,64 +96,6 @@ How to deploy the entire cluster from the ground up.
     The Kubeconfig and Talosconfig files are automaticalled fetched and stored in [.config](.config) directory and your shell is configured [automatically](mise.toml).
 
     You can now interact with the cluster: `kubectl get pods -A`
-  
-
-## 🔥 Foundation stack
-
-This section describes the essential infrastructure components that form the backbone of the homelab environment.
-
-- **Infrastructure**  
-  [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
-  [TalosOS](https://www.talos.dev/) -> [Kubernetes](https://kubernetes.io/)
-
-- **GitOps**  
-  [ArgoCD](https://argo-cd.readthedocs.io/)
-
-- **Networking**  
-  [Cilium CNI](https://cilium.io/),
-  [MetalLB](https://metallb.universe.tf/),
-  [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
-
-- **Storage**  
-  [Synology iSCSI & NFS](https://github.com/zebernst/synology-csi-talos)
-
-- **Monitoring**  
-  [VictoriaLogs](https://docs.victoriametrics.com/victorialogs/),
-  [Vector](https://vector.dev/),
-  [VictoriaMetrics](https://victoriametrics.com/) (Planned)
-
-- **Security**  
-  [Cert-Manager](https://cert-manager.io/),
-  [SOPS](https://github.com/getsops/sops),
-  [Azure Key Vault](https://azure.microsoft.com/nl-nl/products/key-vault),
-  [Trivy](https://github.com/aquasecurity/trivy-operator) (Planned)
-
-- **Authentication**  
-  [Dex](https://dexidp.io/) (Planned)
-
-- **Development**  
-  [Terraform](https://developer.hashicorp.com/terraform),
-  [Helm](https://helm.sh/),
-  [Mise](https://mise.jdx.dev/),
-  [Docker](https://www.docker.com/)
-
-## ✨ Note worthy features
-
-- **Automatic Application Discovery**  
-  No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
-
-- **Multi-Environment Support**  
-  Out-of-the-box support for both `dev` and `prod` environments.
-
-- **Seamless Developer Experience with Mise**  
-  All essential commands are encapsulated in Mise scripts.  
-  Run `mise tasks` to view the available commands.
-
-- **Pre-Commit Quality Checks**  
-  Helm charts are automatically linted and templated before every commit to catch errors early.
-
-- **Reproducible Tooling**  
-  Developer environment is reproducible and consistent, with tools managed via [Mise](https://mise.jdx.dev/).
 
 ## 📂 Project structure
 
