@@ -16,7 +16,7 @@ While keeping things lightweight and simple as possible.
   No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
 
 - **Seamless developer Experience with Mise**  
-  All essential commands are encapsulated in [Mise](https://mise.jdx.dev/) scripts.  
+  All essential commands are encapsulated in Mise scripts.  
   Run `mise tasks` to view the available commands.
 
 - **Pre-commit quality checks**  
