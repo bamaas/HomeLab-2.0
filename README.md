@@ -104,8 +104,6 @@ This section outlines a list of planned improvements and upcoming features, pres
 
 * Move ArgoCD to apps directory
 
-* Fix shellcheck issues
-
 * Investigate [Cillium load balancer IPAM](https://docs.cilium.io/en/stable/network/lb-ipam/) as al alternative for Metallb.
 
 * Investigate [Cillum Gateway API](https://cilium.io/use-cases/gateway-api/) as an alternative for Nginx ingress controller.
@@ -115,6 +113,10 @@ This section outlines a list of planned improvements and upcoming features, pres
 * Implement [VictoriaMetrics](https://victoriametrics.com/).
 
 * Implement a metric collector (to be determined).
+
+* Create production environment.
+
+* Implement environment specific configuration per app.
 
 * Setup alerting rules and channels.
 

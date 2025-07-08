@@ -21,7 +21,6 @@ LINT_CONFIG_DIR = "{{env.ROOT_DIR}}/.lint"
 TERRAFORM_DIR = "{{env.ROOT_DIR}}/provision"
 KUBECONFIG = "{{env.ROOT_DIR}}/.config/kubeconfig"
 TALOSCONFIG = "{{env.ROOT_DIR}}/.config/talosconfig"
-_.file = ".env.dec.json"
 TF_LOG = "info"
 
 [hooks]

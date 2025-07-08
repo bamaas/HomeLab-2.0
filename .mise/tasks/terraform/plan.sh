@@ -13,10 +13,21 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+# Init
+mise run terraform:init "${ENV}"
+
+# Load environment variables
+. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
+
 # Verify that the environment file exists
 if [ ! -f "${ENV}.tfvars" ]; then
   echo "Error: Environment file '${ENV}.tfvars' not found"
   exit 1
 fi
 
-terraform -chdir="${TERRAFORM_DIR}" plan -var-file="${ROOT_DIR}/${ENV}.tfvars" -out=terraform.tfplan
+# Plan
+terraform \
+  -chdir="${TERRAFORM_DIR}" \
+    plan \
+      -var-file="${ROOT_DIR}/${ENV}.tfvars" \
+      -out=terraform.tfplan

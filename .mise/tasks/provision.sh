@@ -13,13 +13,7 @@ if [ -z "$ENV" ]; then
   exit 1
 fi
 
-# Verify that the environment file exists
-if [ ! -f "${ENV}.tfvars" ]; then
-  echo "Error: Environment file '${ENV}.tfvars' not found"
-  exit 1
-fi
-
 mise run terraform:plan "${ENV}"
 mise run terraform:apply "${ENV}"
-mise run kubeconfig
-mise run talosconfig
+mise run kubeconfig "${ENV}"
+mise run talosconfig "${ENV}"

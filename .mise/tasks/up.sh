@@ -14,11 +14,5 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Verify that the environment file exists
-if [ ! -f "${ENV}.tfvars" ]; then
-  echo "Error: Environment file '${ENV}.tfvars' not found"
-  exit 1
-fi
-
 mise run provision "${ENV}"
 mise run bootstrap

@@ -16,3 +16,9 @@ creation_rules:
 
   - path_regex: dec.*\.ini?$
     azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: enc.*\.env(.dec)?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
+
+  - path_regex: dec.*\.env?$
+    azure_keyvault: https://sops-3caeb0533c5a473f.vault.azure.net/keys/sops-key/b2031a08aea14a50ab6d8e72548eb4f9
