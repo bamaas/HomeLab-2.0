@@ -15,7 +15,7 @@ While keeping things lightweight and simple as possible.
 - **Automatic application discovery**  
   No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
 
-- **Seamless developer Experience with Mise**  
+- **Seamless developer experience with Mise**  
   All essential commands are encapsulated in Mise scripts.  
   Run `mise tasks` to view the available commands.
 
@@ -23,7 +23,7 @@ While keeping things lightweight and simple as possible.
   Helm charts are automatically linted and templated before every commit to catch errors early.
 
 - **Reproducible tooling**  
-  Developer environment is reproducible and consistent, with tools managed via Mise and devcontainers.
+  Developer environment is reproducible and consistent, with tools managed via Mise in a devcontainer.
 
 - **Multi-environment support** *Planned*  
   Out-of-the-box support for both `dev` and `prod` environments.
