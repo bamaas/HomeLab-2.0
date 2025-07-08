@@ -8,11 +8,14 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - git:
-        repoURL: https://github.com/bamaas/Homelab-2.0
-        revision: HEAD
-        directories:
-          - path: 'apps/*/*/*'
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/bamaas/Homelab-2.0
+              revision: HEAD
+              directories:
+                - path: 'apps/*/*/*'
+          - clusters: {}
   template:
     metadata:
       name: '{{.path.basename}}'
