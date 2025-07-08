@@ -59,3 +59,21 @@ spec:
         syncOptions:
           - CreateNamespace=true
           - ServerSideApply=true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-cluster-name
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: cluster
+type: Opaque
+stringData:
+  name: cluster
+  server: https://kubernetes.default.svc
+  config: |-
+    {
+      "tlsClientConfig":{
+        "insecure":false
+      }
+    }

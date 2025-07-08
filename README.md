@@ -70,6 +70,14 @@ This section describes the essential infrastructure components that form the bac
 [Mise](https://mise.jdx.dev/),
 [Docker](https://www.docker.com/)
 
+## ✨ Note worthy features
+
+- **Automatic Application Discovery**: No manual ArgoCD application manifests required—apps are detected and deployed automatically.
+- **Multi-Environment Support**: Seamlessly supports both `dev` and `prod` environments.
+- **Unified Developer Experience**: All essential cluster interaction commands are encapsulated in Mise scripts. Use `mise tasks` to view available commands.
+- **Pre-Commit Quality Checks**: Application Helm charts are linted and templated automatically before commits to catch errors early.
+- **Reproducible Tooling**: Developer environment is consistent and reproducible, with all tools managed via Mise.
+
 ## 📂 Project structure
 
 This repository follows a GitOps approach using ArgoCD for continuous deployment.

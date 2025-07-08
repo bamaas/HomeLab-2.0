@@ -13,8 +13,10 @@ Applications are organized in a hierarchical structure following the pattern `pr
 Each application directory contains:
 
 * `Chart.yaml` - Helm chart metadata and dependencies
-* `values.yaml` - Default configuration values
-* `values-*.yaml` - Environment-specific overrides
+* `values.yaml` - Common configuration values
+* `values.enc.yaml` - Common secret encrypted values
+* `<env>.values.yaml` - Environment specific configuration values
+* `<env>.values.enc.yaml` - Environment specific encrypted values
 * `templates/` - Kubernetes manifests and Helm templates
 
 ## Deployment

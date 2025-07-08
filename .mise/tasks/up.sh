@@ -15,4 +15,4 @@ if [ -z "$1" ]; then
 fi
 
 mise run provision "${ENV}"
-mise run bootstrap
+mise run bootstrap "${ENV}"
