@@ -42,41 +42,58 @@ How to deploy the entire cluster from the ground up.
 
 This section describes the essential infrastructure components that form the backbone of the homelab environment.
 
-* **Infrastructure**:
-[Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
-[TalosOS](https://www.talos.dev/) -> [Kubernetes](https://kubernetes.io/)
-* **GitOps**:
-[ArgoCD](https://argo-cd.readthedocs.io/)
-* **Networking**:
-[Cilium CNI](https://cilium.io/),
-[MetalLB](https://metallb.universe.tf/),
-[Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
-* **Storage**:
-[Synology iSCSI & NFS](https://github.com/zebernst/synology-csi-talos)
-* **Monitoring**:
-[VictoriaLogs](https://docs.victoriametrics.com/victorialogs/),
-[Vector](https://vector.dev/),
-[VictoriaMetrics](https://victoriametrics.com/) (Planned)
-* **Security**:
-[Cert-Manager](https://cert-manager.io/),
-[SOPS](https://github.com/getsops/sops),
-[Azure Key Vault](https://azure.microsoft.com/nl-nl/products/key-vault),
-[Trivy](https://github.com/aquasecurity/trivy-operator) (Planned)
-* **Authentication**:
-[Dex](https://dexidp.io/) (Planned)
-* **Development**:
-[Terraform](https://developer.hashicorp.com/terraform),
-[Helm](https://helm.sh/),
-[Mise](https://mise.jdx.dev/),
-[Docker](https://www.docker.com/)
+- **Infrastructure**  
+  [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
+  [TalosOS](https://www.talos.dev/) -> [Kubernetes](https://kubernetes.io/)
+
+- **GitOps**  
+  [ArgoCD](https://argo-cd.readthedocs.io/)
+
+- **Networking**  
+  [Cilium CNI](https://cilium.io/),
+  [MetalLB](https://metallb.universe.tf/),
+  [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+
+- **Storage**  
+  [Synology iSCSI & NFS](https://github.com/zebernst/synology-csi-talos)
+
+- **Monitoring**  
+  [VictoriaLogs](https://docs.victoriametrics.com/victorialogs/),
+  [Vector](https://vector.dev/),
+  [VictoriaMetrics](https://victoriametrics.com/) (Planned)
+
+- **Security**  
+  [Cert-Manager](https://cert-manager.io/),
+  [SOPS](https://github.com/getsops/sops),
+  [Azure Key Vault](https://azure.microsoft.com/nl-nl/products/key-vault),
+  [Trivy](https://github.com/aquasecurity/trivy-operator) (Planned)
+
+- **Authentication**  
+  [Dex](https://dexidp.io/) (Planned)
+
+- **Development**  
+  [Terraform](https://developer.hashicorp.com/terraform),
+  [Helm](https://helm.sh/),
+  [Mise](https://mise.jdx.dev/),
+  [Docker](https://www.docker.com/)
 
 ## ✨ Note worthy features
 
-- **Automatic Application Discovery**: No manual ArgoCD application manifests required—apps are detected and deployed automatically.
-- **Multi-Environment Support**: Seamlessly supports both `dev` and `prod` environments.
-- **Unified Developer Experience**: All essential cluster interaction commands are encapsulated in Mise scripts. Use `mise tasks` to view available commands.
-- **Pre-Commit Quality Checks**: Application Helm charts are linted and templated automatically before commits to catch errors early.
-- **Reproducible Tooling**: Developer environment is consistent and reproducible, with all tools managed via Mise.
+- **Automatic Application Discovery**  
+  No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
+
+- **Multi-Environment Support**  
+  Out-of-the-box support for both `dev` and `prod` environments.
+
+- **Seamless Developer Experience with Mise**  
+  All essential commands are encapsulated in Mise scripts.  
+  Run `mise tasks` to view the available commands.
+
+- **Pre-Commit Quality Checks**  
+  Helm charts are automatically linted and templated before every commit to catch errors early.
+
+- **Reproducible Tooling**  
+  Developer environment is reproducible and consistent, with tools managed via [Mise](https://mise.jdx.dev/).
 
 ## 📂 Project structure
 
@@ -101,10 +118,6 @@ The structure is organized as follows:
 * `projects/`: Contains ArgoCD project definitions
 
 * `provision/`: Contains Terraform infrastructure provisioning scripts and configurations
-
-The repository uses ArgoCD ApplicationSets for automated deployment,
-with configurations defined in `bootstrap/apps.yaml`.
-This setup enables automatic discovery and deployment of applications.
 
 ## 📝 To do
 
