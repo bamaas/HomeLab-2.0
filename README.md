@@ -110,26 +110,26 @@ This setup enables automatic discovery and deployment of applications.
 
 This section outlines a list of planned improvements and upcoming features, presented in no particular order.
 
-* Move ArgoCD to apps directory
+- [ ] Move ArgoCD to apps directory
 
-* Investigate [Cillium load balancer IPAM](https://docs.cilium.io/en/stable/network/lb-ipam/) as al alternative for Metallb.
+- [ ] Investigate [Cillium load balancer IPAM](https://docs.cilium.io/en/stable/network/lb-ipam/) as al alternative for Metallb.
 
-* Investigate [Cillum Gateway API](https://cilium.io/use-cases/gateway-api/) as an alternative for Nginx ingress controller.
+- [ ] Investigate [Cillum Gateway API](https://cilium.io/use-cases/gateway-api/) as an alternative for Nginx ingress controller.
 
-* Implement [Dex IdP](https://dexidp.io/).
+- [ ] Implement [Dex IdP](https://dexidp.io/).
 
-* Implement [VictoriaMetrics](https://victoriametrics.com/).
+- [ ] Implement [VictoriaMetrics](https://victoriametrics.com/).
 
-* Implement a metric collector (to be determined).
+- [ ] Implement a metric collector (to be determined).
 
-* Create production environment.
+- [ ] Create production environment.
 
-* Implement environment specific configuration per app.
+- [ ] Implement environment specific configuration per app.
 
-* Setup alerting rules and channels.
+- [ ] Setup alerting rules and channels.
 
-* Deploy [Trivy Operator](https://github.com/aquasecurity/trivy-operator).
+- [ ] Deploy [Trivy Operator](https://github.com/aquasecurity/trivy-operator).
 
-* Checkout [Sidero Omni](https://github.com/siderolabs/omni).
+- [ ] Checkout [Sidero Omni](https://github.com/siderolabs/omni).
 
-* Deploy and configure [External DNS](https://kubernetes-sigs.github.io/external-dns/latest/) to be able to [manage PiHole](https://kubernetes-sigs.github.io/external-dns/v0.13.3/tutorials/pihole/#service-example).
+- [ ] Deploy and configure [External DNS](https://kubernetes-sigs.github.io/external-dns/latest/) to be able to [manage PiHole](https://kubernetes-sigs.github.io/external-dns/v0.13.3/tutorials/pihole/#service-example).
