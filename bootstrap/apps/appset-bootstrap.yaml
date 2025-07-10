@@ -13,10 +13,6 @@ spec:
         revision: HEAD
         directories:
           - path: 'apps/*/*/*'
-    - clusters:
-        selector:
-          matchLabels:
-            cluster.x-k8s.io/cluster-name: '{{.cluster.name}}'
   template:
     metadata:
       name: '{{.path.basename}}'
@@ -30,8 +26,6 @@ spec:
           valueFiles:
             - values.yaml
             - secrets://values.enc.yaml
-            - "{{.cluster.name}}.values.yaml"
-            - secrets://{{.cluster.name}}.values.enc.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ index .path.segments 2 }}'
