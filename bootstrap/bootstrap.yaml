@@ -31,7 +31,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/bamaas/Homelab-2.0
-        revision: HEAD
+        revision: multi-env-support
         directories:
           - path: 'projects'
           - path: 'bootstrap/cluster-resources'
@@ -46,7 +46,7 @@ spec:
       project: argocd-system
       source:
         repoURL: https://github.com/bamaas/Homelab-2.0
-        targetRevision: HEAD
+        targetRevision: mutli-env-support
         path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc

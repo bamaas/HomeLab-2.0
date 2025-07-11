@@ -10,9 +10,9 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/bamaas/Homelab-2.0
-        revision: multi-env-support
+        revision: HEAD
         directories:
-          - path: 'apps/*/*/*/dev'
+          - path: 'apps/dev/*/*/*'
   template:
     metadata:
       name: '{{.path.basename}}'
@@ -20,12 +20,12 @@ spec:
       project: '{{ index .path.segments 1 }}'
       source:
         repoURL: https://github.com/bamaas/Homelab-2.0
-        targetRevision: multi-env-support
+        targetRevision: HEAD
         path: '{{.path.path}}'
         helm:
           valueFiles:
-            - ../.common/values.yaml
-            - secrets://../.common/values.enc.yaml
+            - ../../../../common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.yaml
+            - secrets://../../../../common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.enc.yaml
             - values.yaml
             - secrets://values.enc.yaml
       destination:
