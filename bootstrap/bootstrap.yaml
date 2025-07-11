@@ -98,7 +98,7 @@ spec:
     metadata:
       name: '{{ .path.basename }}'
     spec:
-      project: '{{ index .path.segments 1 }}'
+      project: '{{ index .path.segments 2 }}'
       source:
         repoURL: https://github.com/bamaas/HomeLab-2.0
         targetRevision: multi-env-support
@@ -111,7 +111,7 @@ spec:
             - secrets://values.enc.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ index .path.segments 2 }}'
+        namespace: '{{ index .path.segments 3 }}'
       syncPolicy:
         automated:
           prune: true
