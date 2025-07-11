@@ -33,14 +33,14 @@ spec:
         repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: multi-env-support
         directories:
-          - path: 'bootstrap/projects/.common'
-          - path: 'bootstrap/projects/${ENV}'
-          - path: 'bootstrap/resources/.common'
-          - path: 'bootstrap/resources/${ENV}'
-          - path: 'bootstrap/namespaces/.common'
-          - path: 'bootstrap/namespaces/${ENV}'
-          - path: 'bootstrap/misc/.common'
-          - path: 'bootstrap/misc/${ENV}'
+          - path: 'bootstrap/.common/projects'
+          - path: 'bootstrap/${ENV}/projects'
+          - path: 'bootstrap/.common/resources'
+          - path: 'bootstrap/${ENV}/resources'
+          - path: 'bootstrap/.common/namespaces'
+          - path: 'bootstrap/${ENV}/namespaces'
+          - path: 'bootstrap/.common/misc'
+          - path: 'bootstrap/${ENV}/misc'
   template:
     metadata:
       name: '{{ slice (index .path.segments 1) 1 }}-{{ .path.basename }}'
