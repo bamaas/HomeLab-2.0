@@ -30,7 +30,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/bamaas/Homelab-2.0
+        repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: multi-env-support
         directories:
           - path: 'projects'
@@ -45,7 +45,7 @@ spec:
     spec:
       project: argocd-system
       source:
-        repoURL: https://github.com/bamaas/Homelab-2.0
+        repoURL: https://github.com/bamaas/HomeLab-2.0
         targetRevision: mutli-env-support
         path: '{{.path.path}}'
       destination:

@@ -7,7 +7,7 @@ metadata:
 spec:
   project: argocd-system
   source:
-    repoURL: https://github.com/bamaas/Homelab-2.0
+    repoURL: https://github.com/bamaas/HomeLab-2.0
     targetRevision: HEAD
     path: bootstrap/argocd
     helm:

@@ -9,7 +9,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/bamaas/Homelab-2.0
+        repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: HEAD
         directories:
           - path: 'apps/dev/*/*/*'
@@ -19,7 +19,7 @@ spec:
     spec:
       project: '{{ index .path.segments 1 }}'
       source:
-        repoURL: https://github.com/bamaas/Homelab-2.0
+        repoURL: https://github.com/bamaas/HomeLab-2.0
         targetRevision: HEAD
         path: '{{.path.path}}'
         helm:
