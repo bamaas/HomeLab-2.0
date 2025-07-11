@@ -15,7 +15,7 @@ spec:
           - path: 'apps/*/*/*/dev'
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{ index .path.segments 3 }}'
     spec:
       project: '{{ index .path.segments 1 }}'
       source:
