@@ -14,6 +14,7 @@ yq = "4.44.5"
 node = "20.10.0"
 "npm:markdownlint-cli" = "0.44.0"
 kubeconform = "0.7.0"
+envsubst = "1.4.3"
 
 [env]
 ROOT_DIR = "{{cwd}}"

@@ -33,10 +33,12 @@ spec:
         repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: multi-env-support
         directories:
-          - path: 'projects'
-          - path: 'bootstrap/cluster-resources'
-          - path: 'bootstrap/misc'
-          - path: 'bootstrap/apps'
+          - path: 'projects/.common'
+          - path: 'projects/${ENV}'
+          - path: 'bootstrap/cluster-resources/.common'
+          - path: 'bootstrap/cluster-resources/${ENV}'
+          - path: 'bootstrap/misc/.common'
+          - path: 'bootstrap/misc/${ENV}'
           - path: 'donotdeploy'
             exclude: true
   template:
@@ -69,7 +71,7 @@ metadata:
     argocd.argoproj.io/secret-type: cluster
 type: Opaque
 stringData:
-  name: cluster
+  name: ${ENV}
   server: https://kubernetes.default.svc
   config: |-
     {
@@ -77,3 +79,44 @@ stringData:
         "insecure":false
       }
     }
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-bootstrap
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: https://github.com/bamaas/HomeLab-2.0
+        revision: multi-env-support
+        directories:
+          - path: 'apps/${ENV}/*/*/*'
+  template:
+    metadata:
+      name: '{{ .path.basename }}'
+    spec:
+      project: '{{ index .path.segments 1 }}'
+      source:
+        repoURL: https://github.com/bamaas/HomeLab-2.0
+        targetRevision: multi-env-support
+        path: '{{.path.path}}'
+        helm:
+          valueFiles:
+            - ../../../../common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.yaml
+            - secrets://../../../../common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.enc.yaml
+            - values.yaml
+            - secrets://values.enc.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ index .path.segments 2 }}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true

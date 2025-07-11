@@ -38,10 +38,6 @@ helm secrets upgrade \
     --values "${ARGOCD_DIR}/values.enc.yaml" \
     --wait
 
-# Update stringData.name in the Secret in bootstrap.yaml to the current environment
-# Then apply the bootstrap.yaml
-yq '
-  (select(.kind == "Secret" and .metadata.name == "argocd-cluster-name")
-    .stringData.name) = env(ENV)
-' "${BOOTSTRAP_DIR}/bootstrap.yaml" | \
-kubectl apply -f -
+# Replace ${ENV} placeholder with value
+ENV=${ENV} envsubst < "${BOOTSTRAP_DIR}/bootstrap.yaml" |
+  kubectl apply -f -
