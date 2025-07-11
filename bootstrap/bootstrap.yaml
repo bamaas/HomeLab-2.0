@@ -43,7 +43,7 @@ spec:
           - path: 'bootstrap/${ENV}/misc'
   template:
     metadata:
-      name: '{{ slice (index .path.segments 1) 1 }}-{{ .path.basename }}'
+      name: '{{ trimPrefix "." (index .path.segments 1) }}-{{ .path.basename }}'
     spec:
       project: argocd-system
       source:
