@@ -5,8 +5,6 @@ set -e
 # Arguments
 ENV=$1
 
-
-
 # Check if environment variable is provided
 if [ -z "$ENV" ]; then
   echo "Error: environment not specified"
@@ -36,6 +34,8 @@ helm secrets upgrade \
     "${ARGOCD_DIR}" \
     --namespace argocd \
     --create-namespace \
+    --values "${APPS_DIR}/.common/argocd-system/argocd/values.yaml" \
+    --values "${APPS_DIR}/.common/argocd-system/argocd/values.enc.yaml" \
     --values "${ARGOCD_DIR}/values.yaml" \
     --values "${ARGOCD_DIR}/values.enc.yaml" \
     --wait

@@ -105,8 +105,8 @@ spec:
         path: '{{.path.path}}'
         helm:
           valueFiles:
-            - ../../../../.common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.yaml
-            - secrets://../../../../.common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.enc.yaml
+            - ../../../../.common/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}{{ .path.basename }}/values.yaml
+            - secrets://../../../../.common/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ .path.basename }}/values.enc.yaml
             - values.yaml
             - secrets://values.enc.yaml
       destination:
