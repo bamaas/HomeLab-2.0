@@ -33,17 +33,17 @@ spec:
         repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: multi-env-support
         directories:
-          - path: 'projects/.common'
-          - path: 'projects/${ENV}'
-          - path: 'bootstrap/cluster-resources/.common'
-          - path: 'bootstrap/cluster-resources/${ENV}'
+          - path: 'bootstrap/projects/.common'
+          - path: 'bootstrap/projects/${ENV}'
+          - path: 'bootstrap/resources/.common'
+          - path: 'bootstrap/resources/${ENV}'
+          - path: 'bootstrap/namespaces/.common'
+          - path: 'bootstrap/namespaces/${ENV}'
           - path: 'bootstrap/misc/.common'
           - path: 'bootstrap/misc/${ENV}'
-          - path: 'donotdeploy'
-            exclude: true
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{ index .path.segments 1 }}-{{ .path.basename }}'
     spec:
       project: argocd-system
       source:
@@ -105,8 +105,8 @@ spec:
         path: '{{.path.path}}'
         helm:
           valueFiles:
-            - ../../../../common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.yaml
-            - secrets://../../../../common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.enc.yaml
+            - ../../../../.common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.yaml
+            - secrets://../../../../.common/{{ index .path.segments 1 }}/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/values.enc.yaml
             - values.yaml
             - secrets://values.enc.yaml
       destination:

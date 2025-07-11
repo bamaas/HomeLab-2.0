@@ -5,6 +5,8 @@ set -e
 # Arguments
 ENV=$1
 
+
+
 # Check if environment variable is provided
 if [ -z "$ENV" ]; then
   echo "Error: environment not specified"
@@ -15,7 +17,7 @@ fi
 
 # Variables
 BOOTSTRAP_DIR="${ROOT_DIR}/bootstrap"
-ARGOCD_DIR="${BOOTSTRAP_DIR}/argocd"
+ARGOCD_DIR="${APPS_DIR}/${ENV}/argocd-system/argocd/argocd"
 
 # Check if Argo CD is already installed
 if helm list -n argocd | grep -q argocd; then
