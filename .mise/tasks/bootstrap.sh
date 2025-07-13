@@ -17,12 +17,12 @@ fi
 BOOTSTRAP_DIR="${ROOT_DIR}/bootstrap"
 ARGOCD_DIR="${APPS_DIR}/${ENV}/argocd-system/argocd/argocd"
 
-# # Check if Argo CD is already installed
-# if helm list -n argocd | grep -q argocd; then
-#     echo "Argo CD is already installed."
-#     echo "Manage ArgoCD via GitOps repository."
-#     exit 0
-# fi
+# Check if Argo CD is already installed
+if helm list -n argocd | grep -q argocd; then
+    echo "Argo CD is already installed."
+    echo "Manage ArgoCD via GitOps repository."
+    exit 0
+fi
 
 # Install Argo CD
 echo "Installing Argo CD"
@@ -34,8 +34,8 @@ helm secrets upgrade \
     "${ARGOCD_DIR}" \
     --namespace argocd \
     --create-namespace \
-    --values "${APPS_DIR}/default/argocd-system/argocd/values.yaml" \
-    --values "${APPS_DIR}/default/argocd-system/argocd/values.enc.yaml" \
+    --values "${APPS_DIR}/default/argocd-system/argocd/argocd/values.yaml" \
+    --values "${APPS_DIR}/default/argocd-system/argocd/argocd/values.enc.yaml" \
     --values "${ARGOCD_DIR}/values.yaml" \
     --values "${ARGOCD_DIR}/values.enc.yaml" \
     --wait

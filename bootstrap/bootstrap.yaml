@@ -33,23 +33,22 @@ spec:
         repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: multi-env-support
         directories:
-          - path: 'bootstrap/default/projects'
           - path: 'bootstrap/${ENV}/projects'
-          - path: 'bootstrap/default/resources'
           - path: 'bootstrap/${ENV}/resources'
-          - path: 'bootstrap/default/namespaces'
           - path: 'bootstrap/${ENV}/namespaces'
-          - path: 'bootstrap/default/misc'
           - path: 'bootstrap/${ENV}/misc'
   template:
     metadata:
-      name: '{{ trimPrefix "." (index .path.segments 1) }}-{{ .path.basename }}'
+      name: '{{ .path.basename }}'
     spec:
       project: argocd-system
-      source:
-        repoURL: https://github.com/bamaas/HomeLab-2.0
-        targetRevision: multi-env-support
-        path: '{{.path.path}}'
+      sources:
+        - repoURL: https://github.com/bamaas/HomeLab-2.0
+          targetRevision: multi-env-support
+          path: '{{.path.path}}'
+        - repoURL: https://github.com/bamaas/HomeLab-2.0
+          targetRevision: multi-env-support
+          path: '{{.path.path}}/../../default/{{ .path.basename }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
