@@ -1,8 +1,8 @@
 [tools]
-argocd = { version = "latest", exe = "argocd" }
+argocd = { version = "3.0.11", exe = "argocd" }
 helm = "3.17.2"
 k9s = "0.32.7"
-kubectl = "latest"
+kubectl = "1.33.2"
 shellcheck = "0.10.0"
 sops = "3.9.2"
 talos = "1.9.5"
@@ -15,7 +15,7 @@ node = "20.10.0"
 "npm:markdownlint-cli" = "0.44.0"
 kubeconform = "0.7.0"
 envsubst = "1.4.3"
-ksops = "latest"
+ksops = "4.3.3"
 
 [env]
 ROOT_DIR = "{{cwd}}"
