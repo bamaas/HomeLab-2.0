@@ -1,0 +1,105 @@
+---
+argo-cd:
+
+  dex:
+    enabled: false
+
+  notifications:
+    enabled: false
+
+  configs:
+    cm:
+      create: true
+      helm.valuesFileSchemes: >-
+        secrets
+
+  repoServer:
+    volumes:
+      - name: custom-tools
+        emptyDir: {}
+      - name: cmp-sops-plugin
+        configMap:
+          name: argocd-cmp-sops-plugin
+      - name: cmp-tmp
+        emptyDir: {}
+    volumeMounts:
+      - mountPath: /custom-tools
+        name: custom-tools
+    initContainers:
+      - name: download-tools
+        image: alpine:3.21.3
+        command: [sh, -ec]
+        env:
+          - name: HELM_VERSION
+            value: "3.17.2"
+          - name: HELM_SECRETS_VERSION
+            value: "4.1.1"
+          - name: KUBECTL_VERSION
+            value: "1.24.6"
+          - name: VALS_VERSION
+            value: "0.18.0"
+          - name: SOPS_VERSION
+            value: "3.7.3"
+          - name: KSOPS_VERSION
+            value: "4.3.3"
+          - name: KUSTOMIZE_VERSION
+            value: "5.7.0"
+        args:
+          - |
+            mkdir -p /custom-tools/helm-plugins
+            wget -qO- https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz| tar -xzf- -C /custom-tools/ linux-amd64/helm && mv /custom-tools/linux-amd64/helm /custom-tools/helm && rm -rf /custom-tools/linux-amd64;
+            wget -qO- https://github.com/jkroepke/helm-secrets/releases/download/v${HELM_SECRETS_VERSION}/helm-secrets.tar.gz | tar -C /custom-tools/helm-plugins -xzf-;
+            wget -qO /custom-tools/sops https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux
+            wget -qO /custom-tools/kubectl https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+            wget -qO- https://github.com/variantdev/vals/releases/download/v${VALS_VERSION}/vals_${VALS_VERSION}_linux_amd64.tar.gz | tar -xzf- -C /custom-tools/ vals;
+            wget -qO- https://github.com/viaduct-ai/kustomize-sops/releases/download/v${KSOPS_VERSION}/ksops_${KSOPS_VERSION}_Linux_arm64.tar.gz | tar -xzf- -C /custom-tools/ ksops;
+            wget -qO- https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz | tar -xzf- -C /custom-tools/ kustomize;
+            chmod +x /custom-tools/*
+        volumeMounts:
+          - mountPath: /custom-tools
+            name: custom-tools
+
+    extraContainers:
+      - name: cmp-sops-plugin
+        command:
+          - "/var/run/argocd/argocd-cmp-server"
+        image: alpine:3.20.0
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 999
+        volumeMounts:
+          - mountPath: /var/run/argocd
+            name: var-files
+          - mountPath: /home/argocd/cmp-server/plugins
+            name: plugins
+          - mountPath: /home/argocd/cmp-server/config/plugin.yaml
+            subPath: plugin.yaml
+            name: cmp-sops-plugin
+          - mountPath: /tmp
+            name: cmp-tmp
+          - mountPath: /custom-tools
+            name: custom-tools
+
+  extraObjects:
+    - apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: argocd-cmp-sops-plugin
+        namespace: argocd
+      data:
+        plugin.yaml: |
+          apiVersion: argoproj.io/v1alpha1
+          kind: ConfigManagementPlugin
+          metadata:
+            name: cmp-sops-decrypt
+          spec:
+            generate:
+              command: [sh, -c]
+              args:
+                - TMPFILE=$(mktemp);
+                  sops --decrypt --input-type yaml --output-type yaml values.enc.yaml > ${TMPFILE};
+                  mv "${TMPFILE}" values.enc.yaml;
+                  kustomize build --enable-helm --enable-alpha-plugins --enable-exec --load-restrictor=LoadRestrictionsNone .
+            discover:
+              fileName: "values.enc.yaml"

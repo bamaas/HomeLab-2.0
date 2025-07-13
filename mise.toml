@@ -16,9 +16,10 @@ node = "20.10.0"
 kubeconform = "0.7.0"
 envsubst = "1.4.3"
 ksops = "4.3.3"
+kustomize = "5.7.0"
 
 [env]
-ROOT_DIR = "{{cwd}}"
+ROOT_DIR = "{{ config_root }}"
 APPS_DIR = "{{env.ROOT_DIR}}/apps"
 LINT_CONFIG_DIR = "{{env.ROOT_DIR}}/.lint"
 TERRAFORM_DIR = "{{env.ROOT_DIR}}/provision/core"

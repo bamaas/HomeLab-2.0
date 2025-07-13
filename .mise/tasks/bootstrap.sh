@@ -14,8 +14,8 @@ if [ -z "$ENV" ]; then
 fi
 
 # Variables
-BOOTSTRAP_DIR="${ROOT_DIR}/bootstrap"
-ARGOCD_DIR="${APPS_DIR}/${ENV}/argocd-system/argocd/argocd"
+bootstrap_dir="${ROOT_DIR}/bootstrap"
+argocd_dir="${bootstrap_dir}/argocd"
 
 # Check if Argo CD is already installed
 if helm list -n argocd | grep -q argocd; then
@@ -26,20 +26,19 @@ fi
 
 # Install Argo CD
 echo "Installing Argo CD"
-helm repo add argo-cd "$(yq e '.dependencies[0].repository' "${ARGOCD_DIR}/Chart.yaml")"
-helm dependency update "${ARGOCD_DIR}"
+helm repo add argo-cd "$(yq e '.dependencies[0].repository' "${argocd_dir}/Chart.yaml")"
+helm dependency update "${argocd_dir}"
 helm secrets upgrade \
     --install \
     argocd \
-    "${ARGOCD_DIR}" \
+    "${argocd_dir}" \
     --namespace argocd \
     --create-namespace \
-    --values "${APPS_DIR}/default/argocd-system/argocd/argocd/values.yaml" \
-    --values "${APPS_DIR}/default/argocd-system/argocd/argocd/values.enc.yaml" \
-    --values "${ARGOCD_DIR}/values.yaml" \
-    --values "${ARGOCD_DIR}/values.enc.yaml" \
+    --values "${argocd_dir}/base.values.yaml" \
+    --values "${argocd_dir}/values.yaml" \
+    --values "${argocd_dir}/values.enc.yaml" \
     --wait
 
 # Replace ${ENV} placeholder with value
-ENV=${ENV} envsubst < "${BOOTSTRAP_DIR}/bootstrap.yaml" |
+ENV=${ENV} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
   kubectl apply -f -

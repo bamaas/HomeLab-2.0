@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: node-red
+name: node-red
+repo: https://schwarzit.github.io/node-red-chart/
+version: 0.82.1
+releaseName: node-red
+valuesFile: values.enc.yaml
