@@ -33,13 +33,13 @@ spec:
         repoURL: https://github.com/bamaas/HomeLab-2.0
         revision: multi-env-support
         directories:
-          - path: 'bootstrap/.common/projects'
+          - path: 'bootstrap/default/projects'
           - path: 'bootstrap/${ENV}/projects'
-          - path: 'bootstrap/.common/resources'
+          - path: 'bootstrap/default/resources'
           - path: 'bootstrap/${ENV}/resources'
-          - path: 'bootstrap/.common/namespaces'
+          - path: 'bootstrap/default/namespaces'
           - path: 'bootstrap/${ENV}/namespaces'
-          - path: 'bootstrap/.common/misc'
+          - path: 'bootstrap/default/misc'
           - path: 'bootstrap/${ENV}/misc'
   template:
     metadata:
@@ -105,8 +105,8 @@ spec:
         path: '{{.path.path}}'
         helm:
           valueFiles:
-            - ../../../../.common/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ .path.basename }}/values.yaml
-            - secrets://../../../../.common/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ .path.basename }}/values.enc.yaml
+            - ../../../../default/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ index .path.segments 4 }}/values.yaml
+            - secrets://../../../../default/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ index .path.segments 4 }}/values.enc.yaml
             - values.yaml
             - secrets://values.enc.yaml
       destination:

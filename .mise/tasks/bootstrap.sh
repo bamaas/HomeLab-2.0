@@ -34,8 +34,8 @@ helm secrets upgrade \
     "${ARGOCD_DIR}" \
     --namespace argocd \
     --create-namespace \
-    --values "${APPS_DIR}/.common/argocd-system/argocd/values.yaml" \
-    --values "${APPS_DIR}/.common/argocd-system/argocd/values.enc.yaml" \
+    --values "${APPS_DIR}/default/argocd-system/argocd/values.yaml" \
+    --values "${APPS_DIR}/default/argocd-system/argocd/values.enc.yaml" \
     --values "${ARGOCD_DIR}/values.yaml" \
     --values "${ARGOCD_DIR}/values.enc.yaml" \
     --wait

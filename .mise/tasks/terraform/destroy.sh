@@ -20,8 +20,9 @@ mise run terraform:init "${ENV}"
 # Load environment variables
 . "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
 
+tf_vars_file="${ROOT_DIR}/provision/${ENV}/${ENV}.tfvars"
 # Destroy
 terraform \
   -chdir="${TERRAFORM_DIR}" \
     destroy \
-      -var-file="${ROOT_DIR}/${ENV}.tfvars"
+      -var-file="${tf_vars_file}"

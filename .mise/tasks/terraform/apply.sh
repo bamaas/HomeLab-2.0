@@ -19,9 +19,10 @@ mise run terraform:init "${ENV}"
 # Load environment variables
 . "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
 
+tf_vars_file="${ROOT_DIR}/provision/${ENV}/${ENV}.tfvars"
 # Verify that the environment file exists
-if [ ! -f "${ENV}.tfvars" ]; then
-  echo "Error: Environment file '${ENV}.tfvars' not found"
+if [ ! -f "${tf_vars_file}" ]; then
+  echo "Error: Environment file '${tf_vars_file}' not found"
   exit 1
 fi
 
@@ -29,4 +30,4 @@ fi
 terraform \
   -chdir="${TERRAFORM_DIR}" \
     apply \
-      -var-file="${ROOT_DIR}/${ENV}.tfvars"
+      -var-file="${tf_vars_file}"
