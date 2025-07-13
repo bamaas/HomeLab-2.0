@@ -13,10 +13,11 @@ if [ -z "$1" ]; then
 fi
 
 # Decrypt the environment file
-mise run decrypt "${ENV}.enc.env"
+enc_env_file="${ROOT_DIR}/provision/${ENV}/${ENV}.enc.env"
+mise run decrypt "${enc_env_file}"
 
 # Load environment variables from the decrypted JSON file
-dec_env_file="${ENV}.dec.env"
+dec_env_file="${ROOT_DIR}/provision/${ENV}/${ENV}.dec.env"
 echo "Loading environment variables from ${dec_env_file}..."
 set -a  # Enable automatic export of all variables
 # shellcheck source=/dev/null

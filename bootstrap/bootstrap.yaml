@@ -30,24 +30,25 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/bamaas/Homelab-2.0
-        revision: HEAD
+        repoURL: https://github.com/bamaas/HomeLab-2.0
+        revision: main
         directories:
-          - path: 'projects'
-          - path: 'bootstrap/cluster-resources'
-          - path: 'bootstrap/misc'
-          - path: 'bootstrap/apps'
-          - path: 'donotdeploy'
-            exclude: true
+          - path: 'bootstrap/${ENV}/projects'
+          - path: 'bootstrap/${ENV}/resources'
+          - path: 'bootstrap/${ENV}/namespaces'
+          - path: 'bootstrap/${ENV}/misc'
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: '{{ .path.basename }}'
     spec:
       project: argocd-system
-      source:
-        repoURL: https://github.com/bamaas/Homelab-2.0
-        targetRevision: HEAD
-        path: '{{.path.path}}'
+      sources:
+        - repoURL: https://github.com/bamaas/HomeLab-2.0
+          targetrevision: main
+          path: '{{.path.path}}'
+        - repoURL: https://github.com/bamaas/HomeLab-2.0
+          targetrevision: main
+          path: '{{.path.path}}/../../default/{{ .path.basename }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
@@ -69,7 +70,7 @@ metadata:
     argocd.argoproj.io/secret-type: cluster
 type: Opaque
 stringData:
-  name: cluster
+  name: ${ENV}
   server: https://kubernetes.default.svc
   config: |-
     {
@@ -77,3 +78,44 @@ stringData:
         "insecure":false
       }
     }
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-bootstrap
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: https://github.com/bamaas/HomeLab-2.0
+        revision: main
+        directories:
+          - path: 'apps/${ENV}/*/*/*'
+  template:
+    metadata:
+      name: '{{ .path.basename }}'
+    spec:
+      project: '{{ index .path.segments 2 }}'
+      source:
+        repoURL: https://github.com/bamaas/HomeLab-2.0
+        targetrevision: main
+        path: '{{.path.path}}'
+        helm:
+          valueFiles:
+            - ../../../../default/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ index .path.segments 4 }}/values.yaml
+            - secrets://../../../../default/{{ index .path.segments 2 }}/{{ index .path.segments 3 }}/{{ index .path.segments 4 }}/values.enc.yaml
+            - values.yaml
+            - secrets://values.enc.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ index .path.segments 3 }}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true

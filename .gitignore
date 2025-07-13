@@ -41,6 +41,8 @@ bootstrap/argocd/charts/*.tgz
 bootstrap/argocd/Chart.lock
 Chart.lock
 apps/*/*/*/charts/*.tgz
+charts/*.tgz
+apps/**/*.tgz
 
 # Env files
 *.dec.env

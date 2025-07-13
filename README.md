@@ -127,7 +127,7 @@ This section outlines a list of planned improvements and upcoming features, pres
 
 - [ ] Move ArgoCD to apps directory
 
-- [ ] Investigate [Cillium load balancer IPAM](https://docs.cilium.io/en/stable/network/lb-ipam/) as al alternative for Metallb.
+- [ ] Investigate [Cilium load balancer IPAM](https://docs.cilium.io/en/stable/network/lb-ipam/) as al alternative for Metallb.
 
 - [ ] Investigate [Cillum Gateway API](https://cilium.io/use-cases/gateway-api/) as an alternative for Nginx ingress controller.
 
@@ -148,3 +148,7 @@ This section outlines a list of planned improvements and upcoming features, pres
 - [ ] Checkout [Sidero Omni](https://github.com/siderolabs/omni).
 
 - [ ] Deploy and configure [External DNS](https://kubernetes-sigs.github.io/external-dns/latest/) to be able to [manage PiHole](https://kubernetes-sigs.github.io/external-dns/v0.13.3/tutorials/pihole/#service-example).
+
+- [ ] Implement [KRR](https://github.com/robusta-dev/krr)
+
+- [ ] Set ROOT_DIR in Mise.toml to [MISE_PROJECT_ROOT](https://mise.jdx.dev/tasks/)

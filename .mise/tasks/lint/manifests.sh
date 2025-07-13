@@ -20,7 +20,7 @@ while IFS= read -r -d '' chart_dir; do
     else
         cmd="$cmd ::: lint:manifest $dir_path $SCHEMA_VALIDATION -r"
     fi
-done < <(find "${ROOT_DIR}/apps" -name "Chart.yaml" -not -path "*/\.ignore/*" -print0)
+done < <(find "${APPS_DIR}" -name "Chart.yaml" -not -path "*/\.ignore/*" -print0)
 
 # Execute the variable as a command
 eval "$cmd"
