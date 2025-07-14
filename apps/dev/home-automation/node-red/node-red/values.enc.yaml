@@ -1,9 +1,13 @@
 metrics:
-    enabled: ENC[AES256_GCM,data:fmjSFg==,iv:iwq+yRYu54YsiNYMFHMbB2+QKHM/83oK2JN7m22WvRg=,tag:NKBqDJs6sVmEQbkDy1Xtsg==,type:bool]
+    enabled: ENC[AES256_GCM,data:ZSJo6A==,iv:vYgDiHwbytN2jRdFu2DdsfC4sTcccEiBvlvUC8OEJ58=,tag:DnwMgCHwIZQQFqs5PLgMUA==,type:bool]
     serviceMonitor:
-        enabled: ENC[AES256_GCM,data:/cab7Fc=,iv:NvBUdg0xt9kFwGbvdRn29AHZ8A0O9Pq8/JAZXMcFFow=,tag:iiQ5qXPrxOaO4ByEUBPaFg==,type:bool]
+        enabled: ENC[AES256_GCM,data:khyJzqY=,iv:sKQ6xw2UgLMlcTFtbKNpiPvjcdPGpe6hkNg7fUy+6fY=,tag:hGx26vBvBRJ+1c2QNeslVA==,type:bool]
 persistence:
-    enabled: ENC[AES256_GCM,data:aMHz+GY=,iv:A387lHYZ5tvXUMtLDRcI8EHG+QHohJRbzqJxW0eaSLo=,tag:jWf7PcKniMFEQ0Ku/9N+YA==,type:bool]
+    enabled: ENC[AES256_GCM,data:ljSaGyQ=,iv:5a7TiTccvu9Hes/eynF5jyWc9D04oQfjHvfz5MfdwK8=,tag:EQ4WWljfOtCTm5tyt8JOqA==,type:bool]
+image:
+    repository: ENC[AES256_GCM,data:1VRJ4g==,iv:GH+9wHB1WRPRGpjldql8DrWEqps2qrn7BtkUy5muYL0=,tag:+P4P2qvhJzbmNCNS/V6Crg==,type:str]
+ingress:
+    enabled: ENC[AES256_GCM,data:S+Ocsw==,iv:yK+71gp2rTqO5IrytJizM61mGvqirJZjn3DkUZD8wKE=,tag:wn1qHu2UqsT8lR/v3gy5gA==,type:bool]
 sops:
     kms: []
     gcp_kms: []
@@ -11,12 +15,12 @@ sops:
         - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
           name: sops-key
           version: b2031a08aea14a50ab6d8e72548eb4f9
-          created_at: "2025-07-14T09:16:56Z"
-          enc: SpUNaaWScYkV1LrlQRTJu4sLh9ZVVVGTAL0LYQteB7Kx1gwXeugDT4qYXnnCu-qVI51pLTePgYFOtUhg_WiBpQ7qMfC_EiN-Z5ahILC7AEDKFfJk1ICee8TqNdEZLOogH7k2nyNBk9L9Xe30RqbV_xKl7durd_zVta4_DgH6Fy2hJ1CpYGVBr1C3k1ZGBSoMEvZK_M7XETAXJqiom51uXPlcUcYKTJjwL769FbGVp_ySIeBKD7HJoszDWW6vR_OBB2UEioCnHSt1MjQFSGBUYCHpMbGAO-uFrUkuKzuoPAJ-ycWbMCm8p4rO8LsMZp-Lf6Qtkx4h3NP3xB5EdsrsMA
+          created_at: "2025-07-14T19:11:04Z"
+          enc: dZ1e32I5NX8baqSAikF740SVwhPxOrnZK-20MMRnMjrXXQ1SOfw7TWS0zfKFeCOiHzpOwHRouj07sYrx9JWqT74sqR_F5CXE5KqLIF-_RF9iGNZ1Xf7An8zGoM_xYYaIpHGC7nkJnp9lYMHmpwhlja5barodlzTXDLCtFoPVacGI6R9DnQiJJPu7RrHmb9kqSOJYMS42LabUWF7dbsI0-GFTlJ4tjURXSl0Izw2JwTaHXfOs54BjnOicS51OEkqd30bN8ZcxKZnTOCDD1SD5eeUV1-ZJhhLh6G6XpaCswtBPhWsMSCJGrr8f_HdXHPGptmCwyggneDhdhX_tAbk9tA
     hc_vault: []
     age: []
-    lastmodified: "2025-07-14T09:16:57Z"
-    mac: ENC[AES256_GCM,data:YmoHjHRM24FpJC/TSUY9aeE/qzCgHiKAf4uSNf00Tbstq229Zm8aA6wdcMtKbTjoJqnJVV5rt4sgzcwvjwWRB1hc9a7N+pZQ2Ct3yyHtVKCeCH3m3sV0GWbeuvcs46GQowArw7r2P3BnrKHp0KnMOvRL/5+2aEcxDb1QtgbfqO8=,iv:OIC7rwWbViphIevmmIae2dtp7cCSgYl89M9wjn1rP6g=,tag:7y7we80NuvA+RXz4Xrurrw==,type:str]
+    lastmodified: "2025-07-14T19:11:05Z"
+    mac: ENC[AES256_GCM,data:ILhGmLpTaZxVvw0Z1xpR7G38KvO5O5WMHkCQZWSCoI7yMEh5TiEnSCeOcvzeokKpyhERmzOIkmlFg5pqYuTHiezQCAEFJCleBk7LwsG6pJ9rYzGWDb43e8NI5fdp0nKXpZWhi2LydkyKWy2ImFXsQl4Vg6ouVoE+Dw3DY9I0kvk=,iv:ivlBqw0p2d4YkMWYskpY3l5izbGc5bIVn1NZULFuHIE=,tag:TDTnATBNhxsnpkMSwBf8zw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.2
