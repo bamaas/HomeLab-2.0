@@ -1,0 +1,4 @@
+---
+resources:
+  - foundation.yaml
+  - home-automation.yaml

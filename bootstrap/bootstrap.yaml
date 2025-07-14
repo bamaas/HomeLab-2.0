@@ -44,11 +44,8 @@ spec:
       project: argocd-system
       sources:
         - repoURL: https://github.com/bamaas/HomeLab-2.0
-          targetrevision: kustomize-ksop-helm-setup
+          targetRevision: kustomize-ksop-helm-setup
           path: '{{.path.path}}'
-        - repoURL: https://github.com/bamaas/HomeLab-2.0
-          targetrevision: kustomize-ksop-helm-setup
-          path: '{{.path.path}}/../../default/{{ .path.basename }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
@@ -100,11 +97,10 @@ spec:
       project: '{{ index .path.segments 2 }}'
       source:
         repoURL: https://github.com/bamaas/HomeLab-2.0
-        targetrevision: kustomize-ksop-helm-setup
+        targetRevision: kustomize-ksop-helm-setup
         path: '{{.path.path}}'
         plugin:
-          metadata:
-            name: cmp-sops-decrypt
+          name: cmp-sops-decrypt
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ index .path.segments 3 }}'
