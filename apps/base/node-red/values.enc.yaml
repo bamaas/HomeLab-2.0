@@ -1,2 +1,18 @@
 image:
-    repository: iets
+    repository: ENC[AES256_GCM,data:8t+MLA==,iv:fKNTfTNWX+w7wTCHUmsMbS8X+YXOmdEQH3jv/40GSHM=,tag:nuMLxf9ZmlVtU7iplggnIw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-07-14T19:48:40Z"
+          enc: PJ3wzHqX6CJrDsHftv0PW5NHOTjotonYcxKJef-ZehYtSZCdFFZEonOxvwsQikshQnCfn9s-U_WsXmPN2bE1eX-xR0NfwQLMO555seFuHaVgTtK4dRFoeDF9Sw6jvoe2Ddmo_6c12XloYdAjy7_Uvx7wN6RiUC-yHwjS1DS8gz-r4nXj4zNE1q9m_wGwa_08vQoeJnJJiIJ2cQYR0Plw774w6ot7u6JDKUKHxeLVVu_Keajyiig8chFiBgUkqbfRHGW0lgtiYxNaQiiv_AntAYvr4p0SiFmXWnq3EdcsuWumVH-jAMs8eKyMFJsizpIc7e9WDx-eTYAUOU27GqI7oA
+    hc_vault: []
+    age: []
+    lastmodified: "2025-07-14T19:48:40Z"
+    mac: ENC[AES256_GCM,data:A0uyEugzVfd1OWcKl2bIrSBb9XMlCgwx9t7sZO1gHCUPW0hUVicCFKa7X0aZ3cDNqLk/vtxjESQ4MI09yM4kK3K6Do0gjk9042Bxx94xEcGGGs9C7D5C5b6mH0UMHPAPdPGSm0q9DFSlb2GYmtxBPWDQcT3jKBFww47ReMr+zbE=,iv:sr2Lku6Yz/rV+G5nviRS2pcyvn1RMhS1KVDIRaYjia0=,tag:eOb9Eb3cIuL+LlCm6LZijA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

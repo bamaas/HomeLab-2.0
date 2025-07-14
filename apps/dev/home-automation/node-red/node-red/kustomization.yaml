@@ -2,4 +2,3 @@
 
 generators:
   - helm-chart.yaml
-namespace: "node-red"
