@@ -44,10 +44,10 @@ spec:
       project: argocd-system
       sources:
         - repoURL: https://github.com/bamaas/HomeLab-2.0
-          targetrevision: main
+          targetRevision: main
           path: '{{.path.path}}'
         - repoURL: https://github.com/bamaas/HomeLab-2.0
-          targetrevision: main
+          targetRevision: main
           path: '{{.path.path}}/../../default/{{ .path.basename }}'
       destination:
         server: https://kubernetes.default.svc
@@ -100,7 +100,7 @@ spec:
       project: '{{ index .path.segments 2 }}'
       source:
         repoURL: https://github.com/bamaas/HomeLab-2.0
-        targetrevision: main
+        targetRevision: main
         path: '{{.path.path}}'
         helm:
           valueFiles:

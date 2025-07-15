@@ -18,11 +18,11 @@ BOOTSTRAP_DIR="${ROOT_DIR}/bootstrap"
 ARGOCD_DIR="${APPS_DIR}/${ENV}/argocd-system/argocd/argocd"
 
 # Check if Argo CD is already installed
-if helm list -n argocd | grep -q argocd; then
-    echo "Argo CD is already installed."
-    echo "Manage ArgoCD via GitOps repository."
-    exit 0
-fi
+# if helm list -n argocd | grep -q argocd; then
+#     echo "Argo CD is already installed."
+#     echo "Manage ArgoCD via GitOps repository."
+#     exit 0
+# fi
 
 # Install Argo CD
 echo "Installing Argo CD"
