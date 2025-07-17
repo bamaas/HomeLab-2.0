@@ -45,8 +45,13 @@ configs:
               set -e
               export PATH="${PATH}:/custom-tools/"
 
-              # Find all *.enc.yaml files in the base dir TODO: make this smarter by traversing down the path referenced in the kustomization.yaml files
-              enc_yaml_files_in_base_dir=$(find ../../../../base/${ARGOCD_APP_NAME} -type f -name "*.enc.yaml")
+              # Find all *.enc.yaml files in the base dir
+              # TODO: make this smarter by traversing down the path referenced in the kustomization.yaml files and not just simply going to th base dir
+              enc_yaml_files_in_base_dir=""
+              base_dir="${kustomize_dir_path}/../../../../base/${app}"
+              if [ -d "$base_dir" ]; then
+                  enc_yaml_files_in_base_dir=$(find "$base_dir" -type f -name "*.enc.yaml")
+              fi
 
               # Find all *.enc.yaml files in the current dir
               enc_yaml_files_in_current_dir=$(find . -type f -name "*.enc.yaml")
