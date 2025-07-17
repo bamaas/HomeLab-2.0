@@ -46,13 +46,19 @@ configs:
               export PATH="${PATH}:/custom-tools/"
 
               # Find all *.enc.yaml files in the base dir TODO: make this smarter by traversing down the path referenced in the kustomization.yaml files
-                enc_yaml_files_in_base_dir=$(find ../../../../base/${ARGOCD_APP_NAME} -type f -name "*.enc.yaml")
+              enc_yaml_files_in_base_dir=$(find ../../../../base/${ARGOCD_APP_NAME} -type f -name "*.enc.yaml")
 
               # Find all *.enc.yaml files in the current dir
               enc_yaml_files_in_current_dir=$(find . -type f -name "*.enc.yaml")
 
               # Use yq to extract all values containing '.enc.yaml' in helm-chart.yaml
-              enc_yaml_files_in_helm_chart=$(yq eval '.. | select(tag == "!!str" and test(".*\.enc\.yaml$"))' helm-chart.yaml)
+              enc_yaml_files_in_helm_chart=""
+              if [ -f "./helm-chart.yaml" ]; then
+                  enc_yaml_files_in_helm_chart=$(yq eval '.. | select(tag == "!!str" and test(".*\.enc\.yaml$"))' "./helm-chart.yaml" | while read -r f; do
+                      [ -z "$f" ] && continue
+                      echo "./$f"
+                  done)
+              fi
 
               # Combine both lists, filter out duplicates
               # Normalize all paths to absolute, then filter out duplicates that point to the same file

@@ -31,14 +31,7 @@ kubectl create namespace "${namespace}"
 mise run build:kustomization "${kustomize_dir_path}" |
   kubectl apply -f -
 
-# Wait until all pods ready   # TODO: not working correctly.
-# echo "Waiting until all pods are ready"
-# kubectl wait \
-#   --for=condition=Ready pods \
-#   --all \
-#   --namespace="${namespace}" \
-#   --timeout=300s
-
+# Apply ArgoCD bootstrap applicationsets
 # Replace ${ENV} placeholder with value
 ENV=${env} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
   kubectl apply -f -
