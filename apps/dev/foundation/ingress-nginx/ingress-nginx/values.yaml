@@ -1,0 +1,12 @@
+---
+service:
+  enabled: true
+  annotations:
+    metallb.io/loadBalancerIPs: 192.168.8.100
+    type: LoadBalancer
+
+# TODO: enable metrics
+metrics:
+  enabled: false
+  serviceMonitor:
+    enabled: false

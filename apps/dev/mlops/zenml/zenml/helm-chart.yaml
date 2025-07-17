@@ -1,0 +1,12 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: zenml
+name: zenml
+repo: oci://public.ecr.aws/zenml
+version: 0.82.1
+releaseName: zenml
+valuesFile: values.yaml
+additionalValuesFiles:
+  - values.enc.yaml

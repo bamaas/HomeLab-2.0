@@ -3,7 +3,7 @@
 set -e
 
 # Arguments
-ENV=$1
+env=$1
 
 # Check if environment variable is provided
 if [ -z "$1" ]; then
@@ -14,10 +14,10 @@ if [ -z "$1" ]; then
 fi
 
 # Init
-mise run terraform:init "${ENV}"
+mise run terraform:init "${env}"
 
 # Load environment variables
-. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
+. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${env}"
 
 # Get kubeconfig file from Terraform output
 echo "Getting kubeconfig file"

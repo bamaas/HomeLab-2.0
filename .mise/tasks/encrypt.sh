@@ -2,9 +2,11 @@
 #MISE description="Encrypt a file with sops"
 set -e
 
-DEC_FILE=$1
+# Script arguments
+dec_file="$1"
+quiet=${2:-"false"}
 
-# Check if DEC_FILE is provided
+# Check if dec_file is provided
 if [ -z "$1" ]; then
   echo "Error: file not specified"
   echo "Usage: mise run encrypt path/to/file.dec.yaml"
@@ -12,15 +14,21 @@ if [ -z "$1" ]; then
 fi
 
 # Check if the file exists
-if [ ! -f "${DEC_FILE}" ]; then
+if [ ! -f "${dec_file}" ]; then
   echo "Error: file not found"
   exit 1
 fi
 
+# Validate quiet argument input
+if [ "${quiet}" != "true" ] && [ "${quiet}" != "false" ]; then
+    echo "Error: quiet must be either 'false' or 'true'. Got ${quiet}."
+    exit 1
+fi
+
 # Create the output filename with proper quoting
-ENC_FILE="${DEC_FILE//.dec/.enc}"
+enc_file="${dec_file//.dec/.enc}"
 
 # Encrypt the file
-sops --encrypt "${DEC_FILE}" > "${ENC_FILE}"
+sops --encrypt "${dec_file}" > "${enc_file}"
 
-echo "Encrypted ${DEC_FILE} to ${ENC_FILE}"
+[ "${quiet}" = "false" ] && echo "Encrypted ${dec_file} to ${enc_file}"

@@ -1,0 +1,77 @@
+---
+global:
+  domain: argocd.kubernetes.lan.basmaas.nl
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-stg
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      nginx.ingress.kubernetes.io/whitelist-source-range: 10.42.0.0/0
+    hosts:
+      - argocd.kubernetes.lan.basmaas.nl
+    https: true
+    tls:
+      - secretName: argocd.kubernetes.lan.basmaas.nl
+        hosts:
+          - argocd.kubernetes.lan.basmaas.nl
+
+dex:
+  enabled: false
+
+notifications:
+  enabled: false
+
+configs:
+  cm:
+    create: true
+    helm.valuesFileSchemes: >-
+      secrets
+
+  cmp:
+    create: true
+    plugins:
+      cmp-sops-decrypt:
+        generate:
+          command: [sh, -c]
+          # TODO's for this script:
+          # 1. Verify if enc.yaml is encrypted, if not; fail with meaningful error message.
+          # 2. Fail is namespace is already specified in Kustomization.yaml (this is not allowed)
+          args:
+            - |
+              set -e
+              export PATH="${PATH}:/custom-tools/"
+
+              # Find all *.enc.yaml files in the base dir TODO: make this smarter by traversing down the path referenced in the kustomization.yaml files
+                enc_yaml_files_in_base_dir=$(find ../../../../base/${ARGOCD_APP_NAME} -type f -name "*.enc.yaml")
+
+              # Find all *.enc.yaml files in the current dir
+              enc_yaml_files_in_current_dir=$(find . -type f -name "*.enc.yaml")
+
+              # Use yq to extract all values containing '.enc.yaml' in helm-chart.yaml
+              enc_yaml_files_in_helm_chart=$(yq eval '.. | select(tag == "!!str" and test(".*\.enc\.yaml$"))' helm-chart.yaml)
+
+              # Combine both lists, filter out duplicates
+              # Normalize all paths to absolute, then filter out duplicates that point to the same file
+              enc_yaml_files=$( (echo "$enc_yaml_files_in_current_dir"; echo "$enc_yaml_files_in_helm_chart"; echo "$enc_yaml_files_in_base_dir") | while read -r f; do
+                [ -z "$f" ] && continue
+                readlink -f "$f" 2>/dev/null
+              done | sort -u)
+
+              # Now for every file in enc_yaml_files decrypt it, write to a tmp file and then overwrite the original
+              for file in $enc_yaml_files; do
+                tmpfile=$(mktemp)
+                sops --decrypt --input-type yaml --output-type yaml "$file" > "$tmpfile"
+                mv "$tmpfile" "$file"
+              done
+
+              # Add the namespace to all the resources
+              yq eval ".namespace = \"$ARGOCD_APP_NAMESPACE\"" -i kustomization.yaml;
+
+              # Render the manifests
+              kustomize build --enable-helm --enable-alpha-plugins --enable-exec --load-restrictor=LoadRestrictionsNone .
+          discover:
+            fileName: "values.enc.yaml"

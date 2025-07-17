@@ -1,0 +1,6 @@
+---
+resources:
+  - ../../../../base/metallb/
+  - l2-advertisement.yaml
+  - main-address-pool.enc.yaml
+  - system-address-pool.enc.yaml

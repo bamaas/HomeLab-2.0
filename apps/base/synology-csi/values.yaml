@@ -1,0 +1,43 @@
+---
+storageClasses:
+  synology-iscsi-storage-retain:
+    disabled: false
+    isDefault: false
+    reclaimPolicy: Retain
+    volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    parameters:
+      dsm: "192.168.8.126"
+      fsType: ext4
+      location: /volume7
+      protocol: iscsi
+  synology-iscsi-storage-delete:
+    reclaimPolicy: Delete
+    isDefault: true
+    volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    parameters:
+      dsm: "192.168.8.126"
+      fsType: ext4
+      location: /volume7
+      protocol: iscsi
+      mountPermissions: '0755'
+  synology-nfs-retain:
+    allowVolumeExpansion: true
+    reclaimPolicy: Retain
+    parameters:
+      dsm: "192.168.8.126"
+      location: '/volume7'
+      protocol: nfs
+    mountOptions:
+      - nfsvers=4.1
+  synology-nfs-delete:
+    allowVolumeExpansion: true
+    reclaimPolicy: Delete
+    parameters:
+      dsm: "192.168.8.126"
+      location: '/volume7'
+      protocol: nfs
+      mountPermissions: '0755'
+    mountOptions:
+      - nfsvers=4.1

@@ -1,7 +1,0 @@
----
-
-ipAddressPools: []
-
-metallb:
-  speaker:
-    ignoreExcludeLB: true

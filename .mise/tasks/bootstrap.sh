@@ -3,10 +3,10 @@
 set -e
 
 # Arguments
-ENV=$1
+env="$1"
 
 # Check if environment variable is provided
-if [ -z "$ENV" ]; then
+if [ -z "$env" ]; then
   echo "Error: environment not specified"
   echo "Usage: mise run bootstrap <environment>"
   echo "Example: mise run bootstrap dev"
@@ -15,30 +15,30 @@ fi
 
 # Variables
 bootstrap_dir="${ROOT_DIR}/bootstrap"
-argocd_dir="${bootstrap_dir}/argocd"
+kustomize_dir_path="${ROOT_DIR}/apps/${env}/argocd-system/argocd/argocd/"
+namespace=$(basename "$(dirname "${kustomize_dir_path}")")
 
 # Check if Argo CD is already installed
-if helm list -n argocd | grep -q argocd; then
+if kubectl get namespace "${namespace}" >/dev/null 2>&1; then
     echo "Argo CD is already installed."
     echo "Manage ArgoCD via GitOps repository."
-    exit 0
+    exit 1
 fi
 
 # Install Argo CD
 echo "Installing Argo CD"
-helm repo add argo-cd "$(yq e '.dependencies[0].repository' "${argocd_dir}/Chart.yaml")"
-helm dependency update "${argocd_dir}"
-helm secrets upgrade \
-    --install \
-    argocd \
-    "${argocd_dir}" \
-    --namespace argocd \
-    --create-namespace \
-    --values "${argocd_dir}/base.values.yaml" \
-    --values "${argocd_dir}/values.yaml" \
-    --values "${argocd_dir}/values.enc.yaml" \
-    --wait
+kubectl create namespace "${namespace}"
+mise run build:kustomization "${kustomize_dir_path}" |
+  kubectl apply -f -
+
+# Wait until all pods ready   # TODO: not working correctly.
+# echo "Waiting until all pods are ready"
+# kubectl wait \
+#   --for=condition=Ready pods \
+#   --all \
+#   --namespace="${namespace}" \
+#   --timeout=300s
 
 # Replace ${ENV} placeholder with value
-ENV=${ENV} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
+ENV=${env} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
   kubectl apply -f -

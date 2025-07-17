@@ -35,7 +35,6 @@ spec:
         directories:
           - path: 'bootstrap/${ENV}/projects'
           - path: 'bootstrap/${ENV}/resources'
-          - path: 'bootstrap/${ENV}/namespaces'
           - path: 'bootstrap/${ENV}/misc'
   template:
     metadata:

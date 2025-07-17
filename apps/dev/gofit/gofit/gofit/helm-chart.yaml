@@ -1,0 +1,12 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: gofit
+name: gofit
+repo: https://bamaas.github.io/GoFit/
+version: 0.0.1
+releaseName: gofit
+valuesFile: values.yaml
+additionalValuesFiles:
+  - values.enc.yaml

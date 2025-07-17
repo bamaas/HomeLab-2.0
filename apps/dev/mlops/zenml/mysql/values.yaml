@@ -1,0 +1,10 @@
+---
+global:
+  defaultStorageClass: nfs
+
+architecture: standalone
+
+primary:
+  persistence:
+    enabled: true
+    size: 1Gi

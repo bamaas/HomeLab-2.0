@@ -1,7 +1,0 @@
----
-
-resources:
-  - kube-system.yaml
-  - metallb-system.yaml
-  - victorialogs.yaml
-  - synology-csi.yaml

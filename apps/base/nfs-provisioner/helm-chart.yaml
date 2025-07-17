@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: nfs-subdir-external-provisioner
+name: nfs-subdir-external-provisioner
+repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+version: 4.0.18
+releaseName: nfs-subdir-external-provisioner
+valuesFile: values.yaml

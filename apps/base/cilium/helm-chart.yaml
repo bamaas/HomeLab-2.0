@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: cilium
+name: cilium
+repo: https://helm.cilium.io/
+version: 1.17.4
+releaseName: cilium
+valuesFile: values.yaml
