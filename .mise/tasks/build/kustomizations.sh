@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Build manifests of all the components in the repository"
-set -e
+set -euo pipefail
 
 # Script arguments
 validate_schema=${1:-0}

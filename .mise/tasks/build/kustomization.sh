@@ -2,7 +2,7 @@
 #MISE description="Build manifests of a single component"
 
 # TODO: This has grown into a monstrous bash script, refactor into a Python script.
-set -e
+set -euo pipefail
 
 render_manifests(){
     # Function arguments
