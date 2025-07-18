@@ -2,7 +2,7 @@
 
 This directory contains client configuration files for the homelab environment, specifically the `talosconfig` and `kubeconfig` files.
 
-These configuration files are automatically retrieved during environment setup using:
+Normally these configuration files are automatically retrieved during environment setup using:
 
 ```bash
 mise run up <env>

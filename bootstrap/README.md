@@ -2,7 +2,7 @@
 
 This directory contains the initial bootstrap configuration and manifests for setting up the Kubernetes cluster.
 
-## Structure
+## 📂 Folder Structure
 
 The `bootstrap` directory is organized as follows:
 
@@ -22,3 +22,11 @@ allowing customization for each deployment environment (e.g., `dev/`, `prd/`).
   (e.g., adding environment-specific secrets, config maps, or initialization scripts).
   * `projects/`: This directory overlays the `base/projects/` directory,
   allowing you to customize or extend project definitions for each environment.
+
+## 🛠️ Usage
+
+The bootstrapping process is automated through the main project's Mise configuration:
+
+```bash
+mise run bootstrap <env>
+```

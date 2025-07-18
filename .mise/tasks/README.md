@@ -3,7 +3,7 @@
 This directory contains task definitions for the [mise task runner](https://mise.jdx.dev/tasks/),
 providing a centralized way to manage and execute development operations.
 
-## Usage
+## 🛠️ Usage
 
 Run tasks using the `mise run` command. For instance:
 

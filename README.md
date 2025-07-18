@@ -23,7 +23,7 @@ My personal homelab playground, stored as code.
   Every commit runs automatic pre-commit checks that generate and lint your Kubernetes manifests against the API spec.  
   So you catch mistakes early, not in production.
 
-- **🛠️ Same development setup, every developer**  
+- **🛠️ Isolated development setup, zero headaches**  
   Work in an isolated, reproducible environment powered by Mise and Dev Containers  
   so you always have the right tools, versions, and setup from day one.
 
