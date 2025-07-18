@@ -6,4 +6,4 @@ echo "Cleaning up..."
 
 mise run clean:helm
 
-echo "All cleanup tasks completed!"
+echo -e "\e[32mAll cleanup tasks completed.\e[0m"

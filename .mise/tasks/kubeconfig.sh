@@ -29,4 +29,4 @@ terraform \
 # Set correct permissions for the kubeconfig file
 chmod 600 "${KUBECONFIG}"
 
-echo "Kubeconfig file has been written to ${KUBECONFIG}"
+echo -e "\033[0;32mKubeconfig file has been written to ${KUBECONFIG}\033[0m"

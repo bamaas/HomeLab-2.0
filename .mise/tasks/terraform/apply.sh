@@ -31,5 +31,3 @@ terraform \
   -chdir="${TERRAFORM_DIR}" \
     apply \
       -var-file="${tf_vars_file}"
-
-  echo "Terraform apply completed for environment: ${ENV}"
