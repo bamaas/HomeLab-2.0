@@ -24,7 +24,9 @@ echo "Getting kubeconfig file"
 terraform \
     -chdir="${TERRAFORM_DIR}" \
         output \
-            -raw kubeconfig > .config/kubeconfig
+            -raw kubeconfig > "${KUBECONFIG}"
 
 # Set correct permissions for the kubeconfig file
-chmod 600 .config/kubeconfig
+chmod 600 "${KUBECONFIG}"
+
+echo "Kubeconfig file has been written to ${KUBECONFIG}"

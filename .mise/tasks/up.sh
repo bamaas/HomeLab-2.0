@@ -16,3 +16,5 @@ fi
 
 mise run provision "${env}"
 mise run bootstrap "${env}"
+
+echo "Cluster setup complete."

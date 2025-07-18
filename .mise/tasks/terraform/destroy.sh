@@ -26,3 +26,5 @@ terraform \
   -chdir="${TERRAFORM_DIR}" \
     destroy \
       -var-file="${tf_vars_file}"
+
+echo "Cluster teardown complete."

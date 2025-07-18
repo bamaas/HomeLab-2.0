@@ -24,7 +24,9 @@ echo "Getting talosconfig file"
 terraform \
     -chdir="${TERRAFORM_DIR}" \
         output \
-            -raw talosconfig > .config/talosconfig
+            -raw talosconfig > "${TALOSCONFIG}"
 
 # Set correct permissions for the talosconfig file
-chmod 600 .config/talosconfig
+chmod 600 "${TALOSCONFIG}"
+
+echo "Talosconfig file has been written to ${TALOSCONFIG}"

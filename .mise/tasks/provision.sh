@@ -17,3 +17,5 @@ mise run terraform:plan "${ENV}"
 mise run terraform:apply "${ENV}"
 mise run kubeconfig "${ENV}"
 mise run talosconfig "${ENV}"
+
+echo "Provision process completed."

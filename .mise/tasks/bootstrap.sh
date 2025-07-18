@@ -35,3 +35,5 @@ mise run build:kustomization "${kustomize_dir_path}" |
 # Replace ${ENV} placeholder with value
 ENV=${env} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
   kubectl apply -f -
+
+echo "Bootstrap process completed."
