@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Init the repo"
+#MISE description="Initialize the repo"
 set -e
 
 echo "Initializing repository..."

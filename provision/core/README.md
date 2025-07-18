@@ -1,4 +1,4 @@
-# Provision
+# Core
 
 This directory contains Terraform configurations and scripts that handles the complete infrastructure setup,
 from creating virtual machines on Proxmox to initializing a Kubernetes cluster with TalosOS.

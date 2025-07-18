@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Terraform init"
+#MISE description="Initialize Terraform"
 set -e
 
 # Arguments

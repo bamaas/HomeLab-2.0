@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Terraform destroy"
+#MISE description="Remove the entire cluster."
 #MISE alias="down"
 set -e
 

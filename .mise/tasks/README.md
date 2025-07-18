@@ -10,3 +10,8 @@ Run tasks using the `mise run` command. For instance:
 ```bash
 mise run lint
 ```
+
+To see all available tasks, run:
+```bash
+mise tasks -x
+```

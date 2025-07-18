@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Terraform plan"
+#MISE description="Create a Terraform execution plan for the specified environment"
 set -e
 
 # Arguments

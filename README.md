@@ -9,7 +9,7 @@ My personal homelab playground, stored as code.
 
 ## ✨ Features
 
-- **🚀 One-command cluster provisioning**  
+- **🚀 One-command cluster provisioning** 
   Provision and configure a full Kubernetes cluster with a single command: `mise run up <env>`  
 
 - **🔍 Automatic application discovery**  
@@ -20,13 +20,13 @@ My personal homelab playground, stored as code.
   Run `mise tasks` to view the available commands.
 
 - **✅ Pre-commit quality checks**  
-  Helm charts are automatically linted and templated before every commit to catch errors early.
+  Manifests are automatically generated and linted against the Kubernetes API specification before every commit to catch errors early.
 
 - **🛠️ Reproducible tooling**  
   Developer environment is reproducible and consistent, with tools managed via Mise in a devcontainer.
 
-- **🌍 Multi-environment support** *Planned*  
-  Out-of-the-box support for both `dev` and `prod` environments.
+- **🌍 Multi-environment support**
+  Supports environment-specific resource definitions for true separation and reproducibility.
 
 ## 🏛️ Foundation stack
 
@@ -84,12 +84,12 @@ How to deploy the entire cluster from the ground up.
 
     This command will:
 
-    1. Use Terraform to [provision](./provision/virtual_machines.tf) TalosOS machines on the Proxmox host
-    and [initialize](./provision/cluster.tf) the Kubernetes cluster.
+    1. Use Terraform to [provision](./provision/core/virtual_machines.tf) TalosOS machines on the Proxmox host
+    and [initialize](./provision/core/cluster.tf) the Kubernetes cluster.
 
     1. [Deploy ArgoCD](.mise/tasks/bootstrap.sh) using the bootstrap configuration to enable GitOps workflows.
 
-    1. Automatically discover and deploy all applications defined in the `apps/` directory through [ArgoCD ApplicationSets](./bootstrap/apps/appset-bootstrap.yaml).
+    1. Automatically discover and deploy all applications defined in the `apps/` directory through [ArgoCD ApplicationSets](./bootstrap/bootstrap.yaml).
 
 3. **Good to go 🎉**
 
@@ -102,30 +102,29 @@ How to deploy the entire cluster from the ground up.
 This repository follows a GitOps approach using ArgoCD for continuous deployment.
 The structure is organized as follows:
 
-* `.lint/`: Contains linting configurations
+* `.lint/`: Linting configurations
 
-* `.mise/`: Contains Mise configurations
+* `.mise/`: Mise configurations
+  * `tasks`: Reusable scripts for cluster management, provisioning, and automation.
 
 * `apps/`: Contains all applications deployed to the cluster
-  * Organized in `project/namespace/app` structure
-  * Each app contains its Helm charts and configurations
+  * Organized in `<env>/<project>/<namespace>/<app>` structure
+  * Each app contains its kustomization.yaml and configurations
   * Namespaces are created automatically during deployment
 
 * `bootstrap/`: Contains initial cluster setup and ArgoCD configuration
-  * `argocd/`: ArgoCD core installation and configuration
-  * `apps/`: Contains ApplicationSet definitions for automated application discovery and deployment
-  * `cluster-resources/`: Essential cluster-wide resources
+  * `projects/`: Contains ArgoCD project definitions
+  * `resources/`: Essential cluster-wide resources
   * `misc/`: Miscellaneous bootstrap configurations
 
-* `projects/`: Contains ArgoCD project definitions
-
 * `provision/`: Contains Terraform infrastructure provisioning scripts and configurations
+  * `core/`: Core Terraform modules and scripts for cluster provisioning
+  * `<env>/`: Environment-specific Terraform variable files (e.g., `dev/`, `prd/`)
+
 
 ## 📝 To do
 
 This section outlines a list of planned improvements and upcoming features, presented in no particular order.
-
-- [ ] Move ArgoCD to apps directory
 
 - [ ] Investigate [Cilium load balancer IPAM](https://docs.cilium.io/en/stable/network/lb-ipam/) as al alternative for Metallb.
 
@@ -139,8 +138,6 @@ This section outlines a list of planned improvements and upcoming features, pres
 
 - [ ] Create production environment.
 
-- [ ] Implement environment specific configuration per app.
-
 - [ ] Setup alerting rules and channels.
 
 - [ ] Deploy [Trivy Operator](https://github.com/aquasecurity/trivy-operator).
@@ -150,5 +147,3 @@ This section outlines a list of planned improvements and upcoming features, pres
 - [ ] Deploy and configure [External DNS](https://kubernetes-sigs.github.io/external-dns/latest/) to be able to [manage PiHole](https://kubernetes-sigs.github.io/external-dns/v0.13.3/tutorials/pihole/#service-example).
 
 - [ ] Implement [KRR](https://github.com/robusta-dev/krr)
-
-- [ ] Set ROOT_DIR in Mise.toml to [MISE_PROJECT_ROOT](https://mise.jdx.dev/tasks/)
