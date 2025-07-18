@@ -37,10 +37,11 @@ This section describes the essential infrastructure components that form the bac
 - **Infrastructure**  
   [Terraform](https://developer.hashicorp.com/terraform),
   [Proxmox VE](https://www.proxmox.com/en/proxmox-ve),
-  [TalosOS](https://www.talos.dev/) -> [Kubernetes](https://kubernetes.io/)
+  [TalosOS](https://www.talos.dev/)
 
 - **GitOps**  
   [ArgoCD](https://argo-cd.readthedocs.io/)
+  [Kustomize](https://kustomize.io/)
 
 - **Networking**  
   [Cilium CNI](https://cilium.io/),
@@ -65,7 +66,6 @@ This section describes the essential infrastructure components that form the bac
   [Dex](https://dexidp.io/) *Planned*
 
 - **Development**  
-  [Helm](https://helm.sh/),
   [Mise](https://mise.jdx.dev/),
   [Docker](https://www.docker.com/)
 
