@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Terraform apply"
+#MISE description="Apply Terraform changes to the specified environment"
 set -e
 
 # Arguments

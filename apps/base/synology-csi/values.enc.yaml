@@ -1,0 +1,24 @@
+clientInfoSecret:
+    clients:
+        - host: ENC[AES256_GCM,data:AzZcn01+OKpIPrjLAA==,iv:b7iG1PDdvXg7lNN2o97zqRs/c3PIQI/1+jrhX7NuHJY=,tag:lqKu74F/R4raRbN6ExidGg==,type:str]
+          port: ENC[AES256_GCM,data:/oxaEA==,iv:V+cBH/yN2UQ7wvNXEEl7lkA9snKDbhKXeYiQ8cX6iq0=,tag:OiLo7ZdZorl93Yn2kZXNGw==,type:int]
+          https: ENC[AES256_GCM,data:8iMFh9g=,iv:MYC2d3xF4a11r5HDH9RliVd3+/WTYROOmhyY/nMiZ5U=,tag:SXO1WovFTM+urV2OoFZu/A==,type:bool]
+          username: ENC[AES256_GCM,data:Q3Mdv/lJZAWk,iv:/oesQzntB8uHV8dQvdvu5xvAwMO8KBN42F5S8lKoSSY=,tag:sdOc0XIZhxQM84F+aQmtGQ==,type:str]
+          password: ENC[AES256_GCM,data:Yooe9gZ923wL9QEQoo01tefurKcW3cmNuyK1qm2JDIbDUl0=,iv:TDFbn3ihn1URxFrAr6DQE+ASOesIwhZR0qjkUBHhmSM=,tag:WpqGY/91d68j2YEF1fmPNQ==,type:str]
+    create: ENC[AES256_GCM,data:Css1ag==,iv:HniRUH/cLfETItdCvdTem3MI60dp0v7UbANFV1uMpfg=,tag:uPmuFD5rLJXfq104QIvWJg==,type:bool]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-07-15T20:58:19Z"
+          enc: bfeWuZLq3sHZtvvj-LXAtK6UZeKakdQMt0w1ZpKy84SLlFZJoyjRKnXHOherinvkwKYIIvWAKA9ZB2jvt9yLw31-Rc0d4VwlQqmPhE-VaIfcS--TQNZeIGmjC68G5itHNigF9Cw57qMe-NDgC8hLIXMh5YY3_7nx4OZR45-asCh6WCkG4EezqyX-vRbREGfNJcGx--M4eCokjyCWpa-wU12NzvVbsYhdQJhyENIpCedLQusKIOyXL3gSm-AxhmiKZniFzwQfnjFuRsRkI7cI-0d1Po3lULMcfTjyeDJZK_vdLjr1YKUsNg2snewAXFOTsOC08FECxd8RGPtLmRPYNA
+    hc_vault: []
+    age: []
+    lastmodified: "2025-07-15T20:58:19Z"
+    mac: ENC[AES256_GCM,data:PayJ8t+XnlcQjBe8cIiyYPWQE0/JrjjD3QkIzJtEp04SnImdpAlPE+0mEA+7uWiZ9Xueqwo2phz0liH61EJ7XBewesnMzc4fgGrbYwSx31wJ4wWt/msKX17s9LdFErguMJWVjXiG/+J0n/2c85ysDlQjd8h8xNpvhJcbxxsraUM=,iv:Gk7cTl+oQ0bdUIuYnglPH3oQ7b+14YCUUMWPVDCjaWk=,tag:Z0wBIOhSWrp8kXJANsRXHA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

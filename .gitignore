@@ -46,3 +46,4 @@ apps/**/*.tgz
 
 # Env files
 *.dec.env
+abc.yaml

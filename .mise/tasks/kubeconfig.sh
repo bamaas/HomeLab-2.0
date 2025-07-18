@@ -3,7 +3,7 @@
 set -e
 
 # Arguments
-ENV=$1
+env=$1
 
 # Check if environment variable is provided
 if [ -z "$1" ]; then
@@ -14,17 +14,19 @@ if [ -z "$1" ]; then
 fi
 
 # Init
-mise run terraform:init "${ENV}"
+mise run terraform:init "${env}"
 
 # Load environment variables
-. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
+. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${env}"
 
 # Get kubeconfig file from Terraform output
 echo "Getting kubeconfig file"
 terraform \
     -chdir="${TERRAFORM_DIR}" \
         output \
-            -raw kubeconfig > .config/kubeconfig
+            -raw kubeconfig > "${KUBECONFIG}"
 
 # Set correct permissions for the kubeconfig file
-chmod 600 .config/kubeconfig
+chmod 600 "${KUBECONFIG}"
+
+echo -e "\033[0;32mKubeconfig file has been written to ${KUBECONFIG}\033[0m"

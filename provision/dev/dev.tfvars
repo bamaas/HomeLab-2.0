@@ -1,4 +1,4 @@
-cluster_name = "homelab"
+cluster_name = "dev"
 
 default_gateway = "192.168.8.1"
 

@@ -1,0 +1,6 @@
+---
+resources:
+  - ../../../../base/cert-manager
+
+generators:
+  - helm-chart.yaml

@@ -1,6 +1,5 @@
 ---
-gofit:
-  persistence:
-    enabled: true
-    size: 1Gi
-    storageClass: nfs
+persistence:
+  enabled: true
+  size: 1Gi
+  storageClass: nfs

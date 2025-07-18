@@ -1,0 +1,19 @@
+---
+resources:
+  - ../../../../base/argocd
+
+patches:
+  - target:
+      kind: Ingress
+      name: .*
+    patch: |-
+      - op: add
+        path: /spec/rules/0/host
+        value: argocd.dev.kubernetes.lan.basmaas.nl
+
+      - op: add
+        path: /spec/tls
+        value:
+          - hosts:
+              - argocd.dev.kubernetes.lan.basmaas.nl
+            secretName: argocd.dev.kubernetes.lan.basmaas.nl

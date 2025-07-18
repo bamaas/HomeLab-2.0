@@ -1,0 +1,18 @@
+podAnnotations:
+    something: ENC[AES256_GCM,data:RVThvQ==,iv:pe5ZDSOI35ATOHmSfVZGJ8UGRo8h3NuHm5o8P0+Gf24=,tag:4+3ajA0+fZlpHwjAN5cwYQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-07-16T20:03:37Z"
+          enc: mpuRq8uhrduzMB2egGljpTiYhDJ1i56Uph7D7CAnvR-21-h-1gQb3yQU2cdZ4uUsuBs_LcptUC6E07kOQ9ZiwDu8kMgWP_TtsVXQyM6oXGAt8UxoEpmx9ttA4e44T072lP4lzx7SOzoATOwa1JyQHj45RoIXluKQ3tozXFtfIJ4ZG1b8Z--kpIHQcSnDmabljAKaJKYoSLtJZ7J26Ij6VuropiCKpidr-uOHLCKvz3hkRwdQZ42G5vObw_pO9eUt1JS3U0ZvckhwKhcjj6zTUlSO8trLFFw0IGTPU0wr9ZY77BN9amnBjxVPI4jYAF00Er8bMcQgL1QPuMz1DQjZ_Q
+    hc_vault: []
+    age: []
+    lastmodified: "2025-07-16T20:03:37Z"
+    mac: ENC[AES256_GCM,data:CL0Vk0pVGE2A4Ax0DW3OygAGsMc7zTUtd47D9FXvJOgTEeDG95TQcTpcaWU0+nYPKzRIL/i+Kvr3cs1Tn2KvMDIP7XV3VEE3IOw7tn/n3YDFW92w4zSo9vxwQz6yKqbJFroxwQcy2BRfdnzB3SqDh7YX742cJQBgusACYnPt7N0=,iv:lzB+aIYPZCmhKPwc3CXhAPvCq3zsz8AA4BXVnAc14wI=,tag:Dlrp/hmpbu99JV0qXKB2qg==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

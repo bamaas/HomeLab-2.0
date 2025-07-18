@@ -1,0 +1,19 @@
+zenml:
+    database:
+        url: ENC[AES256_GCM,data:ebH+dBCHc6cGyvv4FsxxR4f0AAnMzYLaOtcO4dZdxZm1vhJpgsLkEGuqtg==,iv:eRVYinc7JDO/XIAdfekLNGdJbS48bkpiuUxNFVB/krM=,tag:uUZk+4J3iSlunSNjvGwv3A==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-07-16T20:43:46Z"
+          enc: SDSH5VjGp3GFB-LJIparcRfDMCYHGrgIL4XY0h_7vqJ2q3rPLjUJg9ogQ67M14-7K2Cer_rrZ6Mgaz-AX9dvtuHSwbKPDl1MfKW0LYFGWDHMdm3-dxwF3VJpT362KyyW7xujIr4QPvM-ukZmnT6WaW4OfWGQ2p7D0xpCiDFciEsUAVUO5tva93HEdaadLZyFWxYJsy4c4svUHpqw0cZWZ1l1tvTHyzMqGj4M1_w9LvqbeS4VI0LDTrSJzWl4J-rivsw6rkGUVNi5wCnaSyj_w5Yy-ggqgVhZcekriTMul4AAJAG9kRf5rNyOQJMMdKpb4OZQ07AgY8Q6K12-Y1L1zw
+    hc_vault: []
+    age: []
+    lastmodified: "2025-07-16T20:43:46Z"
+    mac: ENC[AES256_GCM,data:qALuaD8TApHHm55G+b1UgGMKNiX9r0o9pbB0yYs7oFYR+IjoxGZrCP8CAl2mmCUI3T75m3krb9+8kkgMGfIALu/mkY6J3L9Zb/Cscc/IP2RcdPD6UkBa6tbUyQX4TWSdFv52VIYN2IQr7wFjjd8jN7l+hpsRu8rEmiApJiOFheQ=,iv:9hEIs7o5Pp00ExIJvHu5FWUf0FzrpFtUNnr2sfl79ko=,tag:FEdyyHdgFf5Myzt+u0syaQ==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

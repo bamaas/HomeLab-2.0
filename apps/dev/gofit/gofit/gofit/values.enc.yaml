@@ -1,7 +1,6 @@
-gofit:
-    users:
-        - email: ENC[AES256_GCM,data:1BtZ/HGCu85lIiQ+2Q==,iv:2Q9YLw2mwmD9Kn1+bwZPWg6GzPAX7RugMx0HscHSqTg=,tag:FpszjsljF70iyAST1PHLQw==,type:str]
-          password: ENC[AES256_GCM,data:OfKwWuXKqQM=,iv:39BvVG6SMuOWue+cTX047VEnHLVqivGULYVV2g86LHA=,tag:FD2TliUwIfTfWAYba24w4A==,type:str]
+users:
+    - email: ENC[AES256_GCM,data:r2pNZV7j+/M8/5/FgQ==,iv:hQWl/DtyOABh7Hj7EzMBvD+IihIV6UcRO4e/Q3A49sA=,tag:oIS6p5NM3PgJ+dH7KaVFgQ==,type:str]
+      password: ENC[AES256_GCM,data:uAIZlLDmwyE=,iv:WkL96R3IhBrZXXlzgKddacOSJ2TDNjcyusHG8IFYAdE=,tag:2vsQ1EawQ9DEB0VITR71Bw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -9,12 +8,12 @@ sops:
         - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
           name: sops-key
           version: b2031a08aea14a50ab6d8e72548eb4f9
-          created_at: "2025-05-20T17:08:07Z"
-          enc: PUe2ehhcEoDJnXvQm8Ivpb5In83U2jO6isTb-l8w8i1qVG-vyqNoLs3mgv2PLPuijQZ5Fc7-QXWcSweU-rt-e3u7Iuu2kMvm2cDZ1XaxMByhZIxK56_8iel2Y66zeVPbDIi-WF2fVaBEEREKS-Innw0S405jvZWGVd0elb3OUbHrfPJgiIwh45mI0M5aDr3NJU_n-B__DT09CgokqK6ikgLdYesVMRk8EQjIJWBCUTdgVl1TIjza-kbcNKA1Yxs8AAwtg4sTfDSCeImEauY3ks43CVhIkEWUcezDLSFTb1sZVuHZ0uJzm646J_laMxuQO7ylfoP59ET2PPgAwVJIUg
+          created_at: "2025-07-15T21:06:57Z"
+          enc: iF2T5Z35ThIG45ByX5E0y20qErPyZAktkZbT5ebQ8PHWAf7Z37s1vMFh2x4X1RMwyVqfI2FwZorAtUlvQh-1M0Fu1rCGHpMInXmuqiXZq99C2BJ9Kc_LOAe9tE2EsZOaevl3r3_myqBwWoIUCLhwOBC17eBl-knQHyWrF_EKrRvw5B_Cc4r7W7lbKq19S2Vkm4T9jVPDdvcJrpY4ffqOSi0nU40NwBOlxdkuA1fM2Z2p7Kpx-F2s-E0eFWwFF1ELEPYk4VGUNSX3vvvU7mJCMPZxTRaqNbXSG8-u9i2MEokdLOdUGsw29qzQL3TmED8w0rPkotdeECP-OF8erR-ecQ
     hc_vault: []
     age: []
-    lastmodified: "2025-05-20T17:08:07Z"
-    mac: ENC[AES256_GCM,data:5nPCnov0uClKTGiSS5FaHhnJDnkhzpwVxSBVVlZHKxwSfUtWVWYQnW4/HZQasma9U/Vk5UdfN1HFt0ghVgM9RwhkRqrgwHh+XhbyIg/U6+T24CiXhRsz1jIneLe0PBa1pU43oThQpT6bsBX0cfee4Txb3LTnT00sYpbqILfkHfg=,iv:vcnssncqwh7zIUeVzHuBYW/mgYY+IgIjR8s93zMtzhE=,tag:2i05T9a25l6fYQgK50VorA==,type:str]
+    lastmodified: "2025-07-15T21:06:58Z"
+    mac: ENC[AES256_GCM,data:s29NyjtJl5xwIfoS9FDRnhbcMzY1vTpTQbzzbFeLrpcNf/0a9SxhmIlDHrZwa6pHcryPn9ANTzbPIb0RO88WgMVUr4T25BHDTfDQXV+UCAEWLGplVk622nlwmoLytD8KMJKRex7ZjQDYiOOMVMWLT0KVXbDQYRMit+PWEQ4e/sA=,iv:nrVYgpv4N60KyCxtWlMBjeSrOP37uxpaKttvyMfNGZw=,tag:4i8SzHYkkRhk3z5qmZ1/rA==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.2

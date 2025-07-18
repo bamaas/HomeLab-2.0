@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Init the repo"
+#MISE description="Initialize the repo"
 set -e
 
 echo "Initializing repository..."
@@ -19,4 +19,4 @@ if [ "${state_exists}" -eq 0 ]; then
     test -f "${TALOSCONFIG}" || mise run talosconfig
 fi
 
-echo "Repository initialized"
+echo -e "\e[32mRepository initialized.\e[0m"

@@ -16,6 +16,7 @@ node = "20.10.0"
 kubeconform = "0.7.0"
 envsubst = "1.4.3"
 ksops = "4.3.3"
+kustomize = "5.7.0"
 
 [env]
 ROOT_DIR = "{{ config_root }}"

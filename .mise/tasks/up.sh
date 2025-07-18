@@ -4,7 +4,7 @@
 set -e
 
 # Arguments
-ENV=$1
+env=$1
 
 # Check if environment variable is provided
 if [ -z "$1" ]; then
@@ -14,5 +14,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-mise run provision "${ENV}"
-mise run bootstrap "${ENV}"
+mise run provision "${env}"
+mise run bootstrap "${env}"
+
+echo -e "\e[32mCluster setup complete.\e[0m"

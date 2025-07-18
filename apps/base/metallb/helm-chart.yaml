@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: metallb
+name: metallb
+repo: https://metallb.github.io/metallb
+version: 0.14.9
+releaseName: metallb
+valuesFile: values.yaml

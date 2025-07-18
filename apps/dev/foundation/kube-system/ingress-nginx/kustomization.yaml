@@ -1,0 +1,6 @@
+---
+resources:
+  - ../../../../base/ingress-nginx
+
+generators:
+  - helm-chart.yaml

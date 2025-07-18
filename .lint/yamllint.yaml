@@ -19,3 +19,4 @@ ignore:
   - 'apps/foundation/metallb-system/metallb/templates/pool.yaml'
   - 'apps/**/templates/**.yaml'
   - 'values.enc.tmp.yaml'
+  - 'old-apps/**'

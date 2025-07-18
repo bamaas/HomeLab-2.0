@@ -9,9 +9,3 @@ Run all linting checks to ensure code quality:
 ```
 mise run lint
 ```
-
-Or run a specific linter:
-
-```
-mise run lint:yaml
-```

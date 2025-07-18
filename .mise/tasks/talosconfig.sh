@@ -3,7 +3,7 @@
 set -e
 
 # Arguments
-ENV=$1
+env=$1
 
 # Check if environment variable is provided
 if [ -z "$1" ]; then
@@ -14,17 +14,19 @@ if [ -z "$1" ]; then
 fi
 
 # Init
-mise run terraform:init "${ENV}"
+mise run terraform:init "${env}"
 
 # Load environment variables
-. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
+. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${env}"
 
 # Get talosconfig file from Terraform output
 echo "Getting talosconfig file"
 terraform \
     -chdir="${TERRAFORM_DIR}" \
         output \
-            -raw talosconfig > .config/talosconfig
+            -raw talosconfig > "${TALOSCONFIG}"
 
 # Set correct permissions for the talosconfig file
-chmod 600 .config/talosconfig
+chmod 600 "${TALOSCONFIG}"
+
+echo -e "\e[32mTalosconfig file has been written to ${TALOSCONFIG}\e[0m"

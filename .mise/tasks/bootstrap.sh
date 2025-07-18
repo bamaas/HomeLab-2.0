@@ -3,10 +3,10 @@
 set -e
 
 # Arguments
-ENV=$1
+env="$1"
 
 # Check if environment variable is provided
-if [ -z "$ENV" ]; then
+if [ -z "$env" ]; then
   echo "Error: environment not specified"
   echo "Usage: mise run bootstrap <environment>"
   echo "Example: mise run bootstrap dev"
@@ -14,32 +14,26 @@ if [ -z "$ENV" ]; then
 fi
 
 # Variables
-BOOTSTRAP_DIR="${ROOT_DIR}/bootstrap"
-ARGOCD_DIR="${APPS_DIR}/${ENV}/argocd-system/argocd/argocd"
+bootstrap_dir="${ROOT_DIR}/bootstrap"
+kustomize_dir_path="${ROOT_DIR}/apps/${env}/argocd-system/argocd/argocd/"
+namespace=$(basename "$(dirname "${kustomize_dir_path}")")
 
 # Check if Argo CD is already installed
-# if helm list -n argocd | grep -q argocd; then
-#     echo "Argo CD is already installed."
-#     echo "Manage ArgoCD via GitOps repository."
-#     exit 0
-# fi
+if kubectl get namespace "${namespace}" >/dev/null 2>&1; then
+    echo "Argo CD is already installed."
+    echo "Manage ArgoCD via GitOps repository."
+    exit 1
+fi
 
 # Install Argo CD
 echo "Installing Argo CD"
-helm repo add argo-cd "$(yq e '.dependencies[0].repository' "${ARGOCD_DIR}/Chart.yaml")"
-helm dependency update "${ARGOCD_DIR}"
-helm secrets upgrade \
-    --install \
-    argocd \
-    "${ARGOCD_DIR}" \
-    --namespace argocd \
-    --create-namespace \
-    --values "${APPS_DIR}/default/argocd-system/argocd/argocd/values.yaml" \
-    --values "${APPS_DIR}/default/argocd-system/argocd/argocd/values.enc.yaml" \
-    --values "${ARGOCD_DIR}/values.yaml" \
-    --values "${ARGOCD_DIR}/values.enc.yaml" \
-    --wait
-
-# Replace ${ENV} placeholder with value
-ENV=${ENV} envsubst < "${BOOTSTRAP_DIR}/bootstrap.yaml" |
+kubectl create namespace "${namespace}"
+mise run build:kustomization "${kustomize_dir_path}" |
   kubectl apply -f -
+
+# Apply ArgoCD bootstrap applicationsets
+# Replace ${ENV} placeholder with value
+ENV=${env} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
+  kubectl apply -f -
+
+echo -e "\e[32mBootstrap process completed.\e[0m"
