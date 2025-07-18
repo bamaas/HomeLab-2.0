@@ -16,9 +16,6 @@ fi
 # Config
 terraform_backend_state_file="${ENV}.terraform.tfstate"
 
-# Load environment variables
-. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
-
 # Check if .terraform directory exists and backend is configured for the correct environment
 if [ -d "${TERRAFORM_DIR}/.terraform" ] && [ -f "${TERRAFORM_DIR}/.terraform/terraform.tfstate" ]; then
   backend_key_configured=$(jq -r '.backend.config.key // empty' "${TERRAFORM_DIR}/.terraform/terraform.tfstate")
@@ -27,6 +24,9 @@ if [ -d "${TERRAFORM_DIR}/.terraform" ] && [ -f "${TERRAFORM_DIR}/.terraform/ter
     exit 0
   fi
 fi
+
+# Load environment variables
+. "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
 
 # Init
 terraform \

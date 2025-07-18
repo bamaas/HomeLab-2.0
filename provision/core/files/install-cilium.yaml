@@ -79,7 +79,7 @@ cluster:
                 - name: KUBERNETES_SERVICE_PORT
                   value: "6443"
                 command:
-                  - sh
+                  - bash
                   - -c
                   - |
                     set -euo pipefail
