@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Script arguments
-validate_schema=${1:-0}
+validate_schema=${1:-"false"}
 debug=${3:-"false"}
 
 # Validate debug argument input
@@ -24,7 +24,7 @@ while read -r kustomize_dir_path; do
         cmd="$cmd ::: build:kustomization ${kustomize_dir_path} ${validate_schema} ${debug} -r"
     fi
 done < <(
-    find "${ROOT_DIR}/apps/" -name "kustomization.yaml" -not -path "${ROOT_DIR}/apps/base/*" -exec dirname {} \;
+    find "${ROOT_DIR}"/apps/*/*/*/* -type d -not -path "${ROOT_DIR}/apps/base/*";
     find "${ROOT_DIR}/bootstrap/" -name "kustomization.yaml" -not -path "${ROOT_DIR}/bootstrap/base/*" -exec dirname {} \;
 )
 
