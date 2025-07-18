@@ -38,7 +38,9 @@ resource "talos_machine_configuration_apply" "controlplane" {
     }),
     file("${path.module}/files/control-plane-scheduling.yaml"),
     file("${path.module}/files/extensions.yaml"),
-    file("${path.module}/files/install-cilium.yaml"),
+    templatefile("${path.module}/templates/install-cilium.yaml.tmpl", {
+      cluster_name    = var.cluster_name
+    }),
   ]
 }
 
