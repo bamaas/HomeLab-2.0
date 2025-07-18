@@ -13,8 +13,20 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+# Config
+terraform_backend_state_file="${ENV}.terraform.tfstate"
+
 # Load environment variables
 . "${ROOT_DIR}/.mise/tasks/.private/load-env-vars.sh" "${ENV}"
+
+# Check if .terraform directory exists and backend is configured for the correct environment
+if [ -d "${TERRAFORM_DIR}/.terraform" ] && [ -f "${TERRAFORM_DIR}/.terraform/terraform.tfstate" ]; then
+  backend_key_configured=$(jq -r '.backend.config.key // empty' "${TERRAFORM_DIR}/.terraform/terraform.tfstate")
+  if [ "${backend_key_configured}" = "${terraform_backend_state_file}" ]; then
+    echo "Terraform is already initialized for environment '${ENV}'."
+    exit 0
+  fi
+fi
 
 # Init
 terraform \
@@ -22,5 +34,5 @@ terraform \
     init \
       -reconfigure \
       -backend-config="bucket=${TERRAFORM_BACKEND_S3_BUCKET}" \
-      -backend-config="key=${ENV}.terraform.tfstate"
+      -backend-config="key=${terraform_backend_state_file}"
 

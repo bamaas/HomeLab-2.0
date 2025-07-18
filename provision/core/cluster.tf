@@ -38,6 +38,7 @@ resource "talos_machine_configuration_apply" "controlplane" {
     }),
     file("${path.module}/files/control-plane-scheduling.yaml"),
     file("${path.module}/files/extensions.yaml"),
+    file("${path.module}/files/install-cilium.yaml"),
   ]
 }
 
