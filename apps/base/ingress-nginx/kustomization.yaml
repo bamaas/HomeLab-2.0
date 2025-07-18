@@ -1,3 +1,3 @@
 ---
-resources:
-  - namespace-labels.yaml
+transformers:
+  - namespace-annotations.yaml

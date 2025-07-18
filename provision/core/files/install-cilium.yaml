@@ -69,7 +69,7 @@ cluster:
               hostNetwork: true
               containers:
               - name: cilium-install
-                image: alpine/helm:3.17.3
+                image: jdxcode/mise:2025.3.6
                 env:
                 - name: KUBERNETES_SERVICE_HOST
                   valueFrom:
@@ -82,9 +82,10 @@ cluster:
                   - sh
                   - -c
                   - |
-                    set -e
-                    helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.4
+                    set -euo pipefail
                     git clone https://github.com/bamaas/HomeLab-2.0.git ./homelab
-                    cd ./homelab/apps/foundation/kube-system/cilium
-                    helm dependency build
-                    helm install cilium . --wait -f values.yaml -f values.enc.yaml
+                    cd homelab
+                    mise trust
+                    mise install
+                    kubectl create namespace kube-system
+                    mise run build:kustomization ./apps/dev/foundation/kube-system/cilium | kubectl apply -f -

@@ -2,5 +2,5 @@
 generators:
   - helm-chart.yaml
 
-resources:
-  - namespace-labels.yaml
+transformers:
+  - namespace-annotations.yaml
