@@ -5,28 +5,30 @@ My personal homelab playground, stored as code.
 > The goal is to seamlessly bootstrap a Kubernetes cluster with all the bells and whistles  
 > — from infrastructure to apps —  
 > in one smooth, reproducible flow.  
-> While keeping things lightweight and simple as possible
+> Aiming to keep things as lightweight and simple as possible, while still providing flexibility.
 
 ## ✨ Features
 
-- **🚀 One-command cluster provisioning** 
+- **🚀 One-command cluster provisioning**  
   Provision and configure a full Kubernetes cluster with a single command: `mise run up <env>`  
 
 - **🔍 Automatic application discovery**  
   No need to manually define ArgoCD application manifests — applications are automatically detected and deployed.
 
-- **🧰 Seamless developer experience with Mise**  
-  All essential commands are encapsulated in Mise scripts.  
-  Run `mise tasks` to view the available commands.
+- **🧰 One entrypoint to rule them all**  
+  No more memorizing complex commands. All essential workflows are defined as Mise tasks—your single, consistent entrypoint for development.  
+  Run `mise tasks` to discover everything you need.
 
-- **✅ Pre-commit quality checks**  
-  Manifests are automatically generated and linted against the Kubernetes API specification before every commit to catch errors early.
+- **✅ Catch issues before they catch you**  
+  Every commit runs automatic pre-commit checks that generate and lint your Kubernetes manifests against the API spec.  
+  So you catch mistakes early, not in production.
 
-- **🛠️ Reproducible tooling**  
-  Developer environment is reproducible and consistent, with tools managed via Mise in a devcontainer.
+- **🛠️ Same development setup, every developer**  
+  Work in an isolated, reproducible environment powered by Mise and Dev Containers  
+  so you always have the right tools, versions, and setup from day one.
 
-- **🌍 Multi-environment support**
-  Supports environment-specific resource definitions for true separation and reproducibility.
+- **🌍 Manage multiple environments effortlessly**  
+  Build on a shared base with environment-specific overlays for clear separation and rock-solid reproducibility.
 
 ## 🏛️ Foundation stack
 
