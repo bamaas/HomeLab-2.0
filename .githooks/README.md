@@ -4,8 +4,10 @@ This directory contains Git hooks that are automatically installed and managed b
 
 ## Installation
 
-The hooks are automatically installed and configured when you initialize the project:
+To manually set up the hooks, run:
 
 ```bash
 mise run init
 ```
+
+Usually this is done automatically after running `mise install` which installs all the required tools and afterwards trigger a `mise run init` command as specified by the [postinstall hook](../mise.toml).

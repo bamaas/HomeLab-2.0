@@ -30,7 +30,7 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "mise trust --yes && mise run init",
+	"postCreateCommand": "mise trust --yes",
 
 	// Configure tool-specific properties.
 	"customizations": {
