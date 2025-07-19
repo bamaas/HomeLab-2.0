@@ -10,4 +10,4 @@ mise run lint:yaml -r ::: \
     lint:spelling -r ::: \
     lint:markdown -r
 
-echo -e "\e[32mAll linting tasks completed!\e[0m"
+printf "\e[32mAll linting tasks completed!\e[0m\n"

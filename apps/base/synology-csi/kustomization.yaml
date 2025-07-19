@@ -1,6 +1,6 @@
 ---
+resources:
+  - namespace-annotations.yaml
+
 generators:
   - helm-chart.yaml
-
-transformers:
-  - namespace-annotations.yaml

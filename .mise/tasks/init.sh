@@ -19,4 +19,4 @@ if [ "${state_exists}" -eq 0 ]; then
     test -f "${TALOSCONFIG}" || mise run talosconfig
 fi
 
-echo -e "\e[32mRepository initialized.\e[0m"
+printf "\e[32mRepository initialized.\e[0m\n"

@@ -36,4 +36,4 @@ mise run build:kustomization "${kustomize_dir_path}" |
 ENV=${env} envsubst < "${bootstrap_dir}/bootstrap.yaml" |
   kubectl apply -f -
 
-echo -e "\e[32mBootstrap process completed.\e[0m"
+printf "\e[32mBootstrap process completed.\e[0m\n"

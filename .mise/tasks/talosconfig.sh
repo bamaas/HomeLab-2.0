@@ -29,4 +29,4 @@ terraform \
 # Set correct permissions for the talosconfig file
 chmod 600 "${TALOSCONFIG}"
 
-echo -e "\e[32mTalosconfig file has been written to ${TALOSCONFIG}\e[0m"
+printf "\e[32mTalosconfig file has been written to %s\e[0m\n" "${TALOSCONFIG}"

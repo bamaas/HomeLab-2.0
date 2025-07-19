@@ -1,13 +1,9 @@
 ---
-apiVersion: builtin
-kind: AnnotationsTransformer
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: notImportant
-annotations:
-  pod-security.kubernetes.io/audit: privileged
-  pod-security.kubernetes.io/warn: privileged
-  pod-security.kubernetes.io/enforce: privileged
-fieldSpecs:
-  - path: metadata/annotations
-    kind: Namespace
-    create: true
+  name: overwritten-during-deployment
+  annotations:
+    pod-security.kubernetes.io/audit: privileged
+    pod-security.kubernetes.io/warn: privileged
+    pod-security.kubernetes.io/enforce: privileged

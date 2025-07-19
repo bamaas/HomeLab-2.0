@@ -17,4 +17,4 @@ fi
 mise run provision "${env}"
 mise run bootstrap "${env}"
 
-echo -e "\e[32mCluster setup complete.\e[0m"
+printf "\e[32mCluster setup complete.\e[0m\n"

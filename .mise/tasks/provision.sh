@@ -18,4 +18,4 @@ mise run terraform:apply "${env}"
 mise run kubeconfig "${env}"
 mise run talosconfig "${env}"
 
-echo -e "\e[32mProvision process completed.\e[0m"
+printf "\e[32mProvision process completed.\e[0m\n"
