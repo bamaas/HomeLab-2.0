@@ -75,10 +75,9 @@ How to deploy the entire cluster from the ground up.
 
 1. **Setup devcontainer.**
 
-    This will [bootstrap](.devcontainer/Dockerfile) all the required tools needed for project development.
-    The project uses [Mise](https://mise.jdx.dev/) as a unified manager for tools, environment variables, and scripts.
+    This will [setup](.devcontainer/Dockerfile) all the required tools needed for project development.
 
-2. **To provision and configure full cluster simply run:**
+2. **To provision and configure a full-blown cluster simply run:**
 
     ```bash
     mise run up <env>
