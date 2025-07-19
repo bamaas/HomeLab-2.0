@@ -3,4 +3,4 @@ generators:
   - helm-chart.yaml
 
 resources:
-  - namespace-annotations.yaml
+  - namespace-labels.yaml
