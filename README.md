@@ -28,7 +28,7 @@ My personal homelab playground, stored as code.
   so you always have the right tools, versions, and setup from day one.
 
 - **🌍 Manage multiple environments effortlessly**  
-  Build on a shared base with environment-specific overlays for clear separation and rock-solid reproducibility.
+  Build on a shared base with environment-specific overlays for clear separation and reproducibility.
 
 ## 🏛️ Foundation stack
 
@@ -139,6 +139,8 @@ This section outlines a list of planned improvements and upcoming features, pres
 - [ ] Implement a metric collector (to be determined).
 
 - [ ] Create production environment.
+
+- [ ] Refactor ArgoCD config management plugin script.
 
 - [ ] Setup alerting rules and channels.
 

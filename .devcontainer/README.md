@@ -6,7 +6,7 @@ The devcontainer image uses [Mise](https://mise.jdx.dev/) as a unified manager f
 
 Upon entering the development container [mise run init](../.mise/init.sh) is invoked to automatically configure the [Git hooks](../.githooks).
 
-## 🛠️ Usage
+## Usage
 
 1. **Install Prerequisites**:  
    - Visual Studio Code

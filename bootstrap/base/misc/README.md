@@ -1,4 +1,4 @@
-# Miscellaneous Kubernetes Resources
+# Misc
 
 This directory is intended for miscellaneous Kubernetes resources that do not
 fit into specific categories. It serves as a catch-all for additional
