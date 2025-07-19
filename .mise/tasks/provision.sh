@@ -3,19 +3,19 @@
 set -e
 
 # Arguments
-ENV=$1
+env=$1
 
 # Check if environment variable is provided
-if [ -z "$ENV" ]; then
+if [ -z "${env}" ]; then
   echo "Error: environment not specified"
   echo "Usage: mise run terraform:apply <environment>"
   echo "Example: mise run terraform:apply dev"
   exit 1
 fi
 
-mise run terraform:plan "${ENV}"
-mise run terraform:apply "${ENV}"
-mise run kubeconfig "${ENV}"
-mise run talosconfig "${ENV}"
+mise run terraform:plan "${env}"
+mise run terraform:apply "${env}"
+mise run kubeconfig "${env}"
+mise run talosconfig "${env}"
 
 echo -e "\e[32mProvision process completed.\e[0m"
