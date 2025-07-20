@@ -27,7 +27,7 @@ fi
 
 # Install Argo CD
 echo "Installing Argo CD"
-# kubectl create namespace "${namespace}"
+kubectl create namespace "${namespace}"
 mise run build:kustomization "${kustomize_dir_path}" |
   kubectl apply -f -
 
