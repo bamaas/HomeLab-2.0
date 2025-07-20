@@ -55,4 +55,4 @@ configs:
                 kubectl apply -f -
           discover:
             fileName: "values.enc.yaml"
-          preserveFileMode: true
+          preserveFileMode: false
