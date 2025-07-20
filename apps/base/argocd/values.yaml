@@ -39,20 +39,9 @@ configs:
           command: [bash, -ec]
           args:
             - |
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              mise trust --yes
-              mise run ./.mise/tasks/build/kustomization.sh "${ARGOCD_APP_SOURCE_PATH}" | \
-                kubectl apply -f -
+              cd $(git rev-parse --show-toplevel)
+              chmod +x ./.mise/tasks/build/kustomization.sh 1>/
+              mise run ./.mise/tasks/build/kustomization.sh "${ARGOCD_APP_SOURCE_PATH}"
           discover:
             fileName: "values.enc.yaml"
           preserveFileMode: false
