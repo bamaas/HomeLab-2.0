@@ -36,53 +36,11 @@ configs:
     plugins:
       cmp-sops-decrypt:
         generate:
-          command: [sh, -c]
-          # TODO's for this script:
-          # 1. Verify if enc.yaml is encrypted, if not; fail with meaningful error message.
-          # 2. Fail is namespace is already specified in Kustomization.yaml (this is not allowed)
+          command: [bash, -ec]
           args:
             - |
-              set -e
-              export PATH="${PATH}:/custom-tools/"
-
-              # Find all *.enc.yaml files in the base dir
-              # TODO: make this smarter by traversing down the path referenced in the kustomization.yaml files and not just simply going to th base dir
-              enc_yaml_files_in_base_dir=""
-              base_dir="${kustomize_dir_path}/../../../../base/${app}"
-              if [ -d "$base_dir" ]; then
-                  enc_yaml_files_in_base_dir=$(find "$base_dir" -type f -name "*.enc.yaml")
-              fi
-
-              # Find all *.enc.yaml files in the current dir
-              enc_yaml_files_in_current_dir=$(find . -type f -name "*.enc.yaml")
-
-              # Use yq to extract all values containing '.enc.yaml' in helm-chart.yaml
-              enc_yaml_files_in_helm_chart=""
-              if [ -f "./helm-chart.yaml" ]; then
-                  enc_yaml_files_in_helm_chart=$(yq eval '.. | select(tag == "!!str" and test(".*\.enc\.yaml$"))' "./helm-chart.yaml" | while read -r f; do
-                      [ -z "$f" ] && continue
-                      echo "./$f"
-                  done)
-              fi
-
-              # Combine both lists, filter out duplicates
-              # Normalize all paths to absolute, then filter out duplicates that point to the same file
-              enc_yaml_files=$( (echo "$enc_yaml_files_in_current_dir"; echo "$enc_yaml_files_in_helm_chart"; echo "$enc_yaml_files_in_base_dir") | while read -r f; do
-                [ -z "$f" ] && continue
-                readlink -f "$f" 2>/dev/null
-              done | sort -u)
-
-              # Now for every file in enc_yaml_files decrypt it, write to a tmp file and then overwrite the original
-              for file in $enc_yaml_files; do
-                tmpfile=$(mktemp)
-                sops --decrypt --input-type yaml --output-type yaml "$file" > "$tmpfile"
-                mv "$tmpfile" "$file"
-              done
-
-              # Add the namespace to all the resources
-              yq eval ".namespace = \"$ARGOCD_APP_NAMESPACE\"" -i kustomization.yaml;
-
-              # Render the manifests
-              kustomize build --enable-helm --enable-alpha-plugins --enable-exec --load-restrictor=LoadRestrictionsNone .
+              mise trust --yes
+              mise run build:kustomization "${PWD}" | \
+                kubectl apply -f -
           discover:
             fileName: "values.enc.yaml"
