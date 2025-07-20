@@ -39,8 +39,9 @@ configs:
           command: [bash, -ec]
           args:
             - |
+              cd ../../../../../
               mise trust --yes
-              mise run build:kustomization "${PWD}" | \
+              mise run build:kustomization "${ARGOCD_APP_SOURCE_PATH}" | \
                 kubectl apply -f -
           discover:
             fileName: "values.enc.yaml"
