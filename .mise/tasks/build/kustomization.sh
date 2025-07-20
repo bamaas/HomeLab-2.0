@@ -52,7 +52,9 @@ render_manifests(){
     done
 
     # Add the namespace to all the resources
-    yq eval ".namespace = \"${namespace}\"" -i "${kustomize_dir_path}/kustomization.yaml";
+    if [[ "${kustomize_dir_path}" == *"/apps/"* ]]; then
+        yq eval ".namespace = \"${namespace}\"" -i "${kustomize_dir_path}/kustomization.yaml";
+    fi
 
     # Creating the command
     cmd="kustomize build --enable-helm --enable-alpha-plugins --enable-exec --load-restrictor=LoadRestrictionsNone ${kustomize_dir_path}"
