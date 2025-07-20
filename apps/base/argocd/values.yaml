@@ -39,7 +39,17 @@ configs:
           command: [bash, -ec]
           args:
             - |
-              cd ../../../../../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
               mise trust --yes
               mise run build:kustomization "${ARGOCD_APP_SOURCE_PATH}" | \
                 kubectl apply -f -
