@@ -3,3 +3,6 @@ resources:
   - cloudflare-api-token.enc.yaml
   - cluster-issuer-prd.enc.yaml
   - cluster-issuer-stg.enc.yaml
+
+generators:
+  - helm-chart.yaml
