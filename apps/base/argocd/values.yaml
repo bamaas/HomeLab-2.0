@@ -39,17 +39,7 @@ configs:
           command: [bash, -ec]
           args:
             - |
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
-              cd ../
-              ls -a 1>&2
+              cd $(git rev-parse --show-toplevel)
               mise trust --yes 1>&2
               chmod +x ./.mise/tasks/build/kustomization.sh 1>&2
               mise run ./.mise/tasks/build/kustomization.sh "${ARGOCD_APP_SOURCE_PATH}"
