@@ -39,10 +39,19 @@ configs:
           command: [bash, -ec]
           args:
             - |
-              # cd $(git rev-parse --show-toplevel)
-              cd ../../../../../
-              mise trust --yes
-              chmod +x ./.mise/tasks/build/kustomization.sh 1>/
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              cd ../
+              ls -a 1>&2
+              mise trust --yes 1>&2
+              chmod +x ./.mise/tasks/build/kustomization.sh 1>&2
               mise run ./.mise/tasks/build/kustomization.sh "${ARGOCD_APP_SOURCE_PATH}"
           discover:
             fileName: "values.enc.yaml"
