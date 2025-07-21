@@ -63,7 +63,7 @@ repoServer:
       valueFrom:
         secretKeyRef:
           name: azure-sops-secrets
-          key: AZURE_SECRET_ID
+          key: AZURE_CLIENT_SECRET
     - name: GITHUB_TOKEN
       valueFrom:
         secretKeyRef:
@@ -157,4 +157,4 @@ repoServer:
           valueFrom:
             secretKeyRef:
               name: azure-sops-secrets
-              key: AZURE_SECRET_ID
+              key: AZURE_CLIENT_SECRET
