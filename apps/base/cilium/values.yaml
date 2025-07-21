@@ -24,3 +24,19 @@ cgroup:
   autoMount:
     enabled: false
   hostRoot: /sys/fs/cgroup
+
+envoyConfig:
+  secretsNamespace:
+    name: kube-system
+
+gatewayAPI:
+  secretsNamespace:
+    name: kube-system
+
+ingressController:
+  secretsNamespace:
+    name: kube-system
+
+tls:
+  secretsNamespace:
+    name: kube-system

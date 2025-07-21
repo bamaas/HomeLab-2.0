@@ -94,7 +94,7 @@ How to deploy the entire cluster from the ground up.
 
 3. **Good to go 🎉**
 
-    The Kubeconfig and Talosconfig files are automaticalled fetched and stored in [.config](.config) directory and your shell is configured [automatically](mise.toml).
+    The Kubeconfig and Talosconfig files are automaticalled fetched and stored in [.config](.config) directory and your shell is configured [automatically](.mise/config.toml).
 
     You can now interact with the cluster: `kubectl get pods -A`
 

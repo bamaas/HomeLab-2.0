@@ -18,7 +18,7 @@ bootstrap_dir="${ROOT_DIR}/bootstrap"
 kustomize_dir_path="${ROOT_DIR}/apps/${env}/argocd-system/argocd/argocd/"
 namespace=$(basename "$(dirname "${kustomize_dir_path}")")
 
-# Check if Argo CD is already installed
+# # Check if Argo CD is already installed
 if kubectl get namespace "${namespace}" >/dev/null 2>&1; then
     echo "Argo CD is already installed."
     echo "Manage ArgoCD via GitOps repository."

@@ -51,8 +51,20 @@ render_manifests(){
         mv "$tmpfile" "$file"
     done
 
-    # Add the namespace to all the resources
-    yq eval ".namespace = \"${namespace}\"" -i "${kustomize_dir_path}/kustomization.yaml";
+    # Add the namespace to main kustomization
+    if [[ "${kustomize_dir_path}" == *"/apps/"* ]]; then
+        yq eval ".namespace = \"${namespace}\"" -i "${kustomize_dir_path}/kustomization.yaml";
+    fi
+
+    # if helm-chart exists in the current dir, set the namespace in it as well
+    if [ -f "${kustomize_dir_path}/helm-chart.yaml" ]; then
+        yq eval ".namespace = \"${namespace}\"" -i "${kustomize_dir_path}/helm-chart.yaml";
+    fi
+
+    # If helm-chart.yaml exists in base dir, set the namespace in it as well
+    if [ -f "${base_dir}/helm-chart.yaml" ]; then
+        yq eval ".namespace = \"${namespace}\"" -i "${base_dir}/helm-chart.yaml";
+    fi
 
     # Creating the command
     cmd="kustomize build --enable-helm --enable-alpha-plugins --enable-exec --load-restrictor=LoadRestrictionsNone ${kustomize_dir_path}"
