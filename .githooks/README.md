@@ -10,4 +10,4 @@ To manually set up the hooks, run:
 mise run init
 ```
 
-Usually this is done automatically after running `mise install` which installs all the required tools and afterwards trigger a `mise run init` command as specified by the [postinstall hook](../mise.toml).
+Usually this is done automatically after running `mise install` which installs all the required tools and afterwards trigger a `mise run init` command as specified by the [postinstall hook](../.mise/config.toml).

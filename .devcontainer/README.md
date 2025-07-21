@@ -2,7 +2,7 @@
 
 This directory contains the development container configuration, providing a consistent and isolated development environment.
 
-The devcontainer image uses [Mise](https://mise.jdx.dev/) as a unified manager for tools as defined in the [Mise.toml](../mise.toml) file.
+The devcontainer image uses [Mise](https://mise.jdx.dev/) as a unified manager for tools as defined in the [Mise.toml](../.mise/config.toml) file.
 
 ## Usage
 

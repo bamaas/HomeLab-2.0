@@ -30,3 +30,6 @@ TF_LOG = "info"
 [hooks]
 enter = "mise i -q"
 postinstall = "mise run init"
+
+[settings]
+lockfile = true
