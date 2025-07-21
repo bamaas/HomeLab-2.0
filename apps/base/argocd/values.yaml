@@ -52,17 +52,17 @@ repoServer:
     - name: AZURE_TENANT_ID
       valueFrom:
         secretKeyRef:
-          name: azure-sops-secret
+          name: azure-sops-secrets
           key: AZURE_TENANT_ID
     - name: AZURE_CLIENT_ID
       valueFrom:
         secretKeyRef:
-          name: azure-sops-secret
+          name: azure-sops-secrets
           key: AZURE_CLIENT_ID
     - name: AZURE_CLIENT_SECRET
       valueFrom:
         secretKeyRef:
-          name: azure-sops-secret
+          name: azure-sops-secrets
           key: AZURE_SECRET_ID
     - name: GITHUB_TOKEN
       valueFrom:
@@ -146,15 +146,15 @@ repoServer:
         - name: AZURE_TENANT_ID
           valueFrom:
             secretKeyRef:
-              name: azure-sops-secret
+              name: azure-sops-secrets
               key: AZURE_TENANT_ID
         - name: AZURE_CLIENT_ID
           valueFrom:
             secretKeyRef:
-              name: azure-sops-secret
+              name: azure-sops-secrets
               key: AZURE_CLIENT_ID
         - name: AZURE_CLIENT_SECRET
           valueFrom:
             secretKeyRef:
-              name: azure-sops-secret
+              name: azure-sops-secrets
               key: AZURE_SECRET_ID
