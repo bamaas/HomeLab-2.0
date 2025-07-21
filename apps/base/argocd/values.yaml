@@ -101,7 +101,7 @@ repoServer:
             mv ${tmpdir}/.git . && \
             rm -rf ${tmpdir} && \
             git reset --hard && \
-            git checkout refactor-argocd-cmp
+            git checkout main
           mv .mise/config.toml /etc/mise/config.toml
           mise install --yes
       workingDir: /src

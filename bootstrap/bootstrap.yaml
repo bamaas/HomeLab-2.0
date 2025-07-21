@@ -43,7 +43,7 @@ spec:
       project: argocd-system
       sources:
         - repoURL: https://github.com/bamaas/HomeLab-2.0
-          targetRevision: refactor-argocd-cmp
+          targetRevision: main
           path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
@@ -96,7 +96,7 @@ spec:
       project: '{{ index .path.segments 2 }}'
       source:
         repoURL: https://github.com/bamaas/HomeLab-2.0
-        targetRevision: refactor-argocd-cmp
+        targetRevision: main
         path: '{{.path.path}}'
         plugin:
           name: cmp-sops-decrypt
