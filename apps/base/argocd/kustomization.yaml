@@ -1,3 +1,7 @@
 ---
+resources:
+  - azure-sops-secret.enc.yaml
+  - github-token-secret.enc.yaml
+
 generators:
   - helm-chart.yaml

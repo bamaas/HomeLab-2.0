@@ -46,3 +46,115 @@ configs:
           discover:
             fileName: "values.enc.yaml"
           preserveFileMode: false
+
+repoServer:
+  env:
+    - name: AZURE_TENANT_ID
+      valueFrom:
+        secretKeyRef:
+          name: azure-sops-secret
+          key: AZURE_TENANT_ID
+    - name: AZURE_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: azure-sops-secret
+          key: AZURE_CLIENT_ID
+    - name: AZURE_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: azure-sops-secret
+          key: AZURE_SECRET_ID
+    - name: GITHUB_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: github-token
+          key: GITHUB_TOKEN
+  volumes:
+    - name: custom-tools
+      emptyDir: {}
+    - name: argocd-cmp-cm
+      configMap:
+        name: argocd-cmp-cm
+    - name: cmp-tmp
+      emptyDir: {}
+    - name: global-mise-config
+      emptyDir: {}
+    - name: mise-local
+      emptyDir: {}
+  volumeMounts:
+    - mountPath: /mise
+      name: custom-tools
+    - mountPath: /etc/mise
+      name: global-mise-config
+    - mountPath: /.local
+      name: mise-local
+  initContainers:
+    - name: download-tools
+      image: jdxcode/mise:2025.3.6
+      command:
+        - bash
+        - -ec
+      args:
+        - |
+          tmpdir=$(mktemp -d)
+          git clone https://github.com/bamaas/HomeLab-2.0.git ${tmpdir} && \
+            mv ${tmpdir}/.git . && \
+            rm -rf ${tmpdir} && \
+            git reset --hard && \
+            git checkout refactor-argocd-cmp
+          mv .mise/config.toml /etc/mise/config.toml
+          mise install --yes
+      workingDir: /src
+      env:
+        - name: GITHUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-token
+              key: GITHUB_TOKEN
+      volumeMounts:
+        - mountPath: /mise
+          name: custom-tools
+        - mountPath: /etc/mise
+          name: global-mise-config
+  extraContainers:
+    - name: cmp-sops-plugin
+      command:
+        - /var/run/argocd/argocd-cmp-server
+      image: jdxcode/mise:2025.3.6
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        # runAsNonRoot: true
+        runAsUser: 999
+      volumeMounts:
+        - mountPath: /var/run/argocd
+          name: var-files
+        - mountPath: /home/argocd/cmp-server/plugins
+          name: plugins
+        - mountPath: /home/argocd/cmp-server/config/plugin.yaml
+          subPath: cmp-sops-decrypt.yaml
+          name: argocd-cmp-cm
+        - mountPath: /tmp
+          name: cmp-tmp
+        - mountPath: /mise
+          name: custom-tools
+        - mountPath: /etc/mise
+          name: global-mise-config
+        - mountPath: /.local
+          name: mise-local
+      workingDir: /src
+      env:
+        - name: AZURE_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              name: azure-sops-secret
+              key: AZURE_TENANT_ID
+        - name: AZURE_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: azure-sops-secret
+              key: AZURE_CLIENT_ID
+        - name: AZURE_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: azure-sops-secret
+              key: AZURE_SECRET_ID
