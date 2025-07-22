@@ -30,6 +30,10 @@ My personal homelab playground, stored as code.
 - **🌍 Manage multiple environments effortlessly**  
   Build on a shared base with environment-specific overlays for clear separation and reproducibility.
 
+- **🔐 Secret management made easy**  
+Secure your secrets with SOPS: encrypted, version-controlled, and stored right alongside your config.  
+No external vaults, no guesswork.
+
 ## 🏛️ Foundation stack
 
 This section describes the essential infrastructure components that form the backbone of the homelab environment.
