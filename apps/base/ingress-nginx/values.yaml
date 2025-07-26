@@ -1,3 +1,13 @@
 ---
 controller:
   hostNetwork: true
+
+  service:
+    enabled: true
+    type: LoadBalancer
+
+  # TODO: enable metrics
+  metrics:
+    enabled: false
+    serviceMonitor:
+      enabled: false

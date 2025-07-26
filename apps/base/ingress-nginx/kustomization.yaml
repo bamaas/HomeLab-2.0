@@ -1,3 +1,6 @@
 ---
+generators:
+  - helm-chart.yaml
+
 resources:
   - namespace-labels.yaml

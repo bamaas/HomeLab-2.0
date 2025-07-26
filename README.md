@@ -141,8 +141,6 @@ This section outlines a list of planned improvements and upcoming features, pres
 
 - [ ] Implement a metric collector (to be determined).
 
-- [ ] Create production environment.
-
 - [ ] Refactor ArgoCD config management plugin script.
 
 - [ ] Setup alerting rules and channels.
