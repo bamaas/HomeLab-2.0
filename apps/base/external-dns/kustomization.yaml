@@ -1,0 +1,8 @@
+---
+
+resources:
+  - deployment.yaml
+  - cluster-role.yaml
+  - cluster-role-binding.yaml
+  - service-account.yaml
+  - pihole-pw-secret.enc.yaml

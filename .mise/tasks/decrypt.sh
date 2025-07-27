@@ -25,6 +25,12 @@ if [ "${quiet}" != "true" ] && [ "${quiet}" != "false" ]; then
     exit 1
 fi
 
+# Fail if filepath ends with .enc.yaml
+if [[ "${enc_file}" == *.dec.* ]]; then
+  echo "Error: file must end with .enc.*"
+  exit 1
+fi
+
 # Create the output filename with proper quoting
 dec_file="${enc_file//.enc/.dec}"
 

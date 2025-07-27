@@ -149,6 +149,4 @@ This section outlines a list of planned improvements and upcoming features, pres
 
 - [ ] Checkout [Sidero Omni](https://github.com/siderolabs/omni).
 
-- [ ] Deploy and configure [External DNS](https://kubernetes-sigs.github.io/external-dns/latest/) to be able to [manage PiHole](https://kubernetes-sigs.github.io/external-dns/v0.13.3/tutorials/pihole/#service-example).
-
 - [ ] Implement [KRR](https://github.com/robusta-dev/krr)
