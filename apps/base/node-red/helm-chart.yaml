@@ -7,8 +7,4 @@ name: node-red
 repo: https://schwarzit.github.io/node-red-chart/
 version: 0.34.0
 releaseName: node-red
-valuesFile: ../../../../base/node-red/values.yaml
-additionalValuesFiles:
-  - ../../../../base/node-red/values.enc.yaml
-  - values.yaml
-  - values.enc.yaml
+valuesFile: values.yaml

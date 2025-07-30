@@ -38,4 +38,4 @@ spec:
             # Change this to the actual address of your Pi-hole web server
             - --pihole-server=https://pihole.lan.basmaas.nl
       securityContext:
-        fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes token files
+        fsGroup: 65534  # For ExternalDNS to be able to read Kubernetes token files
