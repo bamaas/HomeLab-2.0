@@ -3,7 +3,8 @@ victoria-metrics-operator:
   enabled: false
 
 vmsingle:
-  persistentVolume:
-    enabled: true
-    storageClass: nfs   # TODO: change this to iscsi
-    size: 10Gi
+  spec:
+    persistentVolume:
+      enabled: true
+      storageClass: nfs   # TODO: change this to iscsi
+      size: 10Gi
