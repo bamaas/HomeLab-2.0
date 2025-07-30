@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: victoria-metrics-operator
+name: victoria-metrics-operator
+repo: https://victoriametrics.github.io/helm-charts/
+version: 0.51.4
+releaseName: victoria-metrics-operator
+valuesFile: values.yaml
