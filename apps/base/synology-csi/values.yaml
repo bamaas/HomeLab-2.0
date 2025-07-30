@@ -13,7 +13,7 @@ storageClasses:
       protocol: iscsi
   synology-iscsi-storage-delete:
     reclaimPolicy: Delete
-    isDefault: true
+    isDefault: false
     volumeBindingMode: Immediate
     allowVolumeExpansion: true
     parameters:

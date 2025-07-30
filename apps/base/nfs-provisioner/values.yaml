@@ -5,3 +5,4 @@ nfs:
 
 storageClass:
   name: nfs
+  defaultClass: true
