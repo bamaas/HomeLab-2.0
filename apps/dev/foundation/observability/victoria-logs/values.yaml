@@ -30,4 +30,4 @@ server:
 
 # Vector log collector (disabled by default, needs to be enabled)
 vector:
-  enabled: false  # Disable log collection for now.
+  enabled: true  # Disable log collection for now.
