@@ -8,7 +8,7 @@ grafana:
     - name: VictoriaLogs
       type: victoriametrics-logs-datasource
       access: proxy
-      url: http://vlselect-victoria-logs-cluster:9471
+      url: http://victoria-logs-single-server:9471
       isDefault: false
       jsonData:
         maxLines: 1000
