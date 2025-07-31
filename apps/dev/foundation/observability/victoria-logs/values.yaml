@@ -19,14 +19,14 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-stg
     hosts:
-      - name: logs.kubernetes.lan.basmaas.nl
+      - name: logs.dev.kubernetes.lan.basmaas.nl
         path:
           - /
         port: http
     tls:
-      - secretName: logs.kubernetes.lan.basmaas.nl
+      - secretName: logs.dev.kubernetes.lan.basmaas.nl
         hosts:
-          - logs.kubernetes.lan.basmaas.nl
+          - logs.dev.kubernetes.lan.basmaas.nl
 
 # Vector log collector (disabled by default, needs to be enabled)
 vector:
