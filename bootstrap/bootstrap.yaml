@@ -4,15 +4,17 @@ kind: AppProject
 metadata:
   name: argocd-system
   namespace: argocd
+finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   description: Apps that manage the ArgoCD system
   sourceRepos:
-    - '*'
+    - 'https://github.com/bamaas/HomeLab-2.0'
   sourceNamespaces:
-    - '*'
+    - 'argocd'
   destinations:
-    - namespace: '*'
-      server: '*'
+    - namespace: 'argocd'
+      server: 'https://kubernetes.default.svc'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
