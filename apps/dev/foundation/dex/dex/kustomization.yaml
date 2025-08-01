@@ -1,0 +1,23 @@
+---
+resources:
+  - ../../../../base/dex
+
+patches:
+  - target:
+      kind: Ingress
+      name: .*
+    patch: |-
+      - op: add
+        path: /spec/rules/0/host
+        value: dex.dev.kubernetes.lan.basmaas.nl
+
+      - op: add
+        path: /spec/tls
+        value:
+          - hosts:
+              - dex.dev.kubernetes.lan.basmaas.nl
+            secretName: dex.dev.kubernetes.lan.basmaas.nl
+
+      - op: add
+        path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
+        value: letsencrypt-stg

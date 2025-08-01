@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: dex
+name: dex
+repo: https://charts.dexidp.io
+version: 0.23.0
+releaseName: dex
+valuesFile: values.enc.yaml
