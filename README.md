@@ -46,6 +46,7 @@ This section describes the essential infrastructure components that form the bac
 - **GitOps**  
   [ArgoCD](https://argo-cd.readthedocs.io/)
   [Kustomize](https://kustomize.io/)
+  [Helm](https://helm.sh/)
 
 - **Networking**  
   [Cilium CNI](https://cilium.io/),
@@ -58,7 +59,8 @@ This section describes the essential infrastructure components that form the bac
 - **Monitoring**  
   [VictoriaLogs](https://docs.victoriametrics.com/victorialogs/),
   [Vector](https://vector.dev/),
-  [VictoriaMetrics](https://victoriametrics.com/) *Planned*
+  [VictoriaMetrics](https://victoriametrics.com/)
+  [Grafana](https://grafana.com/)
 
 - **Security**  
   [Cert-Manager](https://cert-manager.io/),
@@ -136,10 +138,6 @@ This section outlines a list of planned improvements and upcoming features, pres
 - [ ] Investigate [Cillum Gateway API](https://cilium.io/use-cases/gateway-api/) as an alternative for Nginx ingress controller.
 
 - [ ] Implement [Dex IdP](https://dexidp.io/).
-
-- [ ] Implement [VictoriaMetrics](https://victoriametrics.com/).
-
-- [ ] Implement a metric collector (to be determined).
 
 - [ ] Refactor ArgoCD config management plugin script.
 
