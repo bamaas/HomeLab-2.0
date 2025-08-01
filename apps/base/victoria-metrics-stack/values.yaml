@@ -68,11 +68,3 @@ grafana:
   ingress:
     enabled: true
     ingressClassName: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-stg
-    hosts:
-      - grafana.dev.kubernetes.lan.basmaas.nl
-    tls:
-      - secretName: grafana.dev.kubernetes.lan.basmaas.nl
-        hosts:
-          - grafana.dev.kubernetes.lan.basmaas.nl

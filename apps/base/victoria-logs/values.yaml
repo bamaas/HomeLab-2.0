@@ -1,0 +1,16 @@
+---
+server:
+  enabled: true
+  retentionPeriod: 7d
+  retentionDiskSpaceUsage: 5GB
+
+  persistentVolume:
+    size: 20Gi
+    storageClassName: nfs  # Temporarily set to NFS
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+
+vector:
+  enabled: true
