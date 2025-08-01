@@ -4,15 +4,27 @@ victoria-metrics-operator:
 
 grafana:
   enabled: true
-  additionalDataSources:
-    - name: VictoriaLogs
-      type: victoriametrics-logs-datasource
-      access: proxy
-      url: http://victoria-logs-single-server:9471
-      isDefault: false
-      jsonData:
-        maxLines: 1000
-        httpMethod: GET
+  # additionalDataSources:
+  #   - name: VictoriaLogs
+  #     type: victoriametrics-logs-datasource
+  #     access: proxy
+  #     url: http://victoria-logs-single-server:9471
+  #     isDefault: false
+  #     jsonData:
+  #       maxLines: 1000
+  #       httpMethod: GET
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: VictoriaLogs
+          type: victoriametrics-logs-datasource
+          access: proxy
+          url: http://victoria-logs-single-server:9471
+          isDefault: false
+          jsonData:
+            maxLines: 1000
+            httpMethod: GET
   persistence:
     enabled: true
     size: 10Gi
