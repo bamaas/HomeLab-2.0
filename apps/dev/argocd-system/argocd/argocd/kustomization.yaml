@@ -17,3 +17,7 @@ patches:
           - hosts:
               - argocd.dev.kubernetes.lan.basmaas.nl
             secretName: argocd.dev.kubernetes.lan.basmaas.nl
+
+      - op: add
+        path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
+        value: letsencrypt-stg

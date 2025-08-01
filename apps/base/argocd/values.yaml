@@ -7,17 +7,9 @@ server:
     enabled: true
     ingressClassName: nginx
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-stg
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       nginx.ingress.kubernetes.io/whitelist-source-range: 10.42.0.0/0
-    hosts:
-      - argocd.kubernetes.lan.basmaas.nl
-    https: true
-    tls:
-      - secretName: argocd.kubernetes.lan.basmaas.nl
-        hosts:
-          - argocd.kubernetes.lan.basmaas.nl
 
 dex:
   enabled: false
