@@ -11,7 +11,3 @@ Get started: [How to create a monitoring stack - Evolving our Kubernetes monitor
 - [Prometheus vs VictoriaMetrics load testing](https://zetablogs.medium.com/prometheus-vs-victoria-metrics-load-testing-3fa0cc782912)
 
 - [VictoriaMetrics vs Mimir benchmark](https://victoriametrics.com/blog/mimir-benchmark/)
-
-## Bugs
-
-- [Chart not generating CRD's](https://github.com/VictoriaMetrics/helm-charts/issues/2333)
