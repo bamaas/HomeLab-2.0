@@ -1,0 +1,12 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: gotify
+name: gotify
+repo: https://pmoscode-helm.github.io/gotify/
+version: 0.5.2
+releaseName: gotify
+valuesFile: values.yaml
+# additionalValuesFiles:
+#   - values.enc.yaml

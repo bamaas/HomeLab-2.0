@@ -1,0 +1,10 @@
+---
+image:
+  pullPolicy: IfNotPresent
+
+persistence:
+  enabled: true
+  size: 2Gi
+
+server:
+  timezone: Europe/Amsterdam
