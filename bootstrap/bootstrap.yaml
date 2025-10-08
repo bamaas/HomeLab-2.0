@@ -4,8 +4,8 @@ kind: AppProject
 metadata:
   name: argocd-system
   namespace: argocd
-finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   description: Apps that manage the ArgoCD system
   sourceRepos:
