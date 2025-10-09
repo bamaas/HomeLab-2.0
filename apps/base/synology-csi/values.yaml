@@ -1,8 +1,4 @@
 ---
-images:
-  plugin:
-    image:
-      tag: edge
 storageClasses:
   synology-iscsi-storage-retain:
     disabled: false

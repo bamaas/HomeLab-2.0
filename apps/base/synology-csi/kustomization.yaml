@@ -4,3 +4,35 @@ resources:
 
 generators:
   - helm-chart.yaml
+
+# Patches because Helm chart contains a bug with the image name
+patches:
+  - target:
+      kind: StatefulSet
+      name: synology-csi-controller
+    patch: |-
+      apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: synology-csi-controller
+      spec:
+        template:
+          spec:
+            containers:
+            - name: csi-plugin
+              image: ghcr.io/zebernst/synology-csi:edge
+
+  - target:
+      kind: DaemonSet
+      name: synology-csi-node
+    patch: |-
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: synology-csi-node
+      spec:
+        template:
+          spec:
+            containers:
+            - name: csi-plugin
+              image: ghcr.io/zebernst/synology-csi:edge
