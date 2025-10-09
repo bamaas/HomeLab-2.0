@@ -31,7 +31,7 @@ node_data = {
       pve_node  = "pve"
       pve_id    = 5000
       memory    = 14096
-      cores     = 2
+      cores     = 3
       disk_size = 20
     }
   }
@@ -41,7 +41,7 @@ node_data = {
       pve_node  = "pve"
       pve_id    = 6000
       memory    = 14096
-      cores     = 2
+      cores     = 4
       disk_size = 20
     }
   }
