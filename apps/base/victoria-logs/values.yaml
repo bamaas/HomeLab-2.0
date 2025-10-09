@@ -8,6 +8,9 @@ server:
     size: 20Gi
     storageClassName: nfs  # Temporarily set to NFS
 
+  podSecurityContext:
+    fsGroup: 1000
+
   ingress:
     enabled: true
     ingressClassName: nginx
