@@ -29,3 +29,5 @@ ingress:
   enabled: true
   hosts:
     - pihole.kubernetes.lan.basmaas.nl
+  annotations:
+    kubernetes.io/ingress.class: nginx
