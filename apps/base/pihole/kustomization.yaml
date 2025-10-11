@@ -1,0 +1,4 @@
+---
+
+generators:
+  - helm-chart.yaml

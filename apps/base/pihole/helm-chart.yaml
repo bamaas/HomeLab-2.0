@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: pihole
+name: pihole
+repo: https://mojo2600.github.io/pihole-kubernetes/
+version: 2.34.0
+releaseName: pihole
+valuesFile: values.yaml

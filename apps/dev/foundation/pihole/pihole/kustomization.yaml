@@ -1,0 +1,24 @@
+---
+
+resources:
+  - ../../../../base/pihole
+
+patches:
+  - target:
+      kind: Ingress
+      name: .*
+    patch: |-
+      - op: add
+        path: /spec/rules/0/host
+        value: pihole.dev.kubernetes.lan.basmaas.nl
+
+      - op: add
+        path: /spec/tls
+        value:
+          - hosts:
+              - pihole.dev.kubernetes.lan.basmaas.nl
+            secretName: pihole.dev.kubernetes.lan.basmaas.nl
+
+      - op: add
+        path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
+        value: letsencrypt-stg
