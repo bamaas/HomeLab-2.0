@@ -13,7 +13,7 @@ serviceWeb:
   type: ClusterIP
 
 serviceDns:
-  loadBalancerIP: 192.168.8.100
+  loadBalancerIP: 192.168.8.111
   # annotations:
     # metallb.universe.tf/allow-shared-ip: pihole
   type: LoadBalancer
