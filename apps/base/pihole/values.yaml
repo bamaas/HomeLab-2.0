@@ -14,8 +14,8 @@ serviceWeb:
 
 serviceDns:
   loadBalancerIP: 0.0.0.0
-  # annotations:
-    # metallb.universe.tf/allow-shared-ip: pihole
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-address-pool
   type: LoadBalancer
 
 doh:
