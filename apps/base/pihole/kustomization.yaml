@@ -16,7 +16,7 @@ patches:
         path: /spec/rules/0/http/paths/-
         value:
           path: /admin/api.php
-          pathType: Prefix
+          pathType: Exact
           backend:
             service:
               name: pihole-web
