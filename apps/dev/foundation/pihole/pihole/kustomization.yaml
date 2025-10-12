@@ -24,7 +24,7 @@ patches:
 
       - op: add
         path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
-        value: letsencrypt-stg
+        value: letsencrypt-prd
 
   # Set dns service ip
 
