@@ -22,3 +22,11 @@ patches:
       - op: add
         path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
         value: letsencrypt-stg
+
+  - target:
+      kind: Service
+      name: pihole-dns.*
+    patch: |-
+      - op: add
+        path: /spec/loadBalancerIP
+        value: 192.168.8.111

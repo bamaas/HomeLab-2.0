@@ -7,3 +7,4 @@ spec:
   ipAddressPools:
     - main-address-pool
     - system-address-pool
+    - pihole-svc
