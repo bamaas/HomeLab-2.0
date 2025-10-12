@@ -31,3 +31,6 @@ ingress:
     - pihole.kubernetes.lan.basmaas.nl
   annotations:
     kubernetes.io/ingress.class: nginx
+
+DNS1: "1.1.1.1"
+DNS2: "1.0.0.1"
