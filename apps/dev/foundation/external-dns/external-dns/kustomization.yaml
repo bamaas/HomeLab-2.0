@@ -1,3 +1,20 @@
 ---
 resources:
   - ../../../../base/external-dns
+
+patches:
+  - target:
+      kind: Deployment
+      name: external-dns
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "https://pihole.dev.kubernetes.lan.basmaas.nl"
+
+
+  # Set pihole password
+
+  - target:
+      kind: Secret
+      name: pihole-password
+    path: pihole-password.enc.yaml

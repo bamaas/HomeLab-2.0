@@ -24,6 +24,9 @@ spec:
             - secretRef:
                 # Change this if you gave the secret a different name
                 name: pihole-password
+          env:
+            - name: PIHOLE_SERVER_URL
+              value: "https://pihole.lan.basmaas.nl"  # Default value, can be overridden by patches
           args:
             - --source=service
             - --source=ingress
@@ -36,6 +39,6 @@ spec:
             - --policy=upsert-only
             - --provider=pihole
             # Change this to the actual address of your Pi-hole web server
-            - --pihole-server=https://pihole.lan.basmaas.nl
+            - --pihole-server=$(PIHOLE_SERVER_URL)
       securityContext:
         fsGroup: 65534  # For ExternalDNS to be able to read Kubernetes token files
