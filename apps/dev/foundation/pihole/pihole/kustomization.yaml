@@ -4,6 +4,9 @@ resources:
   - ../../../../base/pihole
 
 patches:
+
+  # Set ingress
+
   - target:
       kind: Ingress
       name: .*
@@ -23,6 +26,8 @@ patches:
         path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
         value: letsencrypt-stg
 
+  # Set dns service ip
+
   - target:
       kind: Service
       name: pihole-dns.*
@@ -30,3 +35,17 @@ patches:
       - op: add
         path: /spec/loadBalancerIP
         value: 192.168.8.111
+
+  # Set password
+
+  - target:
+      kind: Secret
+      name: pihole-password
+    patch: |-
+      - op: remove
+        path: /data/password
+
+  - target:
+      kind: Secret
+      name: pihole-password
+    path: secret-patch.enc.yaml
