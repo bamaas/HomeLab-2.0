@@ -17,7 +17,7 @@ spec:
       serviceAccountName: external-dns
       containers:
         - name: external-dns
-          image: registry.k8s.io/external-dns/external-dns:v0.14.2
+          image: registry.k8s.io/external-dns/external-dns:v0.19.0
           # If authentication is disabled and/or you didn't create
           # a secret, you can remove this block.
           envFrom:
@@ -38,6 +38,7 @@ spec:
             # the policy to upsert-only so they do not get deleted.
             - --policy=upsert-only
             - --provider=pihole
+            - --pihole-api-version=6
             # Change this to the actual address of your Pi-hole web server
             - --pihole-server=$(PIHOLE_SERVER_URL)
       securityContext:

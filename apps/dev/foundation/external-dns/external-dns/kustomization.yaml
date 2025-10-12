@@ -11,6 +11,14 @@ patches:
         path: /spec/template/spec/containers/0/env/0/value
         value: "https://pihole.dev.kubernetes.lan.basmaas.nl"
 
+  # Add pihole-tls-skip-verify argument
+  - target:
+      kind: Deployment
+      name: external-dns
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: "--pihole-tls-skip-verify"
 
   # Set pihole password
 
