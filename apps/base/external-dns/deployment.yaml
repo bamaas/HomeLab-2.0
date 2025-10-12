@@ -36,7 +36,7 @@ spec:
             - --registry=noop
             # IMPORTANT: If you have records that you manage manually in Pi-hole, set
             # the policy to upsert-only so they do not get deleted.
-            - --policy=upsert-only
+            - --policy=sync
             - --provider=pihole
             - --pihole-api-version=6
             # Change this to the actual address of your Pi-hole web server
