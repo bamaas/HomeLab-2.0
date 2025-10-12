@@ -18,12 +18,12 @@ serviceDns:
     metallb.universe.tf/allow-shared-ip: pihole-address-pool
   type: LoadBalancer
 
-doh:
-  enabled: true
-  pullPolicy: Always
-  envVars: {
-    DOH_UPSTREAM: "https://1.1.1.1/dns-query"
-  }
+# doh:
+#   enabled: true
+#   pullPolicy: Always
+#   envVars: {
+#     DOH_UPSTREAM: "https://1.1.1.1/dns-query"
+#   }
 
 ingress:
   enabled: true
