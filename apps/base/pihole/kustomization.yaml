@@ -2,23 +2,3 @@
 
 generators:
   - helm-chart.yaml
-
-# Rewrite /admin/api to /api
-patches:
-  - target:
-      kind: Ingress
-      name: pihole
-    patch: |-
-      - op: add
-        path: /metadata/annotations/nginx.ingress.kubernetes.io~1rewrite-target
-        value: /api
-      - op: add
-        path: /spec/rules/0/http/paths/-
-        value:
-          path: /admin/api.php
-          pathType: ImplementationSpecific
-          backend:
-            service:
-              name: pihole-web
-              port:
-                name: http
