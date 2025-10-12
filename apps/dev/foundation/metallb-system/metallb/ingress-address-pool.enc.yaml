@@ -1,0 +1,25 @@
+apiVersion: ENC[AES256_GCM,data:HocF8MZFPdp0IJt/vyE/8M8y,iv:QaXycqIpPtlqs9H1KAf6eps4AYHciO52/I47Sur6dzk=,tag:SdWZ+GMhkxHjaQihH6bNLw==,type:str]
+kind: ENC[AES256_GCM,data:P+C/XFJnHh4zOddqAQ==,iv:rPf6KRG0hRkU9io2d8dchEKgCFOZ78ZW10Fzcv0XaNI=,tag:jlbhTLkl/6w3XGwyfPEevA==,type:str]
+metadata:
+    name: ENC[AES256_GCM,data:50QKudPDuC+J+dp7Wga/IML+6w==,iv:eKsvzR4DBVFZ9PZNQ7oYyP8autI7BW34ObA+kQ/xCzw=,tag:6m8T77FFx3v9h4PfBi5JJA==,type:str]
+spec:
+    addresses:
+        - ENC[AES256_GCM,data:aXFKLOY0xCi38JiSLIUTUA==,iv:qxqiUMF4hhOaZGYh2H297fR36liE7xt4bet6e2baonc=,tag:SMeNGnQ2Jhk6mAK3AkrYHA==,type:str]
+    autoAssign: ENC[AES256_GCM,data:isJfag==,iv:9VN9T0f1pAt6T/1KcAdyJMG1pvwQ7ZLpGltQxMYdGuc=,tag:jdNpCIhqH1tuu+npihoIWg==,type:bool]
+    avoidBuggyIPs: ENC[AES256_GCM,data:6Cw+7A0=,iv:x9xDkQnxSyxf1Lo+rHNYXtZglxU2W374kNH8ikTYD/4=,tag:er/4HTwQ0T/p+LNQnvrZeQ==,type:bool]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-10-12T14:47:39Z"
+          enc: W99ShRxy-_nvgkbOfq7LCc5X2pOj_JcEctg-i8-Wb1bo6kml3CYkTNsUFS6Oy87YEsVqRS0YUID498g0Tkr179BpHti3JLdUTbKe75xkjKe9o2dYxOWvZXyfSEhsTBy_MbJU872LR_l9SQeOR5Rp1xA3h8_qKnRe1d0No08jPRloOXv1z1FLX2yYygMBf8DBmTu7YB_-64CEGZZ9dTvUh7efOyXwRMKyHiWddD41JOLEs9jEy7Dy48peShiaUUNhAmMAHjOwmlQZe6bLQcyZEi4X_Wtw4yrIPlV3R9Cz89YiBlrhe11T_o1qdKwz7awphz5cf44EOgbXRd3j7kGodg
+    hc_vault: []
+    age: []
+    lastmodified: "2025-10-12T14:47:39Z"
+    mac: ENC[AES256_GCM,data:C6F5s5NbHoJMJFo8aVwDltkQgOy/xmfVO8qHbTBa148QpLQ0WvrMSVKjCAtUoxjhGyQ2C9nDdbwZKWboWYUnKlcOm8El+xrdpE13XBlKPAZzJfjSruYDcgFw3RYZLQ1ufmxeriQXwtq3/H5y1reKmpdUZbPbe9ATCOqYS/rOcik=,iv:qS9bAY0JvzC2kPdF3QslXBIW5PMiIlY8qsXuvAWCb4M=,tag:gNoPX+N+p2NDno6EopxvdQ==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

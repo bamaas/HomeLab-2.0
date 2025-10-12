@@ -1,12 +1,3 @@
 ---
 resources:
   - ../../../../base/ingress-nginx
-
-patches:
-  - target:
-      kind: Service
-      name: ingress-nginx-controller
-    patch: |-
-      - op: add
-        path: /metadata/annotations/metallb.io~1loadBalancerIPs
-        value: "192.168.8.100"

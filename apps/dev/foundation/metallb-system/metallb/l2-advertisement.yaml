@@ -6,5 +6,5 @@ metadata:
 spec:
   ipAddressPools:
     - main-address-pool
-    - system-address-pool
+    - ingress-address-pool
     - pihole-address-pool
