@@ -26,7 +26,7 @@ spec:
                 name: pihole-password
           env:
             - name: PIHOLE_SERVER_URL
-              value: "https://pihole.lan.basmaas.nl"  # Default value, can be overridden by patches
+              value: "http://pihole-web.pihole.svc.cluster.local"  # Default value, can be overridden by patches
           args:
             - --source=service
             - --source=ingress
