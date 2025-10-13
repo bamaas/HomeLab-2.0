@@ -6,7 +6,8 @@ controller:
     enabled: true
     type: LoadBalancer
     annotations:
-      metallb.universe.tf/allow-shared-ip: ingress-address-pool
+      metallb.io/address-pool: ingress-address-pool
+      metallb.io/allow-shared-ip: ingress-address-pool
 
   # TODO: enable metrics
   metrics:
