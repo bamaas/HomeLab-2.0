@@ -1,23 +1,23 @@
 ---
-resources:
-  - ../../../../base/victoria-metrics-stack
+# resources:
+#   - ../../../../base/victoria-metrics-stack
 
-patches:
-  - target:
-      kind: Ingress
-      name: .*
-    patch: |-
-      - op: add
-        path: /spec/rules/0/host
-        value: grafana.dev.kubernetes.lan.basmaas.nl
+# patches:
+#   - target:
+#       kind: Ingress
+#       name: .*
+#     patch: |-
+#       - op: add
+#         path: /spec/rules/0/host
+#         value: grafana.dev.kubernetes.lan.basmaas.nl
 
-      - op: add
-        path: /spec/tls
-        value:
-          - hosts:
-              - grafana.dev.kubernetes.lan.basmaas.nl
-            secretName: grafana.dev.kubernetes.lan.basmaas.nl
+#       - op: add
+#         path: /spec/tls
+#         value:
+#           - hosts:
+#               - grafana.dev.kubernetes.lan.basmaas.nl
+#             secretName: grafana.dev.kubernetes.lan.basmaas.nl
 
-      - op: add
-        path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
-        value: letsencrypt-stg
+#       - op: add
+#         path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
+#         value: letsencrypt-stg

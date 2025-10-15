@@ -1,3 +1,3 @@
 ---
-resources:
-  - ../../../../base/victoria-metrics-operator
+# resources:
+#   - ../../../../base/victoria-metrics-operator
