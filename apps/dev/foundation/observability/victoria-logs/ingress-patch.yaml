@@ -1,0 +1,14 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: victoria-logs-single
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+spec:
+  rules:
+    - host: logs.dev.kubernetes.lan.basmaas.nl
+  tls:
+    - hosts:
+        - logs.dev.kubernetes.lan.basmaas.nl
+      secretName: logs.dev.kubernetes.lan.basmaas.nl
