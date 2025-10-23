@@ -7,7 +7,7 @@
 #       kind: Ingress
 #       name: .*
 #     patch: |-
-#       - op: add
+#       - op: replace
 #         path: /spec/rules/0/host
 #         value: logs.dev.kubernetes.lan.basmaas.nl
 
