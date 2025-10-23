@@ -6,4 +6,18 @@
 #   - target:
 #       kind: Ingress
 #       name: .*
-#     path: ingress-patch.yaml
+#     patch: |-
+#       - op: add
+#         path: /spec/rules/0/host
+#         value: logs.dev.kubernetes.lan.basmaas.nl
+
+#       - op: add
+#         path: /spec/tls
+#         value:
+#           - hosts:
+#               - logs.dev.kubernetes.lan.basmaas.nl
+#             secretName: logs.dev.kubernetes.lan.basmaas.nl
+
+#       - op: add
+#         path: "/metadata/annotations/cert-manager.io~1cluster-issuer"
+#         value: letsencrypt-stg
