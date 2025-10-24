@@ -14,3 +14,9 @@ ingress:
     - secretName: sonarqube.dev.kubernetes.lan.basmaas.nl
       hosts:
         - sonarqube.dev.kubernetes.lan.basmaas.nl
+
+initSysctl:
+  enabled: false
+
+initFs:
+  enabled: false
