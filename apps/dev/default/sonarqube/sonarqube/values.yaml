@@ -16,7 +16,7 @@ ingress:
         - sonarqube.dev.kubernetes.lan.basmaas.nl
 
 initSysctl:
-  enabled: false
+  enabled: true
 
 initFs:
   enabled: false
