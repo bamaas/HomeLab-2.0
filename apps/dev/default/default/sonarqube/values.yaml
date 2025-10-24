@@ -1,0 +1,16 @@
+---
+
+community:
+  enabled: true
+
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+  hosts:
+    - name: sonarqube.dev.kubernetes.lan.basmaas.nl
+  ingressClassName: nginx
+  tls:
+    - secretName: sonarqube.dev.kubernetes.lan.basmaas.nl
+      hosts:
+        - sonarqube.dev.kubernetes.lan.basmaas.nl

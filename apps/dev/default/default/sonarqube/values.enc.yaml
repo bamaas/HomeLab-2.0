@@ -1,0 +1,20 @@
+monitoringPasscode: ENC[AES256_GCM,data:8LZZDXEKHs0sr0vn,iv:p+Eh9ZIE6BTFJ06nuhtE/uuZVCMzIQMfn7yUCzcuBL4=,tag:piljMUELX7r5A5RZ52v5BA==,type:str]
+account:
+    adminPassword: ENC[AES256_GCM,data:9aK2uRu6bRqqyjt9/OaCxyoI,iv:Lzxns5H+HPFwcNSD8VLBXI7XLpsLDa3m0xCkSgmCv9s=,tag:pNyXhy7ma6Ci21NotUlyrg==,type:str]
+    currentPassword: ENC[AES256_GCM,data:1rSHqqY=,iv:asSGwNOrWTu5HGPC3shk6HbRNpdbx0tDsqNP5QLwTto=,tag:BFQKzpgrwaswCO2mdqsNig==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2025-10-24T12:42:15Z"
+          enc: TOqX5UHnXPHMgR-LWmaLZ9mRHznIWz7QhlxhYSBQwdQM1gBhCrVPYaSHpK4v_JBgqF8ShAEY4g96n_ZIcd4H3O1gtpZ9d8Pqy2m_-QEENsj7P6ivNWvvyKS87cINGw3_FohIhvxAy-AnsMPxbeY6zb69WLuB9bhZZ7KaT_kTrajFehQSehUPpEx1_uEDj_RucLdxR-3BSgjd82Bvg_a3EMmpO3KrZFxbH8TlAb5oFCjRrveI_ns2CHHR3PfLMHRfQTDRoLTCUZt5EBq5nWgAaIFH0VQoxugFcLvuuoqFsnSlGZEnNfpWJZKvKU5dupxt64VvJhGR2ZyAC_9RbGCRLA
+    hc_vault: []
+    age: []
+    lastmodified: "2025-10-24T12:42:16Z"
+    mac: ENC[AES256_GCM,data:3O5JVtlx3zCfHx8IdtFd2IAp3ydokzdrsbGRnELJfIBOt6MJkbui5ayK2m0Ycb7oWDp0rINYXt+rbNX3b0fJ028gTerU34/YATuXr7ZxMT/VAlT7YzRThSbf2oJyrFKHp4lHXdqUQaTWvoSNFgWFzckIrA6A/0hAJukH4QUflrY=,iv:RUE+Zhy8keFmF/yjoK+EXraIuUNhDxmSJsEZjAT4P/8=,tag:E0RHVGncRPCkVHUwmBsMiQ==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2
