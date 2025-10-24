@@ -6,7 +6,7 @@ community:
 ingress:
   enabled: true
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-stg
+    cert-manager.io/cluster-issuer: letsencrypt-prd
   hosts:
     - name: sonarqube.dev.kubernetes.lan.basmaas.nl
   ingressClassName: nginx
