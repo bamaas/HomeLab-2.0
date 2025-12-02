@@ -1,7 +1,7 @@
 ---
 
-generators:
-  - helm-chart.yaml
+# generators:
+#   - helm-chart.yaml
 
-resources:
-  - namespace-labels.yaml
+# resources:
+#   - namespace-labels.yaml
