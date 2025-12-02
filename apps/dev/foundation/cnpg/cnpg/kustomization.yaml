@@ -1,4 +1,4 @@
 ---
 
-# resources:
-#   - ../../../../base/cnpg
+resources:
+  - ../../../../base/cnpg
