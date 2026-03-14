@@ -26,6 +26,7 @@ TERRAFORM_DIR = "{{env.ROOT_DIR}}/provision/core"
 KUBECONFIG = "{{env.ROOT_DIR}}/.config/kubeconfig"
 TALOSCONFIG = "{{env.ROOT_DIR}}/.config/talosconfig"
 TF_LOG = "info"
+_.file = "{{env.ROOT_DIR}}/.mise/env.dec.json"
 
 [hooks]
 enter = "mise i -q"
@@ -33,3 +34,4 @@ postinstall = "mise run init"
 
 [settings]
 lockfile = true
+env_shell_expand = false

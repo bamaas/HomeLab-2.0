@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+      "proxmox": {
+        "command": "docker",
+        "args": [
+          "run", "--rm", "-i",
+          "-e", "PROXMOX_HOST",
+          "-e", "PROXMOX_TOKEN_ID",
+          "-e", "PROXMOX_TOKEN_SECRET",
+          "puregrain/proxmox-emcp:latest"
+        ]
+      }
+    }
+}

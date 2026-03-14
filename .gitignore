@@ -44,6 +44,9 @@ apps/*/*/*/charts/*.tgz
 charts/*.tgz
 apps/**/*.tgz
 
-# Env files
+# Env filesi
 *.dec.env
 abc.yaml
+
+# Misc
+other-structure/
