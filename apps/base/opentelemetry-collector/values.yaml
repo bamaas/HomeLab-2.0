@@ -48,9 +48,11 @@ config:
                 regex: metrics
                 action: keep
               # per-component job label: <app name>-metrics
+              # $$ escapes the collector's env-var expansion so prometheus
+              # receives a literal ${1} capture-group reference.
               - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_name]
                 target_label: job
-                replacement: ${1}-metrics
+                replacement: $${1}-metrics
               # carry the pod IP so k8sattributes can associate the pod
               - source_labels: [__meta_kubernetes_pod_ip]
                 target_label: k8s_pod_ip
