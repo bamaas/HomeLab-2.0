@@ -1,0 +1,3 @@
+---
+# The chart's default modules already include http_2xx, which is the module the
+# collector's blackbox probe job uses. No overrides needed.

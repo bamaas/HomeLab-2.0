@@ -56,6 +56,26 @@ config:
               # carry the pod IP so k8sattributes can associate the pod
               - source_labels: [__meta_kubernetes_pod_ip]
                 target_label: k8s_pod_ip
+          # Probe external endpoints through the blackbox exporter. The collector
+          # scrapes /probe on the exporter, which then probes the target; the
+          # standard relabel dance moves the target into the ?target= param and
+          # points the scrape at the exporter service.
+          - job_name: blackbox
+            scrape_interval: 30s
+            metrics_path: /probe
+            params:
+              module:
+                - http_2xx
+            static_configs:
+              - targets:
+                  - https://google.com
+            relabel_configs:
+              - source_labels: [__address__]
+                target_label: __param_target
+              - source_labels: [__param_target]
+                target_label: instance
+              - target_label: __address__
+                replacement: prometheus-blackbox-exporter.observability.svc:9115
   processors:
     # prometheus puts k8s_pod_ip on the datapoints; k8sattributes associates on
     # resource attributes, so promote it to the resource first.

@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: prometheus-blackbox-exporter
+name: prometheus-blackbox-exporter
+repo: https://prometheus-community.github.io/helm-charts
+version: 11.15.1
+releaseName: prometheus-blackbox-exporter
+valuesFile: values.yaml
