@@ -3,6 +3,9 @@ persistence:
   enabled: true
   size: 10Gi
 
+adminUser: admin
+adminPassword: asdfasdfjwijfj
+
 # VictoriaMetrics is Prometheus-compatible; point Grafana at the vmsingle server.
 datasources:
   datasources.yaml:
