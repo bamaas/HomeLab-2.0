@@ -43,6 +43,8 @@ Chart.lock
 apps/*/*/*/charts/*.tgz
 charts/*.tgz
 apps/**/*.tgz
+# extracted helm charts from local `kustomize build --enable-helm`
+apps/**/charts/
 
 # Env filesi
 *.dec.env

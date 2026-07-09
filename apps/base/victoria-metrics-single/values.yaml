@@ -1,0 +1,9 @@
+---
+# VictoriaMetrics single-node. Ingests via native OTLP at
+# :8428/opentelemetry/v1/metrics (for the future OpenTelemetry collector)
+# and Prometheus remote-write. No operator / CRDs required.
+server:
+  retentionPeriod: 3   # months
+  persistentVolume:
+    enabled: true
+    size: 20Gi

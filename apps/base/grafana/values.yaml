@@ -1,0 +1,27 @@
+---
+persistence:
+  enabled: true
+  size: 10Gi
+
+# VictoriaMetrics is Prometheus-compatible; point Grafana at the vmsingle server.
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: VictoriaMetrics
+        type: prometheus
+        access: proxy
+        url: http://victoria-metrics-single-server:8428
+        isDefault: true
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prd
+  hosts:
+    - grafana.dev.kubernetes.lan.basmaas.nl
+  tls:
+    - hosts:
+        - grafana.dev.kubernetes.lan.basmaas.nl
+      secretName: grafana.dev.kubernetes.lan.basmaas.nl
