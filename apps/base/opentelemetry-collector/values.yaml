@@ -29,9 +29,13 @@ config:
     prometheus:
       config:
         scrape_configs:
-          # job name becomes service.name, which we surface as the Prometheus
-          # `job` label below to match the argocd Grafana dashboards.
-          - job_name: argocd-server-metrics
+          # One job discovers every argocd component pod and scrapes its
+          # container port named "metrics" (application-controller,
+          # applicationset-controller, repo-server, server). The `job` label is
+          # set per component (e.g. argocd-server-metrics) to match the argocd
+          # Grafana dashboard selectors; that value also becomes service.name,
+          # which the resource processor re-materializes as the `job` label.
+          - job_name: argocd
             scrape_interval: 30s
             kubernetes_sd_configs:
               - role: pod
@@ -39,10 +43,14 @@ config:
                   names:
                     - argocd
             relabel_configs:
-              # keep only the argocd-server metrics container port
-              - source_labels: [__meta_kubernetes_pod_container_port_number]
-                regex: "8083"
+              # keep only container ports named "metrics"
+              - source_labels: [__meta_kubernetes_pod_container_port_name]
+                regex: metrics
                 action: keep
+              # per-component job label: <app name>-metrics
+              - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_name]
+                target_label: job
+                replacement: ${1}-metrics
               # carry the pod IP so k8sattributes can associate the pod
               - source_labels: [__meta_kubernetes_pod_ip]
                 target_label: k8s_pod_ip
