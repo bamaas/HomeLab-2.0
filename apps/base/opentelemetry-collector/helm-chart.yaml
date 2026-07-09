@@ -1,0 +1,10 @@
+---
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: opentelemetry-collector
+name: opentelemetry-collector
+repo: https://open-telemetry.github.io/opentelemetry-helm-charts
+version: 0.164.1
+releaseName: opentelemetry-collector
+valuesFile: values.yaml

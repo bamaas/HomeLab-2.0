@@ -1,0 +1,31 @@
+---
+# Namespace-scoped access for the OpenTelemetry collector service account.
+# Grants only what the prometheus receiver (pod discovery) and the
+# k8sattributes processor (pod / workload lookup) need, limited to the
+# argocd namespace. No ClusterRole.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: opentelemetry-collector
+  namespace: argocd
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["replicasets"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: opentelemetry-collector
+  namespace: argocd
+subjects:
+  - kind: ServiceAccount
+    name: opentelemetry-collector
+    namespace: argocd
+roleRef:
+  kind: Role
+  name: opentelemetry-collector
+  apiGroup: rbac.authorization.k8s.io
