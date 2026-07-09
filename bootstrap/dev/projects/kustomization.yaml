@@ -3,4 +3,3 @@
 resources:
   - ../../base/projects
   - gofit.yaml
-  # - mlops.yaml
