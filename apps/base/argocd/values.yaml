@@ -3,6 +3,8 @@ global:
   domain: argocd.kubernetes.lan.basmaas.nl
 
 server:
+  metrics:
+    enabled: true
   ingress:
     enabled: true
     ingressClassName: nginx
