@@ -13,6 +13,10 @@ server:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
       nginx.ingress.kubernetes.io/whitelist-source-range: 10.42.0.0/0
 
+controller:
+  metrics:
+    enabled: true
+
 dex:
   enabled: false
 
@@ -42,6 +46,8 @@ configs:
           preserveFileMode: false
 
 repoServer:
+  metrics:
+    enabled: true
   env:
     - name: AZURE_TENANT_ID
       valueFrom:
@@ -152,3 +158,11 @@ repoServer:
             secretKeyRef:
               name: azure-sops-secrets
               key: AZURE_CLIENT_SECRET
+
+commitServer:
+  metrics:
+    enabled: true
+
+applicationSet:
+  metrics:
+    enabled: true
