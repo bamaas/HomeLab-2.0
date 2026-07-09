@@ -76,6 +76,28 @@ config:
                 target_label: instance
               - target_label: __address__
                 replacement: prometheus-blackbox-exporter.observability.svc:9115
+          # CloudNativePG cluster metrics (default namespace). Adds the
+          # cluster/namespace/pod labels the CNPG Grafana dashboard expects.
+          - job_name: cnpg
+            scrape_interval: 30s
+            kubernetes_sd_configs:
+              - role: pod
+                namespaces:
+                  names:
+                    - default
+            relabel_configs:
+              - source_labels: [__meta_kubernetes_pod_label_cnpg_io_cluster]
+                regex: .+
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_container_port_name]
+                regex: metrics
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_label_cnpg_io_cluster]
+                target_label: cluster
+              - source_labels: [__meta_kubernetes_namespace]
+                target_label: namespace
+              - source_labels: [__meta_kubernetes_pod_name]
+                target_label: pod
   processors:
     # prometheus puts k8s_pod_ip on the datapoints; k8sattributes associates on
     # resource attributes, so promote it to the resource first.
