@@ -29,7 +29,9 @@ config:
     prometheus:
       config:
         scrape_configs:
-          - job_name: argocd
+          # job name becomes service.name, which we surface as the Prometheus
+          # `job` label below to match the argocd Grafana dashboards.
+          - job_name: argocd-server-metrics
             scrape_interval: 30s
             kubernetes_sd_configs:
               - role: pod
@@ -67,6 +69,24 @@ config:
           - k8s.deployment.name
           - k8s.replicaset.name
           - k8s.node.name
+    # The argocd Grafana dashboards (e.g. grafana.com/dashboards/14584) query
+    # Prometheus-native labels: job, namespace, pod, instance. The OTLP path
+    # instead produces OpenTelemetry semconv attributes (service.name,
+    # k8s.namespace.name, ...), so materialize the classic labels from them.
+    resource:
+      attributes:
+        - key: job
+          from_attribute: service.name
+          action: upsert
+        - key: namespace
+          from_attribute: k8s.namespace.name
+          action: upsert
+        - key: pod
+          from_attribute: k8s.pod.name
+          action: upsert
+        - key: instance
+          from_attribute: service.instance.id
+          action: upsert
   exporters:
     otlphttp/victoriametrics:
       metrics_endpoint: http://victoria-metrics-single-server.observability.svc:8428/opentelemetry/v1/metrics
@@ -79,6 +99,7 @@ config:
           - memory_limiter
           - groupbyattrs
           - k8sattributes
+          - resource
           - batch
         exporters:
           - otlphttp/victoriametrics
