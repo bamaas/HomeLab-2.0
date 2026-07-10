@@ -16,6 +16,10 @@ datasources:
         access: proxy
         url: http://victoria-metrics-single-server:8428
         isDefault: true
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://prometheus-server
 
 ingress:
   enabled: true

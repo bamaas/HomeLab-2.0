@@ -142,6 +142,8 @@ config:
   exporters:
     otlphttp/victoriametrics:
       metrics_endpoint: http://victoria-metrics-single-server.observability.svc:8428/opentelemetry/v1/metrics
+    otlphttp/prometheus:
+      metrics_endpoint: http://prometheus-server.observability.svc/api/v1/otlp/v1/metrics
   service:
     pipelines:
       metrics:
@@ -155,3 +157,4 @@ config:
           - batch
         exporters:
           - otlphttp/victoriametrics
+          - otlphttp/prometheus

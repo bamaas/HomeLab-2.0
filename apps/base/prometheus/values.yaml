@@ -1,0 +1,20 @@
+# Only the Prometheus server. The bundled subcharts are disabled — metrics
+# arrive via remote write from the OpenTelemetry collector, not local scraping.
+alertmanager:
+  enabled: false
+kube-state-metrics:
+  enabled: false
+prometheus-node-exporter:
+  enabled: false
+prometheus-pushgateway:
+  enabled: false
+
+server:
+  # web.enable-otlp-receiver exposes /api/v1/otlp/v1/metrics so the collector's
+  # otlphttp exporter can push metrics in — same OTLP path used for VictoriaMetrics.
+  extraFlags:
+    - web.enable-lifecycle
+    - web.enable-otlp-receiver
+  persistentVolume:
+    enabled: true
+    size: 10Gi
