@@ -15,6 +15,10 @@ server:
   extraFlags:
     - web.enable-lifecycle
     - web.enable-otlp-receiver
+  # Data retention. VictoriaMetrics is the long-term store; Prometheus keeps a
+  # short window. retentionSize caps growth below the 10Gi PVC as a safety net.
+  retention: 15d
+  retentionSize: 9GB
   persistentVolume:
     enabled: true
     size: 10Gi
