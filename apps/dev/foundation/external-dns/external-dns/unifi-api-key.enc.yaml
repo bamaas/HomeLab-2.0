@@ -1,0 +1,22 @@
+apiVersion: ENC[AES256_GCM,data:p7w=,iv:qgjWYwh/IgUs1Hr8+7pnVpGp/AV7kvEz8R2kBnIbn4w=,tag:r9/6lmhHtTzQerwGRvPIxQ==,type:str]
+kind: ENC[AES256_GCM,data:clCC7+5U,iv:ME303nLf+Ey4L2nLgL52RmSlTremsmbRHZV/UDvb7jY=,tag:bkip0wC+YauUKN5bQL78bg==,type:str]
+metadata:
+    name: ENC[AES256_GCM,data:ewpJleHwy9qzNRHoWA==,iv:9mhkcZwB3f5sRptH2cufOWVg74Pidxmf/RTNTM//ir0=,tag:7W/Tiawvx5fTn6mCUrnMtg==,type:str]
+stringData:
+    UNIFI_API_KEY: ENC[AES256_GCM,data:HCyV1G3avG2rdK3CT8tSB0LbkS6cWQZO5y4tF4t6wIk=,iv:pRC7eoTWO/Iq4ILHN6pYYrQ9uMVpvXRv8/E8nfilI9k=,tag:zMSrhLanLZaXFSNPTkbSAQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://sops-3caeb0533c5a473f.vault.azure.net
+          name: sops-key
+          version: b2031a08aea14a50ab6d8e72548eb4f9
+          created_at: "2026-10-19T18:47:45Z"
+          enc: A3U4tGJ8R13hTtwJUO1YimrGXuwxiO9fGKg3_fWPUTKHqX-AGhd0D9yTs2gB1Vs4zeYVfIqFMwvZzqKw-_DSDHKZ0Hlc8VsXOsO4DP-WQEzjMJJYBHGu8YiJDzZuTdBmR2upy17QZSUQ142ni5yyXmgWiHm9elsmZzJQkAuZ1h4g1R_MvZ40kuYhRQILrJhGiVzOJxmxxMq7OWaX5-NZ4VZzvPdQQGCfPPkRR-Jy5lEn3UabWZm9c29Sjbu75xfBOfWsYXex1xFjczth11WP4Q8qdHOTRQqFg_KGGrFq8UIXc4ilGsG5Z07x32W1KEcEigwwSiP9gAHhP9ma8utVjw
+    hc_vault: []
+    age: []
+    lastmodified: "2026-10-19T18:47:45Z"
+    mac: ENC[AES256_GCM,data:hiG2ctr/vqj71nd+1wi2Jy+FjophTdALEmKY5t/hYxB4gCt+y/rOa/5OkMeD5/MxD8Js5EKUfO04c+sTZsu0fZsL17ZlHldFk+NiEE7HeEc+MnDlHvi2vNC0TMFdvG22W2I9m1x4/BXQAgYaHWJZ+E/fb4czS8hEtulOG0YYwTA=,iv:jdkZvpVx6RwL1HYebOkWLd/VEC55HkjMTonVcTruh9M=,tag:ux9EKQqJ0cG15bLmDTjRQw==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.2

@@ -17,29 +17,46 @@ spec:
       serviceAccountName: external-dns
       containers:
         - name: external-dns
-          image: registry.k8s.io/external-dns/external-dns:v0.19.0
-          # If authentication is disabled and/or you didn't create
-          # a secret, you can remove this block.
-          envFrom:
-            - secretRef:
-                # Change this if you gave the secret a different name
-                name: pihole-password
-          env:
-            - name: PIHOLE_SERVER_URL
-              value: "http://pihole-web.pihole.svc.cluster.local"  # Default value, can be overridden by patches
+          image: registry.k8s.io/external-dns/external-dns:v0.23.0
           args:
             - --source=service
             - --source=ingress
-            # Pihole only supports A/AAAA/CNAME records so there is no mechanism to track ownership.
-            # You don't need to set this flag, but if you leave it unset, you will receive warning
-            # logs when ExternalDNS attempts to create TXT records.
-            - --registry=noop
-            # IMPORTANT: If you have records that you manage manually in Pi-hole, set
-            # the policy to upsert-only so they do not get deleted.
+            # TXT ownership records: with --policy=sync, external-dns only deletes
+            # records it created itself, never the manual ones in UniFi.
+            - --registry=txt
+            - --txt-owner-id=external-dns
+            - --txt-prefix=k8s.%{record_type}-
             - --policy=sync
-            - --provider=pihole
-            - --pihole-api-version=6
-            # Change this to the actual address of your Pi-hole web server
-            - --pihole-server=$(PIHOLE_SERVER_URL)
+            - --provider=webhook
+        - name: unifi-webhook
+          image: ghcr.io/home-operations/external-dns-unifi-webhook:0.10.12
+          env:
+            - name: UNIFI_HOST
+              value: https://192.168.8.1
+            - name: UNIFI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: unifi-api-key
+                  key: UNIFI_API_KEY
+            # Keeps retries within external-dns' 15s webhook budget, see the webhook README.
+            - name: UNIFI_REQUEST_TIMEOUT
+              value: 4s
+          ports:
+            - name: http-webhook
+              containerPort: 8888
+            - name: http-health
+              containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http-health
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http-health
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
       securityContext:
         fsGroup: 65534  # For ExternalDNS to be able to read Kubernetes token files

@@ -1,28 +1,13 @@
 ---
 resources:
   - ../../../../base/external-dns
+  - unifi-api-key.enc.yaml
 
 patches:
   - target:
       kind: Deployment
       name: external-dns
     patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/env/0/value
-        value: "https://pihole.dev.kubernetes.lan.basmaas.nl"
-
-  # Add pihole-tls-skip-verify argument
-  - target:
-      kind: Deployment
-      name: external-dns
-    patch: |-
       - op: add
         path: /spec/template/spec/containers/0/args/-
-        value: "--pihole-tls-skip-verify"
-
-  # Set pihole password
-
-  - target:
-      kind: Secret
-      name: pihole-password
-    path: pihole-password.enc.yaml
+        value: "--domain-filter=dev.kubernetes.lan.basmaas.nl"

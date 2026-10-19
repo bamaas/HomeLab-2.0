@@ -1,3 +1,5 @@
 # External DNS
 
-Followed this guide: [ExternalDNS with Pi-hole](https://kubernetes-sigs.github.io/external-dns/v0.15.0/docs/tutorials/pihole/#externaldns-manifest)
+Publishes ingress and service hostnames as DNS records in the UniFi gateway,
+through the [UniFi webhook provider](https://github.com/home-operations/external-dns-unifi-webhook).
+Requires UniFi Network 10.3.58+ and an API key (Settings → Control Plane → Integrations).
