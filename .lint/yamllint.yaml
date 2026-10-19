@@ -18,5 +18,7 @@ ignore:
   - 'apps/foundation/cert-manager/cert-manager/templates/additional-secrets.yaml'
   - 'apps/foundation/metallb-system/metallb/templates/pool.yaml'
   - 'apps/**/templates/**.yaml'
+  # Vendored Helm charts, not ours to lint
+  - 'apps/**/charts/**'
   - 'values.enc.tmp.yaml'
   - 'old-apps/**'
